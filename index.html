@@ -13,47 +13,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fábrica de REA</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: rgb(0, 80, 115);
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        main {
-            padding: 2rem;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        a {
-            color: #6200ea;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="fabricaAzul110.jpg"  alt="Logo Fábrica de REA" style="height: 100%; float: left; margin-right: 1rem;">
-        <h1>Fábrica de REA</h1>
-        <p>Projeto de Extensão - Recursos Educacionais Abertos</p>
-    </header>
+    <div id="header-container"></div>
     <main>
         <section>
             <h2>Sobre o Projeto</h2>
@@ -64,24 +27,41 @@
             <ul>
                 <li><a href="repolibras/">Repositório de Libras</a></li>
                 <li><a href="bibliografia/">Bibliografia - Profa Vera</a></li>
+                <li>Jogo dos Parques</li>
+                <li>Marketing</li>
+                <li>Atualização do site produtividade</li>
             </ul>
         </section>
         <section>
             <h2>Curso de Introdução à Programação web</h2>
-            <p>Páginas criados pelos alunos do curso: <a href="introprog">Acesso</a></p>
+            <p>Páginas criados pelos alunos do curso: <a href="aluno">Acesso</a></p>
         </section>
-        <section>
-            <h2>Como Participar</h2>
-            <p>Se você deseja contribuir com o projeto, entre em contato conosco ou explore nossos materiais disponíveis.</p>
-            <p><a href="mailto:celsoishida@ufpr.br">Entre em contato</a></p>
-        </section>
+        <div style="text-align: center; margin-top: 2rem;"></div>
+            <button id="collaborateButton">
+                Quero colaborar
+            </button>
+        </div>
+
+        <script>
+            document.getElementById('collaborateButton').addEventListener('click', function() {
+                window.location.href = 'colaborar.html';
+            });
+        </script>
         <section>
             <h2>Sobre este site</h2>
-            <p>Este site contém os protótipos em desenvolvimento do projeto.</p>
+            <p>Este site contém os protótipos em desenvolvimento do projeto. As informações oficiais estarão futuramente no site: <a href="https://produtividade.ufpr.br/">https://produtividade.ufpr.br/</a></p>
         </section>
+        <br /><br /><br />
     </main>
     <footer>
         <p>&copy; 2025 Fábrica de REA. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        // Carregar o cabeçalho dinamicamente
+        document.getElementById('header-container').innerHTML = fetch('header.html')
+            .then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
+    </script>
 </body>
 </html>

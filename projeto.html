@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <h2>Projeto</h2>
+        <p>Conteúdo sobre o projeto.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Fábrica de REA. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        // Carregar o cabeçalho dinamicamente
+        document.getElementById('header-container').innerHTML = fetch('header.html')
+            .then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow: auto;
+}
+
+code {
+    font-family: monospace;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Saudação</title>
+</head>
+<body>
+  <h2>Digite seu nome:</h2>
+  
+  <input type="text" id="nomeInput" placeholder="Seu nome aqui">
+  <button onclick="saudar()">Enviar</button>
+
+  <p id="mensagemSaudacao"></p>
+
+  <script>
+    function saudar() {
+      // Obtém o nome digitado pelo usuário
+      const nome = document.getElementById("nomeInput").value;
+      
+      // Cria a saudação
+      const saudacao = "Bem-vindo(a), ";
+      const mensagem = saudacao + nome;
+
+      // Exibe no parágrafo
+      document.getElementById("mensagemSaudacao").textContent = mensagem;
+    }
+  </script>
+</body>
+</html>

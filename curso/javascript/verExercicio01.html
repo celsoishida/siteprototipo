@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar Exemplo 01</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow: auto;
+        }
+        code {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Código do arquivo exercicio01.html</h1>
+    <pre><code id="code-block"></code></pre>
+
+    <script>
+        fetch('exercicio01.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('code-block').textContent = data;
+            })
+            .catch(error => console.error('Erro ao carregar o arquivo:', error));
+    </script>
+</body>
+</html>
