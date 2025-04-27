@@ -21,7 +21,7 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -68,6 +68,11 @@ nav a:hover {
     border-radius: 5px;
 }
 
+nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+}
+
 @media (max-width: 600px) {
     nav {
         flex-direction: column;
@@ -80,4 +85,13 @@ nav a:hover {
     height: 100%;
     float: left;
     margin-right: 1rem;
+}
+
+.collaborate-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+.voltar-container {
+    text-align: center;
+    margin-top: 2rem;
 }

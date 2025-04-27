@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3G3PYY1KTS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3G3PYY1KTS');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fábrica de REA</title>
     <link rel="stylesheet" href="style.css">
+    <script src="google-tag.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -32,36 +24,17 @@
                 <li>Atualização do site produtividade</li>
             </ul>
         </section>
-        <section>
-            <h2>Curso de Introdução à Programação web</h2>
-            <p>Páginas criados pelos alunos do curso: <a href="aluno">Acesso</a></p>
-        </section>
-        <div style="text-align: center; margin-top: 2rem;"></div>
-            <button id="collaborateButton">
-                Quero colaborar
-            </button>
+        <div class="collaborate-container">
+            <button id="collaborateButton">Quero colaborar</button>
         </div>
-
-        <script>
-            document.getElementById('collaborateButton').addEventListener('click', function() {
-                window.location.href = 'colaborar.html';
-            });
-        </script>
         <section>
             <h2>Sobre este site</h2>
             <p>Este site contém os protótipos em desenvolvimento do projeto. As informações oficiais estarão futuramente no site: <a href="https://produtividade.ufpr.br/">https://produtividade.ufpr.br/</a></p>
         </section>
-        <br /><br /><br />
     </main>
-    <footer>
-        <p>&copy; 2025 Fábrica de REA. Todos os direitos reservados.</p>
-    </footer>
-    <script>
-        // Carregar o cabeçalho dinamicamente
-        document.getElementById('header-container').innerHTML = fetch('header.html')
-            .then(response => response.text())
-            .then(data => data)
-            .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
-    </script>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script src="colaborar.js"></script>
 </body>
 </html>

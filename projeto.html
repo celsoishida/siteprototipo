@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto</title>
     <link rel="stylesheet" href="style.css">
+    <script src="google-tag.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
     <main>
         <h2>Projeto</h2>
-        <p>Conteúdo sobre o projeto.</p>
+        <p>Nós desenvolvemos protótipos para pesquisadores que não são da área de tecnologia. Ou seja, um pesquisador que não é da área de tencologia precisa validar sua pesquisa de ponta através de um sistema web ou aplicativo mobile, através de uma parceria o projeto Fábrica de REA desenvolve um protótipo funcional para esta validação.</p>
+
+        <ul>
+            <li>Projeto de Repositório de Libras</li>
+            <li>Projeto de Segundo Cérebro</li>
+        </ul>
     </main>
-    <footer>
-        <p>&copy; 2025 Fábrica de REA. Todos os direitos reservados.</p>
-    </footer>
-    <script>
-        // Carregar o cabeçalho dinamicamente
-        document.getElementById('header-container').innerHTML = fetch('header.html')
-            .then(response => response.text())
-            .then(data => data)
-            .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
-    </script>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
 </body>
 </html>
