@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Criando uma Barra de Progresso Dinâmica</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>No seu HTML, crie uma <div> vazia que representará a barra de progresso e outra <div> dentro dela que será a parte preenchida da barra (defina estilos iniciais no CSS: largura 0%, cor de fundo). Adicione também um botão "Iniciar Progresso".</li>
+                        <li>Usando JavaScript, selecione a barra de progresso e o botão.</li>
+                        <li>Adicione um "event listener" ao botão "Iniciar Progresso".</li>
+                        <li>Quando o botão for clicado, inicie um loop (pode ser um setInterval para simular um processo) que gradualmente aumenta a largura da parte preenchida da barra de progresso (manipulando a propriedade style.width).</li>
+                        <li>Quando a largura atingir 100%, pare o loop e, opcionalmente, exiba uma mensagem.</li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Manipulação de estilos inline (style.width).</li>
+                        <li>Uso de setInterval para criar animações ou atualizações periódicas (introdução a conceitos de temporizadores).</li>
+                        <li>Controle de loops baseados em condições.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex7.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex9.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

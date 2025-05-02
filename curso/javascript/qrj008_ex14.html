@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ008 - Exercício 14</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 14: Capturando o Valor de um Input</h1>
+            <ul>
+                <li>Tarefa: Crie um campo de texto (&lt;input type="text">) no seu HTML com o ID "meuInput" e um botão com o ID "mostrarValor". Adicione um "event listener" de "click" ao botão. Quando o botão for clicado, capture o valor digitado no campo de texto e exiba-o em um alert().</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>O evento de "click" em botões.</li>
+                        <li>A propriedade element.value para acessar ou modificar o valor de elementos de formulário (como &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex13.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex15.html';
+});
+
+fetch('qrj008_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise8dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

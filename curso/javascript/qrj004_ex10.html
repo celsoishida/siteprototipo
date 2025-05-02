@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ004 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Operadores Lógicos Avançados</h1>
+            <ul>
+                <li>Descrição: Crie um programa que simule um sistema de login. Declare variáveis para armazenar um nome de usuário e uma senha. Use operadores lógicos para verificar se o nome de usuário é válido (não vazio) E a senha tem pelo menos 6 caracteres OU contém um caractere especial. Exiba mensagens apropriadas no console.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Combinação de operadores lógicos em expressões complexas.</li>
+                        <li>Precedência de operadores lógicos.</li>
+                        <li>Uso de parênteses para controlar a ordem de avaliação.</li>
+                        <li>Aplicação prática de operadores lógicos em validações.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Voltar ao Índice" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj004_ex9.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj004.html';
+});
+
+fetch('qrj004_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+</script>
+<script src="exercise2dot.js"></script>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
+

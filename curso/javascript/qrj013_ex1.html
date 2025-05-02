@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Criando uma Lista de Tarefas Simples</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>Crie um input de texto e um botão "Adicionar" no seu HTML.</li>
+                        <li>Usando JavaScript, adicione um "event listener" ao botão.</li>
+                        <li>Quando o botão for clicado, capture o texto do input.</li>
+                        <li>Crie um novo elemento <li> com o texto da tarefa.</li>
+                        <li>Adicione este novo <li> a uma lista não ordenada (<ul>) existente no seu HTML.</li>
+                        <li>Limpe o valor do input após adicionar a tarefa.</li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Seleção de elementos do DOM (document.querySelector).</li>
+                        <li>Manipulação de eventos (addEventListener).</li>
+                        <li>Criação de novos elementos HTML (document.createElement).</li>
+                        <li>Modificação do conteúdo de texto de um elemento (textContent).</li>
+                        <li>Adição de elementos ao DOM como filhos de outro elemento (parentNode.appendChild).</li>
+                        <li>Manipulação do valor de um input (element.value).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex2.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

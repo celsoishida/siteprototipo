@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Filtrando uma Tabela Dinamicamente</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>Crie uma tabela HTML com cabeçalhos e algumas linhas de dados. Adicione um input de texto acima da tabela com o rótulo "Filtrar".</li>
+                        <li>Usando JavaScript, selecione o input de texto e as linhas da tabela (excluindo o cabeçalho).</li>
+                        <li>Adicione um "event listener" de "input" ao campo de texto.</li>
+                        <li>A cada vez que o valor do input mudar, percorra todas as linhas da tabela.</li>
+                        <li>Para cada linha, verifique se o texto de alguma das células (você pode escolher uma coluna específica para filtrar ou todas) contém o texto digitado no input (ignorando maiúsculas e minúsculas).</li>
+                        <li>Se a linha não contiver o texto de filtro, esconda-a (style.display = "none"). Caso contrário, mostre-a (style.display = "").</li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Seleção de elementos de tabela (<table>, <thead>, <tbody>, <tr>, <td>).</li>
+                        <li>Manipulação de eventos de input.</li>
+                        <li>Iteração sobre coleções de elementos (linhas e células da tabela).</li>
+                        <li>Manipulação de estilos inline para controlar a visibilidade.</li>
+                        <li>Métodos de string para verificar se um texto contém outro (includes(), toLowerCase()).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex8.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex10.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

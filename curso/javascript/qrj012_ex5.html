@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ012 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Salvando e Recuperando um Objeto JSON</h1>
+            <ul>
+                <li>Tarefa: Crie um objeto JavaScript com informações de um usuário (nome, email, idade) e use JSON.stringify() para convertê-lo em uma string. Salve no localStorage usando localStorage.setItem(). Em seguida, recupere o valor, use JSON.parse() para converter de volta para objeto e exiba as informações no console.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Como os objetos JavaScript devem ser convertidos em strings antes de serem salvos no localStorage.</li>
+                        <li>O uso de JSON.stringify() para converter objetos em strings JSON.</li>
+                        <li>O uso de JSON.parse() para converter strings JSON de volta em objetos JavaScript.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj012_ex4.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj012_ex6.html';
+});
+
+fetch('qrj012_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise12dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

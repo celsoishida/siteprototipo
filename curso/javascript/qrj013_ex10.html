@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Criando um Sistema de Abas (Tabs) Simples</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>No seu HTML, crie uma série de botões (as abas) e várias <div>s com conteúdo correspondente a cada aba. Inicialmente, apenas o conteúdo da primeira aba deve estar visível (use CSS para esconder as outras). Associe cada botão a sua <div> de conteúdo (você pode usar atributos data-*).</li>
+                        <li>Usando JavaScript, selecione todos os botões das abas e todos os conteúdos das abas.</li>
+                        <li>Adicione um "event listener" de "click" a cada botão de aba.</li>
+                        <li>Quando uma aba for clicada:
+                            <ul>
+                                <li>Esconda todos os conteúdos das abas.</li>
+                                <li>Remova qualquer classe de "ativo" dos botões das abas.</li>
+                                <li>Mostre o conteúdo da aba correspondente ao botão clicado (baseando-se no atributo data-*).</li>
+                                <li>Adicione uma classe de "ativo" ao botão clicado para indicar que ele está selecionado (defina estilos para a classe "ativo" no CSS).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Seleção de múltiplos elementos.</li>
+                        <li>Manipulação de eventos de clique.</li>
+                        <li>Uso de atributos data-* para associar elementos.</li>
+                        <li>Manipulação de estilos inline (style.display).</li>
+                        <li>Adição e remoção de classes CSS (classList).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex9.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

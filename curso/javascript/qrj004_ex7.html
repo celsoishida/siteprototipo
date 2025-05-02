@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ004 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Operadores Lógicos</h1>
+            <ul>
+                <li>Descrição: Declare duas variáveis booleanas. Use os operadores lógicos && (AND), || (OR) e ! (NOT) para realizar diferentes combinações lógicas entre essas variáveis. Exiba o resultado de cada operação no console.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Operadores lógicos: && (AND), || (OR), ! (NOT).</li>
+                        <li>Tabela verdade para cada operador lógico.</li>
+                        <li>Avaliação de curto-circuito em operadores lógicos.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj004_ex6.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj004_ex8.html';
+});
+
+fetch('qrj004_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+</script>
+<script src="exercise2dot.js"></script>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
+

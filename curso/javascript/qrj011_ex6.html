@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ011 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Usando setInterval para Executar Código Repetidamente</h1>
+            <ul>
+                <li>Tarefa: Crie um elemento <span> no seu HTML com o texto inicial "0". Use a função setInterval() para atualizar o texto do <span> a cada segundo, incrementando um contador. Adicione um botão "Parar" que, ao ser clicado, use clearInterval() para interromper a atualização do contador.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>A função setInterval(funcao, intervaloEmMilissegundos) para executar uma função repetidamente em intervalos regulares.</li>
+                        <li>A função clearInterval(idDoIntervalo) para cancelar um intervalo definido por setInterval().</li>
+                        <li>A importância de limpar intervalos para evitar vazamentos de memória.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj011_ex5.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj011_ex7.html';
+});
+
+fetch('qrj011_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise11dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

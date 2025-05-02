@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ004 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Declarando Variáveis</h1>
+            <ul>
+                <li>Descrição: Declare duas variáveis: uma chamada nome e outra chamada idade. Atribua seu nome à variável nome e sua idade à variável idade. Em seguida, exiba os valores dessas variáveis no console, concatenando-os com strings (ex: "Meu nome é [nome] e tenho [idade] anos.").</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Declaração de variáveis usando let (preferível para escopo de bloco) e const (para valores constantes).</li>
+                        <li>Nomes de variáveis (regras e convenções, como camelCase).</li>
+                        <li>Tipos de dados básicos: string e number.</li>
+                        <li>Operador de concatenação + para unir strings e variáveis.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj004_ex2.html';
+});
+
+fetch('qrj004_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+</script>
+<script src="exercise2dot.js"></script>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
+

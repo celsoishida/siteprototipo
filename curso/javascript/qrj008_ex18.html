@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ008 - Exercício 18</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 18: Filtrando uma Lista com Input</h1>
+            <ul>
+                <li>Tarefa: Crie uma lista não ordenada (&lt;ul&gt;) com vários itens (&lt;li&gt;) no seu HTML. Adicione um campo de texto (&lt;input type="text">) com o ID "filtro". Adicione um "event listener" de "input" (que dispara a cada mudança no valor do input) ao campo de texto. À medida que o usuário digita no campo de texto, filtre a lista, mostrando apenas os itens que contêm o texto digitado (ignorando maiúsculas e minúsculas).</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>O evento de "input".</li>
+                        <li>Como iterar sobre uma coleção de elementos (o NodeList retornado por querySelectorAll).</li>
+                        <li>A propriedade textContent para comparar o texto dos itens da lista com o valor do input.</li>
+                        <li>Como controlar a exibição de elementos usando a propriedade style.display (definindo para "none" para ocultar e "" para exibir).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex17.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex19.html';
+});
+
+fetch('qrj008_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise8dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

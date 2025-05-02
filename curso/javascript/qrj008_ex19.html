@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ008 - Exercício 19</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 19: Validando um Formulário Simples</h1>
+            <ul>
+                <li>Tarefa: Crie um formulário HTML com um campo de e-mail (&lt;input type="email"&gt;) com o ID "email" e um botão de envio (&lt;button type="submit"&gt;). Adicione um "event listener" para o evento de "submit" no formulário. Dentro do manipulador de eventos, impeça o envio padrão do formulário (event.preventDefault()) e verifique se o campo de e-mail está preenchido e se contém o caractere "@". Se a validação falhar, exiba uma mensagem de erro ao lado do campo de e-mail.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>O evento de "submit" em formulários.</li>
+                        <li>O método event.preventDefault() para impedir a ação padrão de um evento.</li>
+                        <li>Como realizar validações básicas de entrada do usuário.</li>
+                        <li>Como exibir mensagens de erro dinamicamente no DOM (criando ou modificando elementos).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex18.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex20.html';
+});
+
+fetch('qrj008_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise8dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

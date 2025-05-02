@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 4</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 4: Criando Elementos Dinamicamente com Repetição</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>Crie um botão "Gerar Quadrados" e uma <div> vazia no seu HTML.</li>
+                        <li>Usando JavaScript, adicione um "event listener" ao botão.</li>
+                        <li>Quando o botão for clicado, peça ao usuário para digitar um número (use prompt()).</li>
+                        <li>Use um loop for para criar um número de elementos <div> (com uma classe CSS para definir um quadrado - largura, altura, cor de fundo) igual ao número digitado pelo usuário.</li>
+                        <li>Adicione todos esses novos elementos <div> à <div> vazia do seu HTML.</li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Seleção de elementos do DOM.</li>
+                        <li>Manipulação de eventos de clique.</li>
+                        <li>Interação com o usuário (prompt).</li>
+                        <li>Loops for para criar múltiplos elementos.</li>
+                        <li>Criação de novos elementos HTML e definição de suas propriedades (incluindo className).</li>
+                        <li>Adição de múltiplos elementos ao DOM.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex3.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex5.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

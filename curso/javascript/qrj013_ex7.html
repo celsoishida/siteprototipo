@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Adicionando e Removendo Itens de uma Lista com Botões Individuais</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>Crie uma lista não ordenada (<ul>) com alguns itens (<li>) no seu HTML. Para cada <li>, adicione um botão "Remover" ao lado.</li>
+                        <li>Usando JavaScript, adicione "event listeners" a cada botão "Remover".</li>
+                        <li>Quando um botão "Remover" for clicado, identifique o <li> pai desse botão e remova-o da lista (parentNode.removeChild).</li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Seleção de múltiplos elementos (botões).</li>
+                        <li>Iteração sobre elementos para adicionar event listeners.</li>
+                        <li>Navegação no DOM para acessar o elemento pai (button.parentNode).</li>
+                        <li>Remoção de elementos do DOM (parentNode.removeChild).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex6.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex8.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ009 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Enviando um Alerta ao Submeter um Formulário</h1>
+            <ul>
+                <li>Tarefa: Crie um formulário (&lt;form&gt;) no seu HTML com pelo menos um campo de input e um botão de submit (&lt;button type="submit"&gt;). Usando JavaScript, adicione um "event listener" para o evento de "submit" no formulário. Dentro da função de callback, use event.preventDefault() para impedir o envio padrão do formulário e, em seguida, exiba um alert() com a mensagem "Formulário enviado (de mentirinha)!".</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>O evento de formulário submit.</li>
+                        <li>O objeto de evento (event) e o método event.preventDefault() para impedir o comportamento padrão de um evento.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex5.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex7.html';
+});
+
+fetch('qrj009_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise9dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

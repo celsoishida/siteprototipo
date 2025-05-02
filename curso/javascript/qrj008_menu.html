@@ -1,0 +1,116 @@
+<!-- qrj008_menu.html: Visual horizontal dot menu for exercises (to be included at the bottom of each exercise page) -->
+<nav class="exercise-dots" aria-label="Navegação dos Exercícios">
+  <style>
+    .exercise-dots {
+      background: transparent !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5em;
+    }
+    .exercise-dots-list {
+      display: flex;
+      gap: 0.5em;
+      list-style: none;
+      padding: 0;
+    }
+    .exercise-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ccc;
+      display: inline-block;
+      border: 2px solid #888;
+      transition: background 0.2s, border 0.2s;
+    }
+    .exercise-dot.current {
+      background: #1976d2;
+      border-color: #1976d2;
+    }
+    nav a:hover {
+    background-color: transparent;
+    border-radius: none;
+}
+    .exercise-dot:hover {
+      background: #90caf9;
+      border-radius: 50%;
+      box-shadow: none; 
+    }
+    .exercise-dot-link {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+    .exercise-dot-home {
+      color: black;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ccc;
+      border: 2px solid #888;
+      transition: background 0.2s, border 0.2s;
+      text-align: center;
+      line-height: 16px;
+      font-weight: bold;
+    }
+  </style>
+  <ul class="exercise-dots-list">
+    <style>
+      .dot-tooltip {
+        visibility: hidden;
+        opacity: 0;
+        background: #222;
+        color: #fff;
+        text-align: center;
+        border-radius: 4px;
+        padding: 2px 8px;
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 130%;
+        font-size: 0.85em;
+        white-space: nowrap;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+      .exercise-dots-list li {
+        position: relative;
+      }
+      .exercise-dot-link:hover + .dot-tooltip,
+      .exercise-dot-link:focus + .dot-tooltip,
+      .exercise-dot:hover + .dot-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+      .exercise-dot.current:hover ~ .dot-tooltip,
+      .exercise-dot.current:focus ~ .dot-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+    <li><a href="qrj008.html" class="exercise-dot-home" aria-label="DOM em JavaScript">G8</a></li>
+    <li><a href="qrj008_ex1.html" class="exercise-dot-link" aria-label="Exercício 1"><span class="exercise-dot" id="dot-ex1"></span></a><span class="dot-tooltip">Exercício 1: Selecionando o Primeiro Elemento</span></li>
+    <li><a href="qrj008_ex2.html" class="exercise-dot-link" aria-label="Exercício 2"><span class="exercise-dot" id="dot-ex2"></span></a><span class="dot-tooltip">Exercício 2: Selecionando Elementos por ID</span></li>
+    <li><a href="qrj008_ex2_5.html" class="exercise-dot-link" aria-label="Exercício 2.5"><span class="exercise-dot" id="dot-ex2_5"></span></a><span class="dot-tooltip">Exercício 2.5: Ordem de Carregamento e Seletores</span></li>
+    <li><a href="qrj008_ex3.html" class="exercise-dot-link" aria-label="Exercício 3"><span class="exercise-dot" id="dot-ex3"></span></a><span class="dot-tooltip">Exercício 3: Selecionando Múltiplos Elementos por Classe</span></li>
+    <li><a href="qrj008_ex4.html" class="exercise-dot-link" aria-label="Exercício 4"><span class="exercise-dot" id="dot-ex4"></span></a><span class="dot-tooltip">Exercício 4: Modificando o Texto de um Elemento</span></li>
+    <li><a href="qrj008_ex5.html" class="exercise-dot-link" aria-label="Exercício 5"><span class="exercise-dot" id="dot-ex5"></span></a><span class="dot-tooltip">Exercício 5: Modificando o HTML Interno de um Elemento</span></li>
+    <li><a href="qrj008_ex6.html" class="exercise-dot-link" aria-label="Exercício 6"><span class="exercise-dot" id="dot-ex6"></span></a><span class="dot-tooltip">Exercício 6: Adicionando um Novo Atributo a um Elemento</span></li>
+    <li><a href="qrj008_ex7.html" class="exercise-dot-link" aria-label="Exercício 7"><span class="exercise-dot" id="dot-ex7"></span></a><span class="dot-tooltip">Exercício 7: Removendo o Atributo Alt de uma Imagem</span></li>
+    <li><a href="qrj008_ex8.html" class="exercise-dot-link" aria-label="Exercício 8"><span class="exercise-dot" id="dot-ex8"></span></a><span class="dot-tooltip">Exercício 8: Modificando Classes CSS de um Elemento</span></li>
+    <li><a href="qrj008_ex9.html" class="exercise-dot-link" aria-label="Exercício 9"><span class="exercise-dot" id="dot-ex9"></span></a><span class="dot-tooltip">Exercício 9: Criando e Adicionando Novos Elementos ao DOM</span></li>
+    <li><a href="qrj008_ex10.html" class="exercise-dot-link" aria-label="Exercício 10"><span class="exercise-dot" id="dot-ex10"></span></a><span class="dot-tooltip">Exercício 10: Removendo Elementos do DOM</span></li>
+    <li><a href="qrj008_ex11.html" class="exercise-dot-link" aria-label="Exercício 11"><span class="exercise-dot" id="dot-ex11"></span></a><span class="dot-tooltip">Exercício 11: Adicionando Elementos em Lugares Específicos</span></li>
+    <li><a href="qrj008_ex12.html" class="exercise-dot-link" aria-label="Exercício 12"><span class="exercise-dot" id="dot-ex12"></span></a><span class="dot-tooltip">Exercício 12: Manipulando Estilos Inline</span></li>
+    <li><a href="qrj008_ex13.html" class="exercise-dot-link" aria-label="Exercício 13"><span class="exercise-dot" id="dot-ex13"></span></a><span class="dot-tooltip">Exercício 13: Adicionando e Removendo Event Listeners</span></li>
+    <li><a href="qrj008_ex14.html" class="exercise-dot-link" aria-label="Exercício 14"><span class="exercise-dot" id="dot-ex14"></span></a><span class="dot-tooltip">Exercício 14: Capturando o Valor de um Input</span></li>
+    <li><a href="qrj008_ex15.html" class="exercise-dot-link" aria-label="Exercício 15"><span class="exercise-dot" id="dot-ex15"></span></a><span class="dot-tooltip">Exercício 15: Alterando Atributos com Base em Eventos</span></li>
+    <li><a href="qrj008_ex16.html" class="exercise-dot-link" aria-label="Exercício 16"><span class="exercise-dot" id="dot-ex16"></span></a><span class="dot-tooltip">Exercício 16: Criando Elementos Dinamicamente com Eventos</span></li>
+    <li><a href="qrj008_ex17.html" class="exercise-dot-link" aria-label="Exercício 17"><span class="exercise-dot" id="dot-ex17"></span></a><span class="dot-tooltip">Exercício 17: Removendo Elementos Dinamicamente com Eventos</span></li>
+    <li><a href="qrj008_ex18.html" class="exercise-dot-link" aria-label="Exercício 18"><span class="exercise-dot" id="dot-ex18"></span></a><span class="dot-tooltip">Exercício 18: Filtrando uma Lista com Input</span></li>
+    <li><a href="qrj008_ex19.html" class="exercise-dot-link" aria-label="Exercício 19"><span class="exercise-dot" id="dot-ex19"></span></a><span class="dot-tooltip">Exercício 19: Validando um Formulário Simples</span></li>
+    <li><a href="qrj008_ex20.html" class="exercise-dot-link" aria-label="Exercício 20"><span class="exercise-dot" id="dot-ex20"></span></a><span class="dot-tooltip">Exercício 20: Criando um Menu Dropdown Interativo</span></li>
+  </ul>
+</nav>

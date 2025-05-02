@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 2</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2: Destacando Itens de uma Lista ao Passar o Mouse</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>Crie uma lista não ordenada (<ul>) com alguns itens (<li>) no seu HTML.</li>
+                        <li>Usando JavaScript, adicione "event listeners" a cada <li> da lista para os eventos mouseover e mouseout.</li>
+                        <li>Quando o mouse passar sobre um item (mouseover), adicione uma classe CSS (ex: "destacado") a esse item para alterar sua aparência (cor de fundo, borda, etc. - defina a classe no seu CSS).</li>
+                        <li>Quando o mouse sair do item (mouseout), remova a classe CSS para que ele volte à aparência original.</li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Seleção de múltiplos elementos do DOM (document.querySelectorAll).</li>
+                        <li>Iteração sobre coleções de elementos (usando for ou forEach).</li>
+                        <li>Adição e remoção de classes CSS de elementos (element.classList.add, element.classList.remove).</li>
+                        <li>Eventos de mouse (mouseover, mouseout).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex1.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex3.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

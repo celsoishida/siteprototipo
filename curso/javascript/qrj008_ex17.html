@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ008 - Exercício 17</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 17: Removendo Elementos Dinamicamente com Eventos</h1>
+            <ul>
+                <li>Tarefa: Modifique o exercício anterior para que cada &lt;li&gt; criado dinamicamente também contenha um botão "Remover" ao seu lado. Ao clicar neste botão "Remover", o item da lista correspondente deve ser removido do DOM.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>A criação de múltiplos elementos dentro de um manipulador de eventos.</li>
+                        <li>A necessidade de acessar o elemento pai (parentNode) para remover um elemento filho (removeChild()) dentro de um contexto dinâmico.</li>
+                        <li>O conceito de delegação de eventos (embora não estritamente necessário para esta solução simples, é um bom ponto para introduzir posteriormente).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex16.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex18.html';
+});
+
+fetch('qrj008_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise8dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

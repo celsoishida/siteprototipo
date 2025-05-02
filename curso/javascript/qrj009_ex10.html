@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ009 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Delegação de Eventos para Adicionar Comportamento a Múltiplos Elementos Dinâmicos</h1>
+            <ul>
+                <li>Tarefa: Crie uma lista não ordenada (tag ul) vazia e um botão "Adicionar Item" no seu HTML. Usando JavaScript, adicione um "event listener" de "click" ao botão. Quando o botão for clicado, crie um novo item li com um texto (ex: "Item X") e um botão "Remover" dentro dele, e adicione este tag li à lista. Em vez de adicionar um "event listener" individual a cada botão "Remover" criado dinamicamente, adicione um único "event listener" de "click" à própria lista (tag ul). Dentro deste listener, verifique se o elemento alvo do clique (event.target) é um botão "Remover". Se for, remova o tag li pai desse botão.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>O conceito de delegação de eventos (adicionar um único listener a um elemento pai para gerenciar eventos em seus filhos).</li>
+                        <li>A propriedade event.target para identificar o elemento que disparou o evento.</li>
+                        <li>Vantagens da delegação de eventos (performance, gerenciamento de elementos dinâmicos).</li>
+                        <li>Navegação no DOM para acessar o elemento pai do alvo do evento.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex9.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex11.html';
+});
+
+fetch('qrj009_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise9dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

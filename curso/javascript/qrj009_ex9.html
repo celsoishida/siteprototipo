@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ009 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Arrastando e Soltando um Elemento (Básico)</h1>
+            <ul>
+                <li>Tarefa: Crie um elemento div no seu HTML (com alguma cor de fundo para torná-lo visível). Usando JavaScript, adicione "event listeners" para os eventos mousedown (quando o botão do mouse é pressionado sobre o elemento), mousemove (quando o mouse se move enquanto o botão está pressionado) e mouseup (quando o botão do mouse é liberado). Ao pressionar o botão do mouse sobre o <div>, defina uma flag indicando que o elemento está sendo arrastado. Ao mover o mouse enquanto a flag estiver ativa, atualize as propriedades style.left e style.top do <div> para seguir a posição do mouse. Ao liberar o botão, desative a flag.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Os eventos de mouse mousedown, mousemove e mouseup.</li>
+                        <li>O objeto de evento (event) e as propriedades event.clientX e event.clientY para obter as coordenadas do mouse.</li>
+                        <li>Manipulação das propriedades de posição (style.left, style.top) com posicionamento absolute ou fixed no CSS.</li>
+                        <li>Uso de variáveis de controle (flags) para gerenciar o estado de arrasto.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex8.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex10.html';
+});
+
+fetch('qrj009_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise9dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

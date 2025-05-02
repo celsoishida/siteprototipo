@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ003 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Olá, Mundo!</h1>
+            <ul>
+                <li>Descrição: Crie um código em JavaScript que exiba a mensagem "Olá, Mundo!" no console do navegador.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Introdução ao JavaScript e sua função no desenvolvimento web.</li>
+                        <li>A tag &lt;script&gt; para incluir código JavaScript em um documento HTML.</li>
+                        <li>O objeto console e o método log() para exibir informações no console.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj003_ex2.html';
+});
+
+fetch('qrj003_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+</script>
+<script src="exercise1dot.js"></script>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
+

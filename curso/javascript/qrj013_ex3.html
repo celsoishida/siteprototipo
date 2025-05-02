@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ013 - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 3: Contador com Botões</h1>
+            <ul>
+                <li>Tarefa:
+                    <ul>
+                        <li>Crie um elemento <span> para exibir um contador (inicializado em 0) e dois botões: "Incrementar" e "Decrementar" no seu HTML.</li>
+                        <li>Usando JavaScript, adicione "event listeners" aos botões.</li>
+                        <li>Quando o botão "Incrementar" for clicado, aumente o valor do contador em 1 e atualize o conteúdo do <span>.</li>
+                        <li>Quando o botão "Decrementar" for clicado, diminua o valor do contador em 1 e atualize o conteúdo do <span>.</li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Seleção de elementos do DOM.</li>
+                        <li>Manipulação de eventos de clique (click).</li>
+                        <li>Manipulação do conteúdo de texto de um elemento (textContent).</li>
+                        <li>Uso de variáveis para armazenar e atualizar valores.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex2.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj013_ex4.html';
+});
+
+fetch('qrj013_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise13dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

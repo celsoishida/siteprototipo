@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ010 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Funções de Ordem Superior (Introdução)</h1>
+            <ul>
+                <li>Tarefa: Defina uma função chamada executarAcao que aceite dois parâmetros: um número e uma função (chamada acao). Dentro de executarAcao, chame a função acao passando o número como argumento. Crie duas funções separadas: elevarAoQuadrado que eleva um número ao quadrado e adicionarDez que adiciona 10 a um número. Chame executarAcao duas vezes, passando o mesmo número e cada uma das funções como argumento.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>O conceito de funções de ordem superior (funções que podem receber outras funções como argumentos).</li>
+                        <li>Callbacks (funções passadas como argumentos para serem executadas posteriormente).</li>
+                        <li>Uma introdução a um conceito poderoso e comum em JavaScript.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj010_ex9.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj010.html';
+});
+
+fetch('qrj010_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise10dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>

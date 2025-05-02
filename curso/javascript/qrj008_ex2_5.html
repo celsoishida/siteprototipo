@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ008 - Exercício 2.5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2.5: Ordem de Carregamento e Seletores</h1>
+            <ul>
+                <li>Tarefa: Experimente diferentes cenários para entender como a ordem dos elementos e scripts afeta a seleção de elementos no DOM.</li>
+                <li>Perguntas:
+                    <ul>
+                        <li>O que acontece se mudar o HTML para &lt;h2 id="meutitulo"&gt;?</li>
+                        <li>O que acontece se mudar a ordem do script com h2?
+                            <pre><code>
+&lt;script src="dom02.js"&gt;&lt;/script&gt;
+&lt;h2 id="meuTitulo"&gt;Olá, Mundo!&lt;/h2&gt;
+                            </code></pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Ordem de carregamento do DOM e execução de scripts.</li>
+                        <li>Como a posição do script no documento afeta a capacidade de selecionar elementos.</li>
+                        <li>Estratégias para garantir que os scripts sejam executados após o carregamento dos elementos HTML.</li>
+                        <li>Uso do evento DOMContentLoaded para executar código após o carregamento do DOM.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex2.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj008_ex3.html';
+});
+
+fetch('qrj008_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise8dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ007 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Arrays de Objetos</h1>
+            <ul>
+                <li>Tarefa: Crie um array chamado pessoas contendo pelo menos três objetos literais. Cada objeto deve ter as propriedades nome e idade. Use um loop for (ou for...of) para iterar sobre o array e imprimir o nome e a idade de cada pessoa no console.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Arrays que contêm objetos como seus elementos.</li>
+                        <li>Como acessar as propriedades de objetos dentro de um array usando a combinação de indexação de array e notação de ponto ou colchetes.</li>
+                        <li>Uso comum de arrays de objetos para representar coleções de dados estruturados.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj007_ex8.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj007_ex10.html';
+});
+
+fetch('qrj007_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise7dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ007 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Usando this em Métodos</h1>
+            <ul>
+                <li>Tarefa: Modifique o objeto aluno do exercício anterior. No método dizerOla, use a palavra-chave this para acessar a propriedade nome do objeto ao invés de usar aluno.nome diretamente. Adicione também um método chamado mostrarNota que imprima no console "Minha nota é [nota do aluno].". Use this para acessar a propriedade nota. Chame ambos os métodos.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>A palavra-chave this dentro de um método de objeto, que se refere ao próprio objeto que chamou o método.</li>
+                        <li>A importância de this para acessar as propriedades do objeto dentro de seus métodos.</li>
+                        <li>Como this torna os métodos mais reutilizáveis e independentes do nome do objeto.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main>`n<div id="footer-container"></div>`n
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj007_ex6.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj007_ex8.html';
+});
+
+fetch('qrj007_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise7dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro JavaScript - QRJ009 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Alternando a Visibilidade de um Elemento com um Botão</h1>
+            <ul>
+                <li>Tarefa: Crie um elemento &lt;div&gt; com algum conteúdo e um botão "Mostrar/Esconder" no seu HTML. Inicialmente, o &lt;div&gt; pode estar visível. Usando JavaScript, adicione um "event listener" de "click" ao botão. Mantenha o controle do estado de visibilidade do &lt;div&gt;. Ao clicar no botão, alterne a propriedade style.display do &lt;div&gt; entre "none" (escondido) e "" (ou "block", dependendo do tipo do elemento) e altere o texto do botão para refletir a ação (ex: "Mostrar" quando estiver escondido, "Esconder" quando estiver visível).</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Manipulação da propriedade style.display para controlar a visibilidade de elementos.</li>
+                        <li>Uso de variáveis para armazenar o estado.</li>
+                        <li>Lógica condicional dentro de um manipulador de eventos.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+      <div id="exercise-menu"></div>
+</main><div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex6.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrj009_ex8.html';
+});
+
+fetch('qrj009_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+
+// Carregar o script para destacar o ponto atual
+const script = document.createElement('script');
+script.src = 'exercise9dot.js';
+document.body.appendChild(script);
+</script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+</body>
+</html>
+
