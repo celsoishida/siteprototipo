@@ -117,3 +117,14 @@ nav a.active {
     opacity: 1;
   }
   
+#paragrafo {
+	display: none;
+}
+.botao {
+	cursor: pointer;
+	padding: 10px 20px;
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+}
