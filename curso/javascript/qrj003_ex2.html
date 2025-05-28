@@ -13,7 +13,9 @@
         <section>
             <h1>Exercício 2: Manipulando Texto</h1>
             <ul>
-                <li>Descrição: Crie código javascript que declare uma variável com o seu nome e outra com uma saudação (ex: "Bem-vindo(a)"). Concatene as duas strings e exiba o resultado em um alert().</li>
+                <li>Descrição: Crie código javascript que declare uma variável com o seu nome e outra com uma saudação (ex: "Bem-vindo(a)"). Concatene as duas strings e exiba o resultado em um alert().
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Declaração de variáveis com let ou const.</li>
@@ -48,6 +50,7 @@ fetch('qrj003_menu.html')
   .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
 </script>
 <script src="exercise1dot.js"></script>
+<script src="../../scripts/copyToClipboard.js"></script>
 <div id="footer-container"></div>
 <script src="cabecalho.js"></script>
 <script src="rodape.js"></script>

@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 5</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 5: Focando e Desfocando um Input</h1>
             <ul>
-                <li>Tarefa: Crie um campo de texto ( &lt;input type="text" /&gt; )no seu HTML. Usando JavaScript, adicione "event listeners" para os eventos focus (quando o input recebe o foco) e blur (quando o input perde o foco). Ao receber o foco, adicione uma borda destacada ao input (manipule a propriedade style.border). Ao perder o foco, remova a borda ou volte ao estilo original.</li>
+                <li>
+                    Descrição: Crie um campo de texto ( &lt;input type="text" /&gt; )no seu HTML. Usando JavaScript, adicione "event listeners" para os eventos focus (quando o input recebe o foco) e blur (quando o input perde o foco). Ao receber o foco, adicione uma borda destacada ao input (manipule a propriedade style.border). Ao perder o foco, remova a borda ou volte ao estilo original.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Os eventos de formulário focus e blur.</li>

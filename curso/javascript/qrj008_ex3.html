@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ008 - Exercício 3</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 3: Selecionando Múltiplos Elementos por Classe</h1>
             <ul>
-                <li>Tarefa: Crie alguns elementos &lt;li&gt; em seu HTML com a classe "item-lista". Usando JavaScript, selecione todos esses elementos e imprima o número total de elementos encontrados no console.</li>
+                <li>
+                    Descrição: Crie alguns elementos &lt;li&gt; em seu HTML com a classe "item-lista". Usando JavaScript, selecione todos esses elementos e imprima o número total de elementos encontrados no console.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O método document.getElementsByClassName() para selecionar elementos pela classe.</li>

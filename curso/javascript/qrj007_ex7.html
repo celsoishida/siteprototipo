@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ007 - Exercício 7</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 7: Usando this em Métodos</h1>
             <ul>
-                <li>Tarefa: Modifique o objeto aluno do exercício anterior. No método dizerOla, use a palavra-chave this para acessar a propriedade nome do objeto ao invés de usar aluno.nome diretamente. Adicione também um método chamado mostrarNota que imprima no console "Minha nota é [nota do aluno].". Use this para acessar a propriedade nota. Chame ambos os métodos.</li>
+                <li>
+                    Descrição: Modifique o objeto aluno do exercício anterior. No método dizerOla, use a palavra-chave this para acessar a propriedade nome do objeto ao invés de usar aluno.nome diretamente. Adicione também um método chamado mostrarNota que imprima no console "Minha nota é [nota do aluno].". Use this para acessar a propriedade nota. Chame ambos os métodos.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A palavra-chave this dentro de um método de objeto, que se refere ao próprio objeto que chamou o método.</li>

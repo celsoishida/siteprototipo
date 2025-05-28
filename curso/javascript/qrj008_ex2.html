@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ008 - Exercício 2</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 2: Selecionando Elementos por ID</h1>
             <ul>
-                <li>Tarefa: Crie um elemento HTML com um ID específico (por exemplo, &lt;div id="meuElemento"&gt;Olá!&lt;/div&gt;) e, usando JavaScript, selecione esse elemento pelo seu ID e altere seu conteúdo de texto.</li>
+                <li>
+                    Descrição: Crie um elemento HTML com um ID específico (por exemplo, <div id="meuElemento">Olá!</div>) e, usando JavaScript, selecione esse elemento pelo seu ID e altere seu conteúdo de texto.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O método document.getElementById() para selecionar elementos pelo atributo ID.</li>

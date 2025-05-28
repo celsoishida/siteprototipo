@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 10</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,8 @@
         <section>
             <h1>Exercício 10: Criando um Sistema de Abas (Tabs) Simples</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>No seu HTML, crie uma série de botões (as abas) e várias <code>&lt;div&gt;</code>s com conteúdo correspondente a cada aba. Inicialmente, apenas o conteúdo da primeira aba deve estar visível (use CSS para esconder as outras). Associe cada botão a sua <code>&lt;div&gt;</code> de conteúdo (você pode usar atributos data-*).</li>
                         <li>Usando JavaScript, selecione todos os botões das abas e todos os conteúdos das abas.</li>
@@ -27,6 +29,7 @@
                             </ul>
                         </li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

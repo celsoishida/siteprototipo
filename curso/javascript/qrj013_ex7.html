@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 7</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,12 +14,14 @@
         <section>
             <h1>Exercício 7: Adicionando e Removendo Itens de uma Lista com Botões Individuais</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>Crie uma lista não ordenada (<code>&lt;ul&gt;</code>) com alguns itens (<li>) no seu HTML. Para cada <li>, adicione um botão "Remover" ao lado.</li>
                         <li>Usando JavaScript, adicione "event listeners" a cada botão "Remover".</li>
                         <li>Quando um botão "Remover" for clicado, identifique o <li> pai desse botão e remova-o da lista (parentNode.removeChild).</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

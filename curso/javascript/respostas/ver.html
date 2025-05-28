@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizador de Código</title>
+    <link rel="stylesheet" href="respostas.css">
+</head>
+<body>
+    <script>
+        // Função para obter parâmetros da URL
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Obter nomes dos arquivos dos parâmetros da URL
+        const arquivo = getUrlParameter('file') || 'exercicio02';
+
+        // Atualizar título da página
+        document.title = `Visualizando: ${arquivo}.js e ${arquivo}.html`;
+    </script>
+
+    <h1>Código do arquivo <span id="js-filename">carregando...</span></h1>
+    <pre><code id="code-block-js"></code></pre>
+
+    <h1>Código do arquivo <span id="html-filename">carregando...</span></h1>
+    <pre><code id="code-block-html"></code></pre>
+
+    <p>Abrir <a id="preview-link" href="#" target="_blank">arquivo HTML</a> para ver o código interpretado pelo navegador.</p>
+
+    <script>
+        // Elementos da interface
+        const jsFilenameElement = document.getElementById('js-filename');
+        const htmlFilenameElement = document.getElementById('html-filename');
+        const previewLink = document.getElementById('preview-link');
+
+        // Atualizar nomes dos arquivos na interface
+        jsFilenameElement.textContent = arquivo + '.js';
+        htmlFilenameElement.textContent = arquivo + '.html';
+        previewLink.textContent = arquivo + '.html';
+        previewLink.href = arquivo + '.html';
+
+        // Carregar e exibir o conteúdo dos arquivos
+        function loadAndDisplayFile(filename, elementId) {
+            fetch(filename)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro ao carregar o arquivo: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(elementId).textContent = data;
+                })
+                .catch(error => {
+                    console.error(`Erro ao carregar ${filename}:`, error);
+                    document.getElementById(elementId).textContent = `Erro ao carregar o arquivo: ${error.message}`;
+                });
+        }
+
+        // Carregar ambos os arquivos
+        loadAndDisplayFile(arquivo + '.js', 'code-block-js');
+        loadAndDisplayFile(arquivo + '.html', 'code-block-html');
+    </script>
+</body>
+</html>

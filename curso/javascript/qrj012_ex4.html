@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 4</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 4: Limpando todo o localStorage</h1>
             <ul>
-                <li>Tarefa: Use o método localStorage.clear() para remover todos os itens do localStorage.</li>
+                <li>
+                    Descrição: Use o método localStorage.clear() para remover todos os itens do localStorage.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O método localStorage.clear() para remover todos os itens de uma vez.</li>

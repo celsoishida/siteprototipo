@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 5</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 5: Usando setTimeout para Executar Código Após um Tempo</h1>
             <ul>
-                <li>Tarefa: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use a função setTimeout() para exibir um alert() com a mensagem "Olá após 3 segundos!" após um atraso de 3000 milissegundos.</li>
+                <li>
+                    Descrição: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use a função setTimeout() para exibir um alert() com a mensagem "Olá após 3 segundos!" após um atraso de 3000 milissegundos.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A função setTimeout(funcao, atrasoEmMilissegundos) para executar uma função uma vez após um determinado atraso.</li>

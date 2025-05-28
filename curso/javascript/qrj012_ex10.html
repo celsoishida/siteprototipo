@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 10</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,12 +14,14 @@
         <section>
             <h1>Exercício 10: Persistindo um Pequeno Formulário com localStorage</h1>
             <ul>
-                <li>Tarefa: Crie um formulário simples com campos de nome e email que:
+                <li>
+                    Descrição: Crie um formulário simples com campos de nome e email que:
                     <ul>
                         <li>Salve os dados do formulário no localStorage quando o usuário clicar em enviar.</li>
                         <li>Recupere e preencha os campos com os dados salvos quando a página for carregada.</li>
                         <li>Mostre uma mensagem de sucesso após salvar os dados.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

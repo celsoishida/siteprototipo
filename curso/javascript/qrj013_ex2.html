@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 2</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,13 +14,15 @@
         <section>
             <h1>Exercício 2: Destacando Itens de uma Lista ao Passar o Mouse</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>Crie uma lista não ordenada (<code>&lt;ul&gt;</code>) com alguns itens (<code>&lt;li&gt;</code>) no seu HTML.</li>
                         <li>Usando JavaScript, adicione "event listeners" a cada <code>&lt;li&gt;</code> da lista para os eventos mouseover e mouseout.</li>
                         <li>Quando o mouse passar sobre um item (mouseover), adicione uma classe CSS (ex: "destacado") a esse item para alterar sua aparência (cor de fundo, borda, etc. - defina a classe no seu CSS).</li>
                         <li>Quando o mouse sair do item (mouseout), remova a classe CSS para que ele volte à aparência original.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

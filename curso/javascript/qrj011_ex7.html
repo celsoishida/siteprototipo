@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 7</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 7: Acessando o Histórico do Navegador</h1>
             <ul>
-                <li>Tarefa: Crie dois botões no seu HTML: "Voltar" e "Avançar". Adicione "event listeners" de "click" a esses botões. Use os métodos do objeto window.history (back() e forward()) para navegar para a página anterior e seguinte no histórico do navegador, respectivamente.</li>
+                <li>
+                    Descrição: Crie dois botões no seu HTML: "Voltar" e "Avançar". Adicione "event listeners" de "click" a esses botões. Use os métodos do objeto window.history (back() e forward()) para navegar para a página anterior e seguinte no histórico do navegador, respectivamente.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O objeto window.history para interagir com o histórico de navegação.</li>

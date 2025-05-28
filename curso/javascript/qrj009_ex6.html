@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 6</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 6: Enviando um Alerta ao Submeter um Formulário</h1>
             <ul>
-                <li>Tarefa: Crie um formulário (&lt;form&gt;) no seu HTML com pelo menos um campo de input e um botão de submit (&lt;button type="submit"&gt;). Usando JavaScript, adicione um "event listener" para o evento de "submit" no formulário. Dentro da função de callback, use event.preventDefault() para impedir o envio padrão do formulário e, em seguida, exiba um alert() com a mensagem "Formulário enviado (de mentirinha)!".</li>
+                <li>
+                    Descrição: Crie um formulário (&lt;form&gt;) no seu HTML com pelo menos um campo de input e um botão de submit (&lt;button type="submit"&gt;). Usando JavaScript, adicione um "event listener" para o evento de "submit" no formulário. Dentro da função de callback, use event.preventDefault() para impedir o envio padrão do formulário e, em seguida, exiba um alert() com a mensagem "Formulário enviado (de mentirinha)!". 
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O evento de formulário submit.</li>

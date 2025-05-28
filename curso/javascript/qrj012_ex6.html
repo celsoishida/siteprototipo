@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 6</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 6: Introdução ao sessionStorage - Salvando e Recuperando Dados de Sessão</h1>
             <ul>
-                <li>Tarefa: Use sessionStorage.setItem() para salvar um par chave-valor simples, como chave: "ultimoProduto" e valor: "Notebook". Em seguida, use sessionStorage.getItem() para recuperar e exibir esse valor no console.</li>
+                <li>
+                    Descrição: Use sessionStorage.setItem() para salvar um par chave-valor simples, como chave: "ultimoProduto" e valor: "Notebook". Em seguida, use sessionStorage.getItem() para recuperar e exibir esse valor no console.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A diferença entre sessionStorage e localStorage (sessionStorage persiste apenas durante a sessão atual).</li>

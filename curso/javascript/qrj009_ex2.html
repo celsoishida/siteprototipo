@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 2</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 2: Mudando o Texto de um Elemento ao Passar o Mouse</h1>
             <ul>
-                <li>Tarefa: Crie um elemento &lt;h1&gt; com um texto inicial no seu HTML. Usando JavaScript, adicione "event listeners" para os eventos mouseover (quando o mouse entra no elemento) e mouseout (quando o mouse sai do elemento). Ao passar o mouse sobre o &lt;h1&gt;, altere o texto para "Olá!". Ao retirar o mouse, volte ao texto original.</li>
+                <li>
+                    Descrição: Crie um elemento &lt;h1&gt; com um texto inicial no seu HTML. Usando JavaScript, adicione "event listeners" para os eventos mouseover (quando o mouse entra no elemento) e mouseout (quando o mouse sai do elemento). Ao passar o mouse sobre o &lt;h1&gt;, altere o texto para "Olá!". Ao retirar o mouse, volte ao texto original.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Os eventos de mouse mouseover e mouseout.</li>

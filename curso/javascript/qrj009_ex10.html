@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 10</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 10: Delegação de Eventos para Adicionar Comportamento a Múltiplos Elementos Dinâmicos</h1>
             <ul>
-                <li>Tarefa: Crie uma lista não ordenada (tag ul) vazia e um botão "Adicionar Item" no seu HTML. Usando JavaScript, adicione um "event listener" de "click" ao botão. Quando o botão for clicado, crie um novo item li com um texto (ex: "Item X") e um botão "Remover" dentro dele, e adicione este tag li à lista. Em vez de adicionar um "event listener" individual a cada botão "Remover" criado dinamicamente, adicione um único "event listener" de "click" à própria lista (tag ul). Dentro deste listener, verifique se o elemento alvo do clique (event.target) é um botão "Remover". Se for, remova o tag li pai desse botão.</li>
+                <li>
+                    Descrição: Crie uma lista não ordenada (tag ul) vazia e um botão "Adicionar Item" no seu HTML. Usando JavaScript, adicione um "event listener" de "click" ao botão. Quando o botão for clicado, crie um novo item li com um texto (ex: "Item X") e um botão "Remover" dentro dele, e adicione este tag li à lista. Em vez de adicionar um "event listener" individual a cada botão "Remover" criado dinamicamente, adicione um único "event listener" de "click" à própria lista (tag ul). Dentro deste listener, verifique se o elemento alvo do clique (event.target) é um botão "Remover". Se for, remova o tag li pai desse botão.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O conceito de delegação de eventos (adicionar um único listener a um elemento pai para gerenciar eventos em seus filhos).</li>
@@ -52,6 +56,16 @@ fetch('qrj009_menu.html')
 const script = document.createElement('script');
 script.src = 'exercise9dot.js';
 document.body.appendChild(script);
+</script>
+<script src="../../scripts/copyToClipboard.js"></script>
+<script src="exercise9dot.js"></script>
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="goto-qrj009-menu" style="background: #007bff; color: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 24px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;">☰</button>
+</div>
+<script>
+document.getElementById('goto-qrj009-menu').addEventListener('click', function() {
+  window.location.href = 'qrj009_menu.html';
+});
 </script>
 <script src="cabecalho.js"></script>
 <script src="rodape.js"></script>

@@ -13,7 +13,9 @@
         <section>
             <h1>Exercício 3.5b: crie manualmente</h1>
             <ul>
-                <li>Descrição: Mude o valor da primeira variável por ¾  e a segunda variável por 2,5 (dois e meio, use o ponto como separador de decimal)</li>
+                <li>Descrição: Mude o valor da primeira variável por ¾  e a segunda variável por 2,5 (dois e meio, use o ponto como separador de decimal)
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
             </ul>
             <br>
             <div class="centered-nav-btn">
@@ -40,6 +42,7 @@
   .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
 </script>
 <script src="exercise1dot.js"></script>
+<script src="../../scripts/copyToClipboard.js"></script>
     <div id="footer-container"></div>
     <script src="cabecalho.js"></script>
     <script src="rodape.js"></script>

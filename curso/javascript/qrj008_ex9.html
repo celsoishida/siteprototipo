@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ008 - Exercício 9</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,13 +14,15 @@
         <section>
             <h1>Exercício 9: Criando e Adicionando Novos Elementos ao DOM</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ol>
-                        <li>Crie um novo elemento &lt;li&gt; usando JavaScript.</li>
+                        <li>Crie um novo elemento <li> usando JavaScript.</li>
                         <li>Defina o texto deste novo elemento para "Novo item criado dinamicamente".</li>
-                        <li>Selecione uma lista não ordenada (&lt;ul&gt;) existente no seu HTML (adicione um ID).</li>
-                        <li>Adicione o novo elemento &lt;li&gt; como filho desta lista.</li>
+                        <li>Selecione uma lista não ordenada (<ul>) existente no seu HTML (adicione um ID).</li>
+                        <li>Adicione o novo elemento <li> como filho desta lista.</li>
                     </ol>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ol>

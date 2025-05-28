@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 6</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,8 @@
         <section>
             <h1>Exercício 6: Criando um Carrossel de Imagens Simples</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>No seu HTML, crie uma <code>&lt;div&gt;</code> que atuará como a área de visualização do carrossel e inclua algumas imagens (<code>&lt;img&gt;</code>) dentro dela. Inicialmente, apenas a primeira imagem deve ser visível (use CSS para esconder as outras). Adicione também dois botões: "Anterior" e "Próximo".</li>
                         <li>Usando JavaScript, selecione a área de visualização, as imagens e os botões.</li>
@@ -22,6 +24,7 @@
                         <li>Ao clicar em "Próximo", incremente o índice (com cuidado para não ultrapassar o número de imagens), esconda a imagem atual e mostre a próxima (usando style.display).</li>
                         <li>Ao clicar em "Anterior", decremente o índice (com cuidado para não ir abaixo de 0), esconda a imagem atual e mostre a anterior.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

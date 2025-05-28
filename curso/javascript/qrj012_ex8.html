@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 8</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,12 +14,14 @@
         <section>
             <h1>Exercício 8: Contador de Visitas usando localStorage</h1>
             <ul>
-                <li>Tarefa: Crie um contador de visitas que:
+                <li>
+                    Descrição: Crie um contador de visitas que:
                     <ul>
                         <li>Salve o número de visitas no localStorage usando localStorage.setItem().</li>
                         <li>Aumente o contador a cada visita e atualize o valor no localStorage.</li>
                         <li>Mostre o número atual de visitas na página.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

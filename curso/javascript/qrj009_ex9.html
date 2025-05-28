@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 9</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 9: Arrastando e Soltando um Elemento (Básico)</h1>
             <ul>
-                <li>Tarefa: Crie um elemento div no seu HTML (com alguma cor de fundo para torná-lo visível). Usando JavaScript, adicione "event listeners" para os eventos mousedown (quando o botão do mouse é pressionado sobre o elemento), mousemove (quando o mouse se move enquanto o botão está pressionado) e mouseup (quando o botão do mouse é liberado). Ao pressionar o botão do mouse sobre o <div>, defina uma flag indicando que o elemento está sendo arrastado. Ao mover o mouse enquanto a flag estiver ativa, atualize as propriedades style.left e style.top do <div> para seguir a posição do mouse. Ao liberar o botão, desative a flag.</li>
+                <li>
+                    Descrição: Crie um elemento div no seu HTML (com alguma cor de fundo para torná-lo visível). Usando JavaScript, adicione "event listeners" para os eventos mousedown (quando o botão do mouse é pressionado sobre o elemento), mousemove (quando o mouse se move enquanto o botão está pressionado) e mouseup (quando o botão do mouse é liberado). Ao pressionar o botão do mouse sobre o <div>, defina uma flag indicando que o elemento está sendo arrastado. Ao mover o mouse enquanto a flag estiver ativa, atualize as propriedades style.left e style.top do <div> para seguir a posição do mouse. Ao liberar o botão, desative a flag.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Os eventos de mouse mousedown, mousemove e mouseup.</li>

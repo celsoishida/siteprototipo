@@ -128,3 +128,34 @@ nav a.active {
 	border: none;
 	border-radius: 5px;
 }
+
+/* Botão Resposta e área de resposta */
+#btn-resposta {
+  padding: 8px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+#btn-resposta:hover {
+  background: #0056b3;
+}
+#resposta-content {
+  margin-top: 16px;
+}
+#resposta-content a {
+  margin-right: 16px;
+  color: #007bff;
+  text-decoration: underline;
+}
+#resposta-content pre {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 12px;
+  text-align: left;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  font-size: 1em;
+}

@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 3</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,13 +14,15 @@
         <section>
             <h1>Exercício 3: Contador com Botões</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>Crie um elemento <code>&lt;spam&gt;</code> para exibir um contador (inicializado em 0) e dois botões: "Incrementar" e "Decrementar" no seu HTML.</li>
                         <li>Usando JavaScript, adicione "event listeners" aos botões.</li>
                         <li>Quando o botão "Incrementar" for clicado, aumente o valor do contador em 1 e atualize o conteúdo do <span>.</li>
                         <li>Quando o botão "Decrementar" for clicado, diminua o valor do contador em 1 e atualize o conteúdo do <span>.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

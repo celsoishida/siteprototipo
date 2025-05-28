@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 3</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 3: Removendo um Item de localStorage</h1>
             <ul>
-                <li>Tarefa: Use o método localStorage.removeItem() para remover o item "nomeDoUsuario" do localStorage.</li>
+                <li>
+                    Descrição: Use o método localStorage.removeItem() para remover o item "nomeDoUsuario" do localStorage.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O método localStorage.removeItem('chave') para remover um item específico.</li>

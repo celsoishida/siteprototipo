@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 1</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,8 @@
         <section>
             <h1>Exercício 1: Criando uma Lista de Tarefas Simples</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>Crie um input de texto e um botão "Adicionar" no seu HTML.</li>
                         <li>Usando JavaScript, adicione um "event listener" ao botão.</li>
@@ -22,6 +24,7 @@
                         <li>Adicione este novo <code>&lt;li&gt;</code> a uma lista não ordenada (<ul>) existente no seu HTML.</li>
                         <li>Limpe o valor do input após adicionar a tarefa.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

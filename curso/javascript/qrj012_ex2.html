@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 2</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 2: Recuperando um Valor de localStorage</h1>
             <ul>
-                <li>Tarefa: Use o método localStorage.getItem() para recuperar o valor associado à chave "nomeDoUsuario" salva no exercício anterior e imprima esse valor no console.</li>
+                <li>
+                    Descrição: Use o método localStorage.getItem() para recuperar o valor associado à chave "nomeDoUsuario" salva no exercício anterior e imprima esse valor no console.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O método localStorage.getItem('chave') para recuperar dados.</li>

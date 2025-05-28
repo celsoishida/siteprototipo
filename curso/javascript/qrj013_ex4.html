@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 4</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,8 @@
         <section>
             <h1>Exercício 4: Criando Elementos Dinamicamente com Repetição</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>Crie um botão "Gerar Quadrados" e uma <code>&lt;div&gt;</code> vazia no seu HTML.</li>
                         <li>Usando JavaScript, adicione um "event listener" ao botão.</li>
@@ -21,6 +23,7 @@
                         <li>Use um loop for para criar um número de elementos <code>&lt;div&gt;</code> (com uma classe CSS para definir um quadrado - largura, altura, cor de fundo) igual ao número digitado pelo usuário.</li>
                         <li>Adicione todos esses novos elementos <code>&lt;div&gt;</code> à <code>&lt;div&gt;</code> vazia do seu HTML.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

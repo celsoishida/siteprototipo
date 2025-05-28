@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ010 - Exercício 8</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 8: Funções com Valores Padrão para Parâmetros</h1>
             <ul>
-                <li>Tarefa: Defina uma função chamada saudarComIdioma que aceite um parâmetro nome e um parâmetro opcional idioma com o valor padrão "Português". Dentro da função, imprima uma saudação no idioma especificado (ex: "Olá, [nome]!" para Português, "Hello, [nome]!" para Inglês). Chame a função passando apenas o nome e depois passando o nome e um idioma diferente.</li>
+                <li>
+                    Descrição: Defina uma função chamada saudarComIdioma que aceite um parâmetro nome e um parâmetro opcional idioma com o valor padrão "Português". Dentro da função, imprima uma saudação no idioma especificado (ex: "Olá, [nome]!" para Português, "Hello, [nome]!" para Inglês). Chame a função passando apenas o nome e depois passando o nome e um idioma diferente.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Definindo valores padrão para parâmetros de funções usando a sintaxe parametro = valorPadrao.</li>

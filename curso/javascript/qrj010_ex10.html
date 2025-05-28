@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ010 - Exercício 10</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 10: Funções de Ordem Superior (Introdução)</h1>
             <ul>
-                <li>Tarefa: Defina uma função chamada executarAcao que aceite dois parâmetros: um número e uma função (chamada acao). Dentro de executarAcao, chame a função acao passando o número como argumento. Crie duas funções separadas: elevarAoQuadrado que eleva um número ao quadrado e adicionarDez que adiciona 10 a um número. Chame executarAcao duas vezes, passando o mesmo número e cada uma das funções como argumento.</li>
+                <li>
+                    Descrição: Defina uma função chamada executarAcao que aceite dois parâmetros: um número e uma função (chamada acao). Dentro de executarAcao, chame a função acao passando o número como argumento. Crie duas funções separadas: elevarAoQuadrado que eleva um número ao quadrado e adicionarDez que adiciona 10 a um número. Chame executarAcao duas vezes, passando o mesmo número e cada uma das funções como argumento.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O conceito de funções de ordem superior (funções que podem receber outras funções como argumentos).</li>

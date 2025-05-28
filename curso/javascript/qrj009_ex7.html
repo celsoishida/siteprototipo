@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 7</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 7: Alternando a Visibilidade de um Elemento com um Botão</h1>
             <ul>
-                <li>Tarefa: Crie um elemento &lt;div&gt; com algum conteúdo e um botão "Mostrar/Esconder" no seu HTML. Inicialmente, o &lt;div&gt; pode estar visível. Usando JavaScript, adicione um "event listener" de "click" ao botão. Mantenha o controle do estado de visibilidade do &lt;div&gt;. Ao clicar no botão, alterne a propriedade style.display do &lt;div&gt; entre "none" (escondido) e "" (ou "block", dependendo do tipo do elemento) e altere o texto do botão para refletir a ação (ex: "Mostrar" quando estiver escondido, "Esconder" quando estiver visível).</li>
+                <li>
+                    Descrição: Crie um elemento &lt;div&gt; com algum conteúdo e um botão "Mostrar/Esconder" no seu HTML. Inicialmente, o &lt;div&gt; pode estar visível. Usando JavaScript, adicione um "event listener" de "click" ao botão. Mantenha o controle do estado de visibilidade do &lt;div&gt;. Ao clicar no botão, alterne a propriedade style.display do &lt;div&gt; entre "none" (escondido) e "" (ou "block", dependendo do tipo do elemento) e altere o texto do botão para refletir a ação (ex: "Mostrar" quando estiver escondido, "Esconder" quando estiver visível).
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Manipulação da propriedade style.display para controlar a visibilidade de elementos.</li>

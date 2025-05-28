@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 3</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 3: Redirecionando para Outra Página</h1>
             <ul>
-                <li>Tarefa: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use o objeto window.location para redirecionar o navegador para outra página da web (ex: https://www.google.com).</li>
+                <li>
+                    Descrição: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use o objeto window.location para redirecionar o navegador para outra página da web (ex: https://www.google.com).
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O objeto window.location para interagir com a URL atual.</li>

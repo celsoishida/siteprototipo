@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 8</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 8: Obtendo Informações sobre o Navegador do Usuário</h1>
             <ul>
-                <li>Tarefa: Imprima no console a string do agente do usuário (user agent) usando a propriedade window.navigator.userAgent.</li>
+                <li>
+                    Descrição: Imprima no console a string do agente do usuário (user agent) usando a propriedade window.navigator.userAgent.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O objeto window.navigator para obter informações sobre o navegador do usuário.</li>

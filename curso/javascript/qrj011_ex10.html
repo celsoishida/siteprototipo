@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 10</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 10: Exibindo uma Caixa de Confirmação</h1>
             <ul>
-                <li>Tarefa: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use a função confirm() para exibir uma caixa de diálogo com uma pergunta (ex: "Você tem certeza?"). Se o usuário clicar em "OK", imprima "Usuário confirmou!" no console. Se clicar em "Cancelar", imprima "Usuário cancelou." no console.</li>
+                <li>
+                    Descrição: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use a função confirm() para exibir uma caixa de diálogo com uma pergunta (ex: "Você tem certeza?"). Se o usuário clicar em "OK", imprima "Usuário confirmou!" no console. Se clicar em "Cancelar", imprima "Usuário cancelou." no console.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A função confirm(mensagem) para exibir uma caixa de diálogo de confirmação com botões "OK" e "Cancelar".</li>

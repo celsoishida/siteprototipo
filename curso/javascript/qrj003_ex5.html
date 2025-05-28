@@ -13,7 +13,9 @@
         <section>
             <h1>Exercício 5: Repetição Simples</h1>
             <ul>
-                <li>Descrição: Crie código javascript que utilize um loop for para exibir os números de 1 a 5 no console.</li>
+                <li>Descrição: Crie código javascript que utilize um loop for para exibir os números de 1 a 5 no console.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Estruturas de repetição: for.</li>
@@ -47,6 +49,7 @@
       .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
     </script>
     <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
     <div id="footer-container"></div>
     <script src="cabecalho.js"></script>
     <script src="rodape.js"></script>

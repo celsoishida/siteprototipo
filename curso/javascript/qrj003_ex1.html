@@ -13,7 +13,10 @@
         <section>
             <h1>Exercício 1: Olá, Mundo!</h1>
             <ul>
-                <li>Descrição: Crie um código em JavaScript que exiba a mensagem "Olá, Mundo!" no console do navegador.</li>
+                <li>
+                    Descrição: Crie um código em JavaScript que exiba a mensagem "Olá, Mundo!" no console do navegador.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Introdução ao JavaScript e sua função no desenvolvimento web.</li>
@@ -40,6 +43,7 @@ fetch('qrj003_menu.html')
   .then(res => res.text())
   .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
 </script>
+<script src="../../scripts/copyToClipboard.js"></script>
 <script src="exercise1dot.js"></script>
     <div id="footer-container"></div>
     <script src="cabecalho.js"></script>

@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 4</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 4: Capturando o Valor de um Input ao Digitar</h1>
             <ul>
-                <li>Tarefa: Crie um campo de texto (&lt;input type="text"&gt;) no seu HTML. Usando JavaScript, adicione um "event listener" para o evento de "input". A cada vez que o valor do input mudar, imprima o valor atual no console usando console.log().</li>
+                <li>
+                    Descrição: Crie um campo de texto (<input type="text">) no seu HTML. Usando JavaScript, adicione um "event listener" para o evento de "input". A cada vez que o valor do input mudar, imprima o valor atual no console usando console.log().
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O evento de "input" (disparado sempre que o valor de um elemento de formulário muda).</li>

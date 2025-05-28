@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 11</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,12 +14,14 @@
         <section>
             <h1>Exercício 11: Criando um Menu Dropdown Interativo</h1>
             <ul>
-                <li>Tarefa: Crie um menu dropdown interativo no seu HTML. O menu deve ter um botão principal com o texto "Menu" e, quando clicado, deve mostrar uma lista não ordenada (tag ul) de itens (pelo menos 3 itens). Use eventos para:
+                <li>
+                    Descrição: Crie um menu dropdown interativo no seu HTML. O menu deve ter um botão principal com o texto "Menu" e, quando clicado, deve mostrar uma lista não ordenada (tag ul) de itens (pelo menos 3 itens). Use eventos para:
                     <ul>
                         <li>Mostrar/ocultar o menu quando o botão principal for clicado.</li>
                         <li>Fechar o menu automaticamente quando o usuário clicar fora dele.</li>
                         <li>Adicionar uma animação suave na transição de mostrar/ocultar (pode usar CSS transitions).</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

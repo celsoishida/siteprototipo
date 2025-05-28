@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 4</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 4: Abrindo uma Nova Janela</h1>
             <ul>
-                <li>Tarefa: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use o método window.open() para abrir uma nova janela ou aba do navegador com um URL específico.</li>
+                <li>
+                    Descrição: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use o método window.open() para abrir uma nova janela ou aba do navegador com um URL específico.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O método window.open('url', 'nomeDaJanela', 'especificacoes') para abrir novas janelas.</li>

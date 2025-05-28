@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ007 - Exercício 8</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 8: Iterando sobre as Propriedades de um Objeto com for...in</h1>
             <ul>
-                <li>Tarefa: Crie um objeto literal chamado livro com as propriedades titulo, autor e ano. Use um loop for...in para iterar sobre as propriedades do objeto e imprima no console o nome de cada propriedade e seu respectivo valor.</li>
+                <li>
+                    Descrição: Crie um objeto literal chamado livro com as propriedades titulo, autor e ano. Use um loop for...in para iterar sobre as propriedades do objeto e imprima no console o nome de cada propriedade e seu respectivo valor.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O loop for...in para iterar sobre os nomes das propriedades enumeráveis de um objeto.</li>

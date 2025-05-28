@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 3</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 3: Alterando a Cor de Fundo ao Clicar em um Elemento</h1>
             <ul>
-                <li>Tarefa: Crie um elemento &lt;div&gt; no seu HTML com uma cor de fundo inicial (definida no CSS ou inline). Usando JavaScript, adicione um "event listener" para o evento de "click" neste &lt;div&gt;. Ao clicar, altere a cor de fundo do &lt;div&gt; para outra cor (ex: amarelo). Ao clicar novamente, volte para a cor original.</li>
+                <li>
+                    Descrição: Crie um elemento &lt;div&gt; no seu HTML com uma cor de fundo inicial (definida no CSS ou inline). Usando JavaScript, adicione um "event listener" para o evento de "click" neste &lt;div&gt;. Ao clicar, altere a cor de fundo do &lt;div&gt; para outra cor (ex: amarelo). Ao clicar novamente, volte para a cor original.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O evento de "click" em outros elementos além de botões.</li>

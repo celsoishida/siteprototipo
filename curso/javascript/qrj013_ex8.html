@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 8</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,8 @@
         <section>
             <h1>Exercício 8: Criando uma Barra de Progresso Dinâmica</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>No seu HTML, crie uma <code>&lt;div&gt;</code> vazia que representará a barra de progresso e outra <code>&lt;div&gt;</code> dentro dela que será a parte preenchida da barra (defina estilos iniciais no CSS: largura 0%, cor de fundo). Adicione também um botão "Iniciar Progresso".</li>
                         <li>Usando JavaScript, selecione a barra de progresso e o botão.</li>
@@ -21,6 +23,7 @@
                         <li>Quando o botão for clicado, inicie um loop (pode ser um setInterval para simular um processo) que gradualmente aumenta a largura da parte preenchida da barra de progresso (manipulando a propriedade style.width).</li>
                         <li>Quando a largura atingir 100%, pare o loop e, opcionalmente, exiba uma mensagem.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

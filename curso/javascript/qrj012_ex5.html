@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 5</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 5: Salvando e Recuperando um Objeto JSON</h1>
             <ul>
-                <li>Tarefa: Crie um objeto JavaScript com informações de um usuário (nome, email, idade) e use JSON.stringify() para convertê-lo em uma string. Salve no localStorage usando localStorage.setItem(). Em seguida, recupere o valor, use JSON.parse() para converter de volta para objeto e exiba as informações no console.</li>
+                <li>
+                    Descrição: Crie um objeto JavaScript com informações de um usuário (nome, email, idade) e use JSON.stringify() para convertê-lo em uma string. Salve no localStorage usando localStorage.setItem(). Em seguida, recupere o valor, use JSON.parse() para converter de volta para objeto e exiba as informações no console.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Como os objetos JavaScript devem ser convertidos em strings antes de serem salvos no localStorage.</li>

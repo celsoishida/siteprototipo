@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 9</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 9: Exibindo um Prompt para o Usuário</h1>
             <ul>
-                <li>Tarefa: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use a função prompt() para exibir uma caixa de diálogo pedindo ao usuário para digitar seu nome. Se o usuário digitar um nome e clicar em "OK", exiba um alert() com a mensagem "Olá, [nome]!".</li>
+                <li>
+                    Descrição: Crie um botão no seu HTML. Adicione um "event listener" de "click" a este botão. Quando o botão for clicado, use a função prompt() para exibir uma caixa de diálogo pedindo ao usuário para digitar seu nome. Se o usuário digitar um nome e clicar em "OK", exiba um alert() com a mensagem "Olá, [nome]!".
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A função prompt(mensagem, valorPadrao) para exibir uma caixa de diálogo que solicita entrada do usuário.</li>

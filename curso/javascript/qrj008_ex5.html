@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ008 - Exercício 5</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 5: Modificando o HTML Interno de um Elemento</h1>
             <ul>
-                <li>Tarefa: Selecione um elemento &lt;div&gt; em seu HTML (adicione um ID). Defina o seu innerHTML para incluir um novo elemento &lt;h2&gt; com o texto "Novo Título Dentro da Div".</li>
+                <li>
+                    Descrição: Selecione um elemento &lt;div&gt; em seu HTML (adicione um ID). Defina o seu innerHTML para incluir um novo elemento &lt;h2&gt; com o texto "Novo Título Dentro da Div".
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A propriedade innerHTML para acessar ou modificar o conteúdo HTML interno de um elemento.</li>

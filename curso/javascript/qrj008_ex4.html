@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ008 - Exercício 4</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 4: Modificando o Texto de um Elemento</h1>
             <ul>
-                <li>Tarefa: Selecione um elemento &lt;p&gt; em seu HTML (você pode adicionar um ID para facilitar) e altere o seu conteúdo de texto para "Este texto foi alterado com JavaScript!".</li>
+                <li>
+                    Descrição: Selecione um elemento &lt;p&gt; em seu HTML (você pode adicionar um ID para facilitar) e altere o seu conteúdo de texto para "Este texto foi alterado com JavaScript!".
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>Como acessar um elemento selecionado.</li>

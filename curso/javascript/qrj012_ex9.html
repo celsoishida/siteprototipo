@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ012 - Exercício 9</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,12 +14,14 @@
         <section>
             <h1>Exercício 9: Lembre-se da Última Escolha do Usuário com localStorage</h1>
             <ul>
-                <li>Tarefa: Crie um menu de temas (claro/escuro) que:
+                <li>
+                    Descrição: Crie um menu de temas (claro/escuro) que:
                     <ul>
                         <li>Salve a escolha do usuário no localStorage usando localStorage.setItem().</li>
                         <li>Recupere a escolha anterior quando a página for carregada usando localStorage.getItem().</li>
                         <li>Aplique automaticamente o tema escolhido anteriormente.</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

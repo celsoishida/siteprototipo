@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ010 - Exercício 7</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 7: Funções que Chamam Outras Funções</h1>
             <ul>
-                <li>Tarefa: Defina duas funções: mensagemOla que retorna a string "Olá" e cumprimentarComMensagem que aceita um nome como parâmetro e chama mensagemOla para obter a saudação, concatenando-a com o nome e imprimindo o resultado no console. Chame cumprimentarComMensagem com um nome.</li>
+                <li>
+                    Descrição: Defina duas funções: mensagemOla que retorna a string "Olá" e cumprimentarComMensagem que aceita um nome como parâmetro e chama mensagemOla para obter a saudação, concatenando-a com o nome e imprimindo o resultado no console. Chame cumprimentarComMensagem com um nome.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A capacidade de uma função chamar outra função dentro de seu corpo.</li>

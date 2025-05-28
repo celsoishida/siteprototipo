@@ -13,7 +13,9 @@
         <section>
             <h1>Exercício 4: Tomando Decisões</h1>
             <ul>
-                <li>Descrição: Crie código javascript que peça para o usuário digitar sua idade usando a função prompt(). Com base na idade, utilize uma estrutura if...else para exibir uma mensagem informando se ele é maior ou menor de idade.</li>
+                <li>Descrição: Crie código javascript que peça para o usuário digitar sua idade usando a função prompt(). Com base na idade, utilize uma estrutura if...else para exibir uma mensagem informando se ele é maior ou menor de idade.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A função global prompt() para receber entrada do usuário.</li>
@@ -49,9 +51,10 @@
         .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
       </script>
       <script src="exercise1dot.js"></script>
+      <script src="../../scripts/copyToClipboard.js"></script>
       <div id="footer-container"></div>
       <script src="cabecalho.js"></script>
       <script src="rodape.js"></script>
       </body>
       </html>
-      
+

@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ013 - Exercício 9</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,8 @@
         <section>
             <h1>Exercício 9: Filtrando uma Tabela Dinamicamente</h1>
             <ul>
-                <li>Tarefa:
+                <li>
+                    Descrição:
                     <ul>
                         <li>Crie uma tabela HTML com cabeçalhos e algumas linhas de dados. Adicione um input de texto acima da tabela com o rótulo "Filtrar".</li>
                         <li>Usando JavaScript, selecione o input de texto e as linhas da tabela (excluindo o cabeçalho).</li>
@@ -22,6 +24,7 @@
                         <li>Para cada linha, verifique se o texto de alguma das células (você pode escolher uma coluna específica para filtrar ou todas) contém o texto digitado no input (ignorando maiúsculas e minúsculas).</li>
                         <li>Se a linha não contiver o texto de filtro, esconda-a (style.display = "none"). Caso contrário, mostre-a (style.display = "").</li>
                     </ul>
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
                 </li>
                 <li>Conceitos Teóricos:
                     <ul>

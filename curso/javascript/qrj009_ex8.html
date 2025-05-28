@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ009 - Exercício 8</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 8: Adicionando um Item a uma Lista com Enter</h1>
             <ul>
-                <li>Tarefa: Crie um input de texto e uma lista não ordenada (tag ul) vazia no seu HTML. Usando JavaScript, adicione um "event listener" para o evento de "keypress" no input de texto. Quando a tecla "Enter" (código da tecla 13) for pressionada, capture o valor do input, crie um novo elemento <li> com esse valor e adicione-o à lista. Limpe o input após adicionar o item.</li>
+                <li>
+                    Descrição: Crie um input de texto e uma lista não ordenada (tag ul) vazia no seu HTML. Usando JavaScript, adicione um "event listener" para o evento de "keypress" no input de texto. Quando a tecla "Enter" (código da tecla 13) for pressionada, capture o valor do input, crie um novo elemento <li> com esse valor e adicione-o à lista. Limpe o input após adicionar o item.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O evento de teclado keypress.</li>

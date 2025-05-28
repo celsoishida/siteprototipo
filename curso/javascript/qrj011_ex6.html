@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ011 - Exercício 6</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 6: Usando setInterval para Executar Código Repetidamente</h1>
             <ul>
-                <li>Tarefa: Crie um elemento <span> no seu HTML com o texto inicial "0". Use a função setInterval() para atualizar o texto do <span> a cada segundo, incrementando um contador. Adicione um botão "Parar" que, ao ser clicado, use clearInterval() para interromper a atualização do contador.</li>
+                <li>
+                    Descrição: Crie um elemento <span> no seu HTML com o texto inicial "0". Use a função setInterval() para atualizar o texto do <span> a cada segundo, incrementando um contador. Adicione um botão "Parar" que, ao ser clicado, use clearInterval() para interromper a atualização do contador.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>A função setInterval(funcao, intervaloEmMilissegundos) para executar uma função repetidamente em intervalos regulares.</li>

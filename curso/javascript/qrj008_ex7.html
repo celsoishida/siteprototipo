@@ -6,6 +6,7 @@
     <title>Livro JavaScript - QRJ008 - Exercício 7</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -13,7 +14,10 @@
         <section>
             <h1>Exercício 7: Removendo um Atributo de um Elemento</h1>
             <ul>
-                <li>Tarefa: Selecione o elemento de imagem do exercício anterior e remova o atributo alt que você adicionou.</li>
+                <li>
+                    Descrição: Selecione o elemento de imagem do exercício anterior e remova o atributo alt que você adicionou.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
                 <li>Conceitos Teóricos:
                     <ul>
                         <li>O método element.removeAttribute('nomeDoAtributo') para remover um atributo de um elemento.</li>
