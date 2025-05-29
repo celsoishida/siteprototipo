@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Jogo da Memória</title>
+	<script type="text/javascript" src="game.js"></script>
+  	<link  rel="stylesheet" href="game.css">
+  	<audio controls autoplay loop hidden preload="auto">
+  <source src="resources/musica.wav" type="audio/mpeg"> 
+</audio>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105835046-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-105835046-1');
+</script></head>
+<body onload="GameControl.createGame()" oncontextmenu="return false" class="noselect">
+	<div> <img height="29%" src="../images/logojd.png"> </div>
+	<div  id="main" class="main">
+
+	<div id="control">
+		<input type="button"  class="button_game" value="Reiniciar" onclick="GameControl.createGame()"/> 
+	</div>
+	<div id="score">
+	</div>
+	<div id="game">
+	</div>
+	<p style="text-align:center">
+	<a href="../index.html">  <img height="200px" src="../images/BackButton.png" alt=""></a>
+</p>
+</div>
+</body>
+</html>

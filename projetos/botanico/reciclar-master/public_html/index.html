@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Reciclar Game v1.1 - Criado por Alex Ishida e Celso Y. Ishida</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.4,user-scalable=no">
+        <meta name="description" content="Jogo educativo sobre reciclagem">
+        <meta name="keywords" content="Game,Educativo,Reciclar,Educacional">
+        <meta name="author" content="Alex Ishida,Celso Yoshikazu Ishida">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="assets/css/estilo.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105835046-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-105835046-1');
+</script></head>
+    <body oncontextmenu="return false" class="noselect">
+        <div id="topo" class="esconder">
+            <div id="placar_reciclagem"><p>0</p></div>
+            <div id="placar_melhor"><p>0</p></div>
+            <div id="placar_tempo"><p>100</p></div>
+            
+        </div>
+        <div id="principal">
+
+            <div id="mensagem_inicio" class="box">
+                
+                <div class="mensagem_texto">
+                    <h1>RECICLAR GAME</h1>
+                    <p>Separar o lixo corretamente faz bem para todos. Vamos jogar o lixo no lugar certo?</p>
+                </div>
+                <br /><br />
+				
+                <a href="javascript:void(0);" onclick="javascript:iniciaPreparacao();" class="btn btn_animado btn_verde btn_iniciar">Jogar</a>
+                <a href="../../index.html" class="btn btn_animado btn_verde btn_iniciar"> Voltar </a> <br>
+				<br /><br /><br /><br />
+                <div class="mensagem_texto">
+                    <p class="criado_por">Criado por Alex Ishida, inspirado e adaptado por prof. Celso Y. Ishida, UFPR</p>
+                    <p class="criado_por">Apoio: profa. Maria do Carmo D. Freitas, UFPR.</p>
+                </div>
+                
+            </div>
+            
+            
+            <div id="preparar" class="box esconder"></div>
+            
+            
+            <div id="mensagem_fim" class="box esconder">
+                
+                <div class="mensagem_texto">
+                    <h1>Fim do Jogo</h1>
+                    <p>Parabéns!!! Obrigado pela sua ajuda. Vamos todos juntos construir um mundo melhor ;)</p>
+                </div>
+                <br /><br />
+                <a href="javascript:void(0);" onclick="javascript:iniciaPreparacao();" class="btn btn_animado btn_verde btn_iniciar">De novo!</a>
+                <a href="../../index.html" class="btn btn_animado btn_verde btn_iniciar"> Voltar </a> <br>
+				<br /><br /><br /><br/>
+                <div class="mensagem_texto">
+                    <p class="criado_por">Criado por Alex Ishida.</p>
+                    <p class="criado_por">Inspirado e adaptado por prof. Celso Yoshikazu Ishida, UFPR.</p>
+                    <p class="criado_por">Apoio: profa. Maria do Carmo Duarte Freitas, UFPR.</p>
+                </div>
+                
+            </div>
+            
+ 
+            
+            <div id="jogo" class="esconder">
+                <div id="lixeiras">
+                    <div data-tipo-lixo="papel" class="lixeira lixeira_papel"></div>
+                    <div data-tipo-lixo="plastico" class="lixeira lixeira_plastico"></div>
+                    <div data-tipo-lixo="vidro" class="lixeira lixeira_vidro"></div>
+                    <div data-tipo-lixo="metal" class="lixeira lixeira_metal"></div>
+                    <div data-tipo-lixo="organico" class="lixeira lixeira_organico"></div>
+                    <div data-tipo-lixo="naoreciclavel" class="lixeira lixeira_naoreciclavel"></div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div id="lixos"></div>
+            </div>
+            
+            <div id="pre_load" class="esconder">
+                <img src="assets/img/lixeiras.png">
+                <img src="assets/img/lixo.png">
+                <img src="assets/img/lixo_metal.png">
+                <img src="assets/img/placar-melhor.png">
+                <img src="assets/img/placar-reciclagem.png">
+                <img src="assets/img/placar-tempo.png">
+            </div>
+                    <div data-tipo-lixo="metal" class="lixeira_metal lixeira_4"></div>
+        </div>
+
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery-ui.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="assets/js/reciclar.js"></script>
+    </body>
+</html>

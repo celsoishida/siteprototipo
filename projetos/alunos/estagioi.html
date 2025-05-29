@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<script src="../js/angular.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Alunos gestão da informação">
+    <meta name="author" content="Celso Yoshikazu Ishida">
+
+    <title>Estágio Supervisionado I - Gestão da Informação</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105835046-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-105835046-1');
+</script></head>
+
+<body ng-app="">
+<div ng-include="'menu.html'"></div>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    SIN196 - Estágio I
+					<p></p>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="../">Home</a></li>
+                    <li><a href=".">Aluno</a></li>
+                    <li class="active">Estágio I</li>
+                </ol>
+					<p>A média de conclusão de estágio é de 2 meses. Favor manter a média.</p>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-file-word-o"></i>1o Encontro</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Compartilhamento documentos, Estabelecimento do cronograma (calendario_estagioI.xlsx), deveres...</p>
+                        <a href="http://www.sociaisaplicadas.ufpr.br/portal/decigi/wp-content/uploads/sites/5/2018/01/PPC_GI_final-Prograd_Completo.pdf" class="btn btn-default">Ler: Projeto Pedagógico Curso (Pag. 178-, 223-)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-file-word-o"></i>Diagnóstico</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Diagnóstico informacional para uma organização ou unidade organizacional. Documentos exemplos estão no espaço compartilhado. Os <a href="diagnostico.html">passos, detalhes</a> de cada capítulo estão descritos em 01_diagnosticoEtapas.txt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-file-word-o"></i>Projeto</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Projeto para a solução do problema selecionado. Os passos, detalhes de cada capítulo estão descritos em 02_projetoEtapas.txt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+		<div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-file-word-o"></i>Documentos</h4>
+                    </div>
+                    <div class="panel-body">
+						<p>Documentos a serem entregues pelo aluno no início do semestre para o professor:</p>
+						<ul>
+							<li><a href="estagio/01cadastroAluno.doc">Cadastro</a></li>
+						</ul>
+						<p>O aluno deve apresentar para o seu supervisor no local no início do semestre. No final do semestre estes documentos preenchidos corretamente devem ser entregues para o professor orientador.</p>
+						<ul>
+							<li><a href="estagio/02frequenciaEstagio.doc">Frequência</a></li>
+							<li><a href="estagio/03avaliacaoModelo.doc">Avaliação a ser feita pelo orientador do estágio no final do semestre.</a></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-file-word-o"></i>Nota</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>((Nota entrega parciais + Nota DIAG + Nota PROJ)/3 + Ficha de avaliação)/2</p>
+						<!--50% = Relatórios parciais entregues no prazo durante o semestre
+                        <p>50% = Relatórios Finais entregues digitalmente no formato correto</p-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-file-excel-o"></i>Fontes</h4>
+                    </div>
+                    <div class="panel-body">
+						<ul>
+							<li><a href="estagio/Ficha1SIN196EstagioSupervisionadoI.pdf">Ficha 1 - SIN196 Estagio Supervisionado I</a></li>
+							<li><a href="estagio/Taxonomia_dos_objetivos_1_.pdf">Taxonomia dos objetivos 1</a></li>
+							<li><a href="estagio/Taxonomia_dos_objetivos_2_.pdf">Taxonomia dos objetivos 2</a></li>
+							<li><a href="estagio/Taxonomia_dos_objetivos_3_.pdf">Taxonomia dos objetivos 3</a></li>
+							<li><a href="http://www.decigi.ufpr.br">http://www.decigi.ufpr.br</a></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+		<div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-file-excel-o"></i>Observações</h4>
+                    </div>
+                    <div class="panel-body">
+						<ul>
+							<li>Sabia que estágio também reprova por falta?</li>
+							<li>Toda semana deve ser apresentado alguma produção ou a falta é registrada</li>
+							<li>Todos os arquivos devem ser atualizados na plataforma de compartilhamento de arquivos definido pelo professor</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+		<div ng-include="'rodape.html'"></div>
+		<div ng-include="'../rodape.html'"></div>
+
+    </div>
+    <!-- /.container -->
+
+
+
+</body>
+
+</html>

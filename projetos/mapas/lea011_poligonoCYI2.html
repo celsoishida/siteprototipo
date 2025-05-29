@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Leaflet.draw vector editing handlers</title>
+
+    <script src="leaflet/leaflet-src.js"></script>
+    <link href="leaflet/leaflet.css" rel="stylesheet">
+
+    <script src="leaflet/Leaflet.draw.js"></script>
+    <script src="leaflet/Leaflet.Draw.Event.js"></script>
+    <link href="leaflet/leaflet.draw.css" rel="stylesheet">
+
+    <script src="leaflet/Toolbar.js"></script>
+    <script src="leaflet/Tooltip.js"></script>
+
+    <script src="leaflet/ext/GeometryUtil.js"></script>
+    <script src="leaflet/ext/LatLngUtil.js"></script>
+    <script src="leaflet/ext/LineUtil.Intersect.js"></script>
+    <script src="leaflet/ext/Polygon.Intersect.js"></script>
+    <script src="leaflet/ext/Polyline.Intersect.js"></script>
+    <script src="leaflet/ext/TouchEvents.js"></script>
+
+    <script src="leaflet/draw/DrawToolbar.js"></script>
+    <script src="leaflet/draw/handler/Draw.Feature.js"></script>
+    <script src="leaflet/draw/handler/Draw.SimpleShape.js"></script>
+    <script src="leaflet/draw/handler/Draw.Polyline.js"></script>
+    <script src="leaflet/draw/handler/Draw.Marker.js"></script>
+    <script src="leaflet/draw/handler/Draw.Circle.js"></script>
+    <script src="leaflet/draw/handler/Draw.CircleMarker.js"></script>
+    <script src="leaflet/draw/handler/Draw.Polygon.js"></script>
+    <script src="leaflet/draw/handler/Draw.Rectangle.js"></script>
+
+
+    <script src="leaflet/edit/EditToolbar.js"></script>
+    <script src="leaflet/edit/handler/EditToolbar.Edit.js"></script>
+    <script src="leaflet/edit/handler/EditToolbar.Delete.js"></script>
+
+    <script src="leaflet/Control.Draw.js"></script>
+
+    <script src="leaflet/edit/handler/Edit.Poly.js"></script>
+    <script src="leaflet/edit/handler/Edit.SimpleShape.js"></script>
+    <script src="leaflet/edit/handler/Edit.Rectangle.js"></script>
+    <script src="leaflet/edit/handler/Edit.Marker.js"></script>
+    <script src="leaflet/edit/handler/Edit.CircleMarker.js"></script>
+    <script src="leaflet/edit/handler/Edit.Circle.js"></script>
+</head>
+<body>
+<div tabindex="0" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" style="outline: invert; border: 1px solid rgb(204, 204, 204); border-image: none; width: 800px; height: 600px; position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(37px, 22px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(121px, 9px, 0px);" alt="" src="http://b.tile.openstreetmap.org/13/4094/2723.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(377px, 9px, 0px);" alt="" src="http://c.tile.openstreetmap.org/13/4095/2723.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(121px, 265px, 0px);" alt="" src="http://c.tile.openstreetmap.org/13/4094/2724.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(377px, 265px, 0px);" alt="" src="http://a.tile.openstreetmap.org/13/4095/2724.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(121px, -247px, 0px);" alt="" src="http://a.tile.openstreetmap.org/13/4094/2722.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(377px, -247px, 0px);" alt="" src="http://b.tile.openstreetmap.org/13/4095/2722.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-135px, 9px, 0px);" alt="" src="http://a.tile.openstreetmap.org/13/4093/2723.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(633px, 9px, 0px);" alt="" src="http://a.tile.openstreetmap.org/13/4096/2723.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-135px, 265px, 0px);" alt="" src="http://b.tile.openstreetmap.org/13/4093/2724.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(633px, 265px, 0px);" alt="" src="http://b.tile.openstreetmap.org/13/4096/2724.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(121px, 521px, 0px);" alt="" src="http://a.tile.openstreetmap.org/13/4094/2725.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(377px, 521px, 0px);" alt="" src="http://b.tile.openstreetmap.org/13/4095/2725.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-135px, -247px, 0px);" alt="" src="http://c.tile.openstreetmap.org/13/4093/2722.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(633px, -247px, 0px);" alt="" src="http://c.tile.openstreetmap.org/13/4096/2722.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-135px, 521px, 0px);" alt="" src="http://c.tile.openstreetmap.org/13/4093/2725.png"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(633px, 521px, 0px);" alt="" src="http://c.tile.openstreetmap.org/13/4096/2725.png"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"><div class="leaflet-draw-guides"></div><svg xmlns="http://www.w3.org/2000/svg" class="leaflet-zoom-animated" style="transform: translate3d(-117px, -82px, 0px);" pointer-events="none" viewBox="-117 -82 960 720" width="960" height="720"><g>
+<path class="leaflet-interactive" fill="#3388ff" fill-opacity="0.2" fill-rule="evenodd" stroke="#3388ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.5" stroke-width="4" d="M 315 176 L 410 295 L 532 207 L 494 149 L 411 102 L 337 121 Z"></path></g></svg></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1048306px, 697357px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a title="Zoom in" class="leaflet-control-zoom-in" role="button" aria-label="Zoom in" href="#">+</a><a title="Zoom out" class="leaflet-control-zoom-out" role="button" aria-label="Zoom out" href="#">−</a></div><div class="leaflet-control-layers leaflet-control-layers-expanded leaflet-control" aria-haspopup="true"><a title="Layers" class="leaflet-control-layers-toggle" href="#"></a><form class="leaflet-control-layers-list"><div class="leaflet-control-layers-base"><label><div><input name="leaflet-base-layers" class="leaflet-control-layers-selector" type="radio" checked="checked"><span> osm</span></div></label><label><div><input name="leaflet-base-layers" class="leaflet-control-layers-selector" type="radio"><span> google</span></div></label></div><div class="leaflet-control-layers-separator"></div><div class="leaflet-control-layers-overlays"><label><div><input class="leaflet-control-layers-selector" type="checkbox" checked=""><span> drawlayer</span></div></label></div></form></div><div class="leaflet-draw leaflet-control"><div class="leaflet-draw-section"><div class="leaflet-draw-toolbar leaflet-bar leaflet-draw-toolbar-top"><a title="Draw a polyline" class="leaflet-draw-draw-polyline" href="#"><span class="sr-only">Draw a polyline</span></a><a title="Draw a polygon" class="leaflet-draw-draw-polygon" href="#"><span class="sr-only">Draw a polygon</span></a><a title="Draw a rectangle" class="leaflet-draw-draw-rectangle" href="#"><span class="sr-only">Draw a rectangle</span></a><a title="Draw a circle" class="leaflet-draw-draw-circle" href="#"><span class="sr-only">Draw a circle</span></a><a title="Draw a marker" class="leaflet-draw-draw-marker" href="#"><span class="sr-only">Draw a marker</span></a><a title="Draw a circlemarker" class="leaflet-draw-draw-circlemarker" href="#"><span class="sr-only">Draw a circlemarker</span></a></div><ul class="leaflet-draw-actions" style="top: 32px; display: none;"><li><a title="Finish drawing" href="#">Finish</a></li><li><a title="Delete last point drawn" href="#">Delete last point</a></li><li><a title="Cancel drawing" href="#">Cancel</a></li></ul></div><div class="leaflet-draw-section"><div class="leaflet-draw-toolbar leaflet-bar"><a title="Edit layers" class="leaflet-draw-edit-edit" href="#"><span class="sr-only">Edit layers</span></a><a title="Delete layers" class="leaflet-draw-edit-remove" href="#"><span class="sr-only">Delete layers</span></a></div><ul class="leaflet-draw-actions"></ul></div></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a title="A JS library for interactive maps" href="http://leafletjs.com">Leaflet</a> | © <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors</div></div></div></div>
+
+<script>
+    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            osm = L.tileLayer(osmUrl, { maxZoom: 18, attribution: osmAttrib }),
+            map = new L.Map('map', { center: new L.LatLng(-25.444565, -49.238530), zoom: 15 }),
+            drawnItems = L.featureGroup().addTo(map);
+    L.control.layers({
+        'OSM': osm.addTo(map),
+       "googleHibrido": L.tileLayer('http://www.google.cn/maps/vt?lyrs=y@189&gl=cn&x={x}&y={y}&z={z}', {
+            attribution: 'google'
+        })
+    }, { 'drawlayer': drawnItems }, { position: 'topleft', collapsed: false }).addTo(map);
+    map.addControl(new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems,
+            poly: {
+                allowIntersection: false
+            }
+        },
+        draw: {
+            polygon: {
+                allowIntersection: false,
+                showArea: true
+            }
+        }
+    }));
+
+    map.on(L.Draw.Event.CREATED, function (event) {
+        var layer = event.layer;
+
+        drawnItems.addLayer(layer);
+    });
+
+map.on('draw:created', function (e) {
+  var type = e.layerType;
+  var layer = e.layer;
+
+  var shape = layer.toGeoJSON()
+  var shape_for_db = JSON.stringify(shape);
+  
+          if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getuser.php?q="+shape_for_db,true);
+        xmlhttp.send();
+});
+
+
+</script>
+
+
+</body></html>

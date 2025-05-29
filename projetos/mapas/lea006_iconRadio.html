@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quick Start - Leaflet</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+    <link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
+    <script src="leaflet/leaflet.js" crossorigin=""></script>
+</head>
+<body>
+
+<div id="mapid" style="width: 100%; height: 300px;"></div>
+<script>
+
+// latitude e longitude
+	var mymap = L.map('mapid').setView([-25.444906, -49.2383], 15);
+
+// criar e mostrar o mapa
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.streets'
+	}).addTo(mymap);
+
+
+var lampadaIcon = L.icon({
+    iconUrl: 'lampada.png',
+//    shadowUrl: 'lampada.png',
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+// marcador customizado com poupup aberto 
+	L.marker([-25.443, -49.238], {icon: lampadaIcon}).addTo(mymap)
+		.bindPopup("<b>Hello!</b><br />eu sou popup.").openPopup();
+
+
+// marcador customizado sem poupup aberto
+	L.marker([-25.44, -49.23], {icon: lampadaIcon}).addTo(mymap).bindPopup("Eu sou outro.");
+
+
+
+</script>
+
+<div id="play">
+			<audio controls="" autoplay="true"> <source src="http://200.17.203.89:8000/webradio" type="audio/aac"></audio>
+		</div>
+
+</body>
+</html>

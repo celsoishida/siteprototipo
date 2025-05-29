@@ -1,0 +1,77 @@
+/**/
+.cyi-tabela {
+  	display: block;
+  	width: 100%;
+}
+.cyi-tabela-Heading, .cyi-tabela-Body, .cyi-tabela-Foot, .cyi-tabela-row{
+  	clear: both;
+}
+.cyi-tabela-Head, .cyi-tabela-Foot{
+  	background-color: #DDD;
+  	font-weight: bold;
+}
+.cyi-tabela-col, .cyi-tabela-Head {
+  	border: 1px solid #999999;
+  	float: left;
+  	height: 30px;
+  	overflow: hidden;
+  	padding: 3px 1.8%;
+  	width: 25%;
+}
+.cyi-tabela:after {
+  	visibility: hidden;
+  	display: block;
+  	font-size: 0;
+  	content: " ";
+  	clear: both;
+  	height: 0;
+}
+/* Estilo de tabela com tamanho de coluna fixa e fundo escuro */
+.cyi-tabela3 {
+  display: table;         
+  width: auto;         
+  background-color: #eee;         
+  border: 1px solid #666666;         
+  border-spacing: 5px; /* colspacing:poor IE support for  this */
+}
+.cyi-tabela3-row {
+  display: table-row;
+  width: auto;
+  clear: both;
+}
+.cyi-tabela3-col {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 200px;         
+  background-color: #ccc;  
+}
+/* Estilo de tabela com tamanho de coluna fixa */
+.cyi-tabela2 {
+  	display: table;
+  	width: 100%;
+}
+.cyi-tabela2-row {
+  	display: table-row;
+}
+.cyi-tabela2-heading {
+  	display: table-header-group;
+  	background-color: #ddd;
+}
+.cyi-tabela2-col, .cyi-tabela2-head {
+  	display: table-col;
+  	padding: 3px 10px;
+  	border: 1px solid #999999;
+}
+.cyi-tabela2-heading {
+  	display: table-header-group;
+  	background-color: #ddd;
+  	font-weight: bold;
+}
+.cyi-tabela2-goot {
+  	display: table-footer-group;
+  	font-weight: bold;
+  	background-color: #ddd;
+}
+.cyi-tabela2-body {
+  	display: table-row-group;
+}
