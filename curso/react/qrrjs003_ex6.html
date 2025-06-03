@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS003 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Múltiplos Componentes</h1>
+            <ul>
+                <li>Descrição: Crie dois componentes e exiba ambos na tela.
+                  <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
+                <li>Conteúdo Teórico: Em React, podemos organizar o código dividindo em vários componentes.</li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+<div style="margin-top: 24px; text-align: center;">
+  <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+  <div id="resposta-content" style="display:none;">
+    <div style="display: flex; justify-content: center; gap: 32px;">
+      <div>
+        <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+function Titulo() {
+  return &lt;h1&gt;Olá!&lt;/h1&gt;;
+}
+
+function Mensagem() {
+  return &lt;p&gt;Bem-vindo ao React!&lt;/p&gt;;
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Titulo /&gt;
+      &lt;Mensagem /&gt;
+    &lt;/div&gt;
+  );
+}
+</code>
+<strong>Dica:</strong> Todos os componentes devem ser chamados dentro de um único elemento raiz.
+<strong>Sugestão de Extensão:</strong> Adicione um terceiro componente.
+        </pre>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <!-- Links para respostas podem ser adicionados aqui se necessário -->
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<br />
+      <div id="exercise-menu"></div>
+</main>
+<div id="footer-container"></div>
+<script>
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  window.location.href = 'qrrjs003_ex5.html';
+});
+
+document.querySelector('.next-btn').addEventListener('click', function() {
+  window.location.href = 'qrrjs003_ex7.html';
+});
+
+fetch('qrrjs003_menu.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+</script>
+<script src="exercise1dot.js"></script>
+<script src="../../scripts/copyToClipboard.js"></script>
+<script src="cabecalho.js"></script>
+<script src="rodape.js"></script>
+<script>
+document.getElementById('btn-resposta').addEventListener('click', function() {
+  document.getElementById('resposta-content').style.display = 'block';
+});
+</script>
+</body>
+</html>

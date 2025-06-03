@@ -11,28 +11,28 @@
     <div id="header-container"></div>
     <main>
         <section>
-            <h1>VREA007 - Webscraping para editais de pesquisa</h1>
-			<p>Procurar e resumir informações de editais de pesquisa.</p>
+            <h1>VREA008 - Webscraping sobre venda de imóveis</h1>
+			<p>Procurar informações sobre os imóveis à venda e criar uma base de dados para futura análise.</p>
 			<h3>Plano de trabalho</h3>
             <ul>
-                <li><b>Título do Plano de Trabalho:</b> Levantamento da lista de portais; criar rotina de atualizar a lista dinamicamente; criar um rotina de webscraping em busca de editais de pesquisa e criar uma página de resumo dos resultados.</li>
-                <li><b>Objetivos:</b> Auxiliar na avaliação de editais de pesquisa</li>
-                <li><b>Metodologia/Síntese de Atividades:</b> Levantamento das características para a busca das empresas, criar um rotina de webscraping em busca de editais de pesquisa e criar uma página de resumo dos resultados</li>
-                <li><b>Cronograma:</b> prazo até início julho/2025</li>
-                <li><b>Carga horária:</b> 40 horas</li>
+                <li><b>Título do Plano de Trabalho:</b> Levantamento da lista de portais; criar rotina de atualizar a lista dinamicamente; criar um rotina de webscraping para construir uma base de dados de imóveis para venda.</li>
+                <li><b>Objetivos:</b> Criação de uma base para avaliação de preços</li>
+                <li><b>Metodologia/Síntese de Atividades:</b> Criar um rotina de webscraping em busca de informações sobre os imóveis à venda, formatar uma base de dados para avaliação dos preços.</li>
+                <li><b>Cronograma:</b> prazo até início Agosto/2025</li>
+                <li><b>Carga horária:</b> 40 horas ou estágio supervisionado</li>
                 <!--li><b>Quanto ao princípio do Impacto e Transformação Social?</b> Ajudar a divulgar o chatbot e o projeto</li>
                 <li><b>Quanto ao princípio da Interação Dialógica?</b></li>
                 <li><b>Quanto ao princípio da Interdisciplinaridade?</b></li>
                 <li><b>Quanto ao princípio da Indissociabilidade entre Ensino, Pesquisa e Extensão?</b></li>
                 <li><b>Quanto ao princípio do Impacto na formação do estudante?</b></li>
                 <li><b>Ação:</b></li-->
-                <li><b>Status:</b>Iniciado</li>
+                <li><b>Status:</b> Aguardando voluntários.</li>
             </ul>
 
 			<h3>Obrigações</h3>
         <p>Além de estar ciente das orientações iniciais sobre o projeto Fábrica de REA, infelizmente, para receber o certificado será preciso cumprir com algumas burocracias:</p>
         <ul>
-            <li>Preencher e assinar o <a href="termoVoluntarioR007.docx">termo de adesão</a> com as atividades a serem desenvolvidas</li>
+            <li>Preencher e assinar o <a href="termoVoluntarioR008.docx">termo de adesão</a> com as atividades a serem desenvolvidas</li>
             <li>Apresentar trabalho na SIEPE (estar presente)</li>
             <li>Apresentar relatório de estudante no final do ano (final de novembro) <br />
                 <a href="http://www.proec.ufpr.br/download/extensao/TUTORIAL%20-%20Sistema%20de%20Extensao.pdf" target="_blank">
@@ -41,11 +41,24 @@
             </li>
             <li>Realizar as atividades do plano de trabalho no prazo estabelecido</li>
         </ul>
+        <!-- Botão de soma -->
+        <button id="soma-btn">Somar 1</button>
+        <span id="contador">0</span>
+        <!-- fim botão de soma -->
         </section>
+        
         <p>Veja também a <a href="index.html">Lista das oportunidades</a></p>
     </main>
     <div id="footer-container"></div>
     <script src="cabecalho.js"></script>
     <script src="rodape.js"></script>
+    <script>
+    // Botão que soma 1 a cada clique
+    let contador = 0;
+    document.getElementById('soma-btn').onclick = function() {
+        contador++;
+        document.getElementById('contador').textContent = contador;
+    };
+    </script>
 </body>
 </html>
