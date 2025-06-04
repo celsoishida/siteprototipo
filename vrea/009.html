@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oportunidade</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>VREA009 - Resumo mensal dos microdados para descoberta</h1>
+			<p>Mensalmente o CAGED publica as informações sobre cada emprego. O objetivo é selecionar apenas os indicadores com mais potencial para mineração de dados.</p>
+			<h3>Plano de trabalho</h3>
+            <ul>
+                <li><b>Título do Plano de Trabalho:</b> Resumo de indicadores de emprego.</li>
+                <li><b>Objetivos:</b> Criação de uma base resumo para mineração de dados</li>
+                <li><b>Metodologia/Síntese de Atividades:</b> Análise dos indicadores, criação de resumo e criação de base de dados.</li>
+                <li><b>Cronograma:</b> prazo até início Setembro/2025</li>
+                <li><b>Carga horária:</b> 80 horas ou estágio supervisionado</li>
+                <!--li><b>Quanto ao princípio do Impacto e Transformação Social?</b> Ajudar a divulgar o chatbot e o projeto</li>
+                <li><b>Quanto ao princípio da Interação Dialógica?</b></li>
+                <li><b>Quanto ao princípio da Interdisciplinaridade?</b></li>
+                <li><b>Quanto ao princípio da Indissociabilidade entre Ensino, Pesquisa e Extensão?</b></li>
+                <li><b>Quanto ao princípio do Impacto na formação do estudante?</b></li>
+                <li><b>Ação:</b></li-->
+                <li><b>Status:</b> Aguardando voluntários.</li>
+            </ul>
+
+			<h3>Obrigações</h3>
+        <p>Além de estar ciente das orientações iniciais sobre o projeto Fábrica de REA, infelizmente, para receber o certificado será preciso cumprir com algumas burocracias:</p>
+        <ul>
+            <li>Preencher e assinar o <a href="termoVoluntarioR009.docx">termo de adesão</a> com as atividades a serem desenvolvidas</li>
+            <li>Apresentar trabalho na SIEPE (estar presente)</li>
+            <li>Apresentar relatório de estudante no final do ano (final de novembro) <br />
+                <a href="http://www.proec.ufpr.br/download/extensao/TUTORIAL%20-%20Sistema%20de%20Extensao.pdf" target="_blank">
+                    Tutorial do Sistema de Extensão (págs. 163-169)
+                </a>
+            </li>
+            <li>Realizar as atividades do plano de trabalho no prazo estabelecido</li>
+        </ul>
+        <!-- Botão de soma -->
+        <button id="soma-btn">Somar 1</button>
+        <span id="contador">0</span>
+        <!-- fim botão de soma -->
+        </section>
+        
+        <p>Veja também a <a href="index.html">Lista das oportunidades</a></p>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    // Botão que soma 1 a cada clique
+    let contador = 0;
+    document.getElementById('soma-btn').onclick = function() {
+        contador++;
+        document.getElementById('contador').textContent = contador;
+    };
+    </script>
+</body>
+</html>
