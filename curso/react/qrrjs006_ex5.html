@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Desestruturação de Props</h1>
+            <ul>
+                <li>Descrição: Refatore o componente <code>PerfilUsuario</code> (do Exercício 2) para utilizar a desestruturação de props.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>A <strong>desestruturação de objetos</strong> é uma funcionalidade do JavaScript que permite extrair valores de propriedades de objetos para variáveis separadas. Isso torna o código mais conciso e legível, especialmente quando você tem muitas props.</li>
+                        <li>Em vez de acessar <code>props.nome</code> e <code>props.idade</code>, você pode desestruturar o objeto <code>props</code> diretamente nos parâmetros da função do componente: <code>function PerfilUsuario(&#123; nome, idade &#125;)</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+// Componente PerfilUsuario refatorado com desestruturação
+function PerfilUsuario(&#123; nome, idade &#125;) {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Nome: &#123;nome&#125;&lt;/p&gt;
+      &lt;p&gt;Idade: &#123;idade&#125;&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;PerfilUsuario nome="Roberto" idade=&#123;25&#125; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+A desestruturação pode parecer um pouco estranha no início, mas é uma prática muito comum e útil em React.
+<strong>Sugestão de Extensão:</strong>
+Adicione mais uma prop (por exemplo, <code>email</code>) e inclua-a na desestruturação e exibição.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex4.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex6.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

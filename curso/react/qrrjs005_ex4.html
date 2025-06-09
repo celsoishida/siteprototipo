@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS005 - Exercício 4</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 4: Componente com Props (Propriedades)</h1>
+            <ul>
+                <li>Descrição: Modifique o componente funcional <code>Saudacao</code> do Exercício 1 para que ele aceite uma <strong>propriedade</strong> chamada <code>nome</code>. A mensagem <code>&lt;h1&gt;</code> deve agora exibir "Olá, [nome]! Sou um componente funcional." onde [nome] é o valor passado pela prop. Renderize o componente <code>Saudacao</code> duas vezes, uma passando "João" e outra passando "Maria" como nome.
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li><strong>Props (propriedades)</strong> são argumentos que você passa para os componentes. Elas são a principal forma de comunicação entre componentes em React, permitindo que um componente pai envie dados para um componente filho.</li>
+                        <li>Em componentes funcionais, as props são recebidas como um objeto no primeiro argumento da função.</li>
+                        <li>Em componentes de classe, as props são acessadas através de <code>this.props</code>.</li>
+                        <li>As props são <strong>somente leitura</strong>, ou seja, um componente nunca deve modificar suas próprias props.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <pre>
+<strong>Dica:</strong>
+Para acessar as props em um componente funcional, use <code>props.nome</code> dentro da função. Ao renderizar, passe a prop como um atributo: <code>&lt;Saudacao nome="João" /&gt;</code>.
+<strong>Sugestão de Extensão:</strong>
+Adicione uma segunda prop chamada <code>sobrenome</code> ao componente <code>Saudacao</code> e exiba o nome completo.
+                </pre>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 12px;">
+                    <a href="respostas/ver.html?file=exej5_4" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                    <a href="respostas/ver.html?file=exej5_4b" target="_blank">Avançado</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex3.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex5.html';
+    });
+
+    fetch('qrrjs005_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

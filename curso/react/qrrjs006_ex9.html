@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Reutilização de Componentes com Props</h1>
+            <ul>
+                <li>Descrição: Crie um componente <code>ItemDeLista</code> que receba props <code>titulo</code> e <code>descricao</code>. Crie um componente <code>ListaDeTarefas</code> que utilize múltiplas instâncias de <code>ItemDeLista</code> para exibir uma lista de tarefas, cada uma com seu título e descrição únicos.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>O poder das props reside na capacidade de criar componentes reutilizáveis. Você define a estrutura uma vez e, em seguida, passa dados diferentes para cada instância, adaptando seu comportamento e conteúdo.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function ItemDeLista(&#123; titulo, descricao &#125;) {
+  return (
+    &lt;div style=&#123;&#123; border: '1px dotted #eee', padding: '10px', margin: '5px' &#125;&#125;&gt;
+      &lt;h4&gt;&#123;titulo&#125;&lt;/h4&gt;
+      &lt;p&gt;&#123;descricao&#125;&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+function ListaDeTarefas() {
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;Minhas Tarefas:&lt;/h3&gt;
+      &lt;ItemDeLista titulo="Estudar React" descricao="Revisar conceitos de Props e State." /&gt;
+      &lt;ItemDeLista titulo="Fazer Exercícios" descricao="Completar os exercícios do curso." /&gt;
+      &lt;ItemDeLista titulo="Planejar Projeto" descricao="Pensar em ideias para um projeto pessoal." /&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;ListaDeTarefas /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+Pense em como você pode quebrar sua interface em componentes menores e reutilizáveis, cada um com sua responsabilidade.
+<strong>Sugestão de Extensão:</strong>
+Crie um array de objetos em <code>ListaDeTarefas</code>, onde cada objeto representa uma tarefa com <code>titulo</code> e <code>descricao</code>. Use <code>map</code> para renderizar os <code>ItemDeLista</code>.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex8.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex10.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

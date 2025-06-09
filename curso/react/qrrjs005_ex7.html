@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS005 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: <code>children</code> Prop</h1>
+            <ul>
+                <li>Descrição: Crie um componente funcional chamado <code>Quadro</code> que receba e renderize sua <code>children</code> prop. No componente principal, use <code>Quadro</code> e, dentro dele, coloque um <code>&lt;h2&gt;</code> com "Título do Quadro" e um <code>&lt;p&gt;</code> com "Este é o conteúdo do quadro.".
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>A prop especial <code>children</code> permite que você passe elementos e componentes diretamente entre as tags de abertura e fechamento de um componente.</li>
+                        <li>Qualquer coisa que você renderize entre a tag de abertura e fechamento de um componente React será passado para esse componente como sua prop <code>children</code>.</li>
+                        <li>É útil para componentes que atuam como "containers" ou "layouts".</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <pre>
+<strong>Dica:</strong>
+Dentro do componente <code>Quadro</code>, você pode simplesmente renderizar <code>{props.children}</code> para exibir o conteúdo passado.
+<strong>Sugestão de Extensão:</strong>
+Adicione um estilo CSS básico ao componente <code>Quadro</code> (ex: uma borda) para visualmente delimitar o conteúdo.
+                </pre>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 12px;">
+                    <a href="respostas/ver.html?file=exej5_7" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                    <a href="respostas/ver.html?file=exej5_7b" target="_blank">Avançado</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex6.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex8.html';
+    });
+
+    fetch('qrrjs005_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

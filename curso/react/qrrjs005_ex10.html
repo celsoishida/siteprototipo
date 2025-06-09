@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS005 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Componentes Aninhados com Props Múltiplas</h1>
+            <ul>
+                <li>Descrição: Crie um componente funcional <code>ListaDeItens</code> que receba uma prop <code>titulo</code> e uma prop <code>itens</code> (um array de strings). O componente <code>ListaDeItens</code> deve renderizar um <code>&lt;h2&gt;</code> com o título e uma lista não ordenada <code>&lt;ul&gt;</code> onde cada item do array <code>itens</code> é um <code>&lt;li&gt;</code>. No seu componente principal, use <code>ListaDeItens</code> duas vezes, uma para uma lista de "Frutas" e outra para uma lista de "Vegetais", cada uma com seus respectivos arrays de itens.
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Este exercício combina tudo o que você aprendeu: componentes funcionais, props (incluindo arrays) e composição.</li>
+                        <li>É comum passar arrays de dados para componentes filhos, que então "mapeiam" esses arrays para renderizar listas de elementos.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <pre>
+<strong>Dica:</strong>
+Para renderizar uma lista de itens a partir de um array, você pode usar o método <code>map()</code> do JavaScript dentro do JSX. Lembre-se de fornecer uma <code>key</code> única para cada item da lista ao usar <code>map()</code>.
+<strong>Sugestão de Extensão:</strong>
+Faça com que cada item da lista seja um componente funcional <code>ItemLista</code> que receba o texto do item como uma prop.
+                </pre>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 12px;">
+                    <a href="respostas/ver.html?file=exej5_10" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                    <a href="respostas/ver.html?file=exej5_10b" target="_blank">Avançado</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex9.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005.html';
+    });
+
+    fetch('qrrjs005_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

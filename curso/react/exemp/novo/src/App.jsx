@@ -3,47 +3,32 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function Titulo() {
-  return <h1>Olá, React!</h1>;
-}
-
-function Cabecalho() {
-  return (
-    <div className="cabecalho">
-      <h1>Meu Aplicativo React</h1>
-      <h2>Desenvolvido com carinho</h2>
-    </div>
-  );
-}
-
-function Contador() {
-  const [count, setCount] = useState(0)
-  return (
-    <div className="card">
-      <button onClick={() => setCount((count) => count + 1)}>
-        count is {count}
-      </button>
-    </div>
-  )
-}
-
 function App() {
-  const nome = 'React';
-  const mensagem = <h1>Bem-vindo ao {nome}!</h1>;
-  
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="container">
-      <Cabecalho />
-      <Titulo />
-      {mensagem}
-      <h3>Vite + React</h3>
-      <Contador />
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
       <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-    </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
 }
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS005 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Aninhamento de Componentes de Classe</h1>
+            <ul>
+                <li>Descrição: Crie um componente de classe <code>Painel</code> que contenha um componente de classe <code>Titulo</code> (com um <code>&lt;h2&gt;</code> "Bem-vindo ao Painel") e um componente de classe <code>Conteudo</code> (com um <code>&lt;p&gt;</code> "Aqui está seu conteúdo personalizado."). Renderize o <code>Painel</code> no seu componente principal.
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Assim como os componentes funcionais, os componentes de classe também podem ser aninhados e compostos.</li>
+                        <li>A estrutura de importação e uso é a mesma: importe os componentes e inclua-os no método <code>render()</code> do componente pai.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <pre>
+<strong>Dica:</strong>
+Lembre-se de que cada componente de classe precisa estender <code>React.Component</code> e ter um método <code>render()</code>.
+<strong>Sugestão de Extensão:</strong>
+Passe uma prop para o componente <code>Conteudo</code> para que ele exiba uma mensagem diferente.
+                </pre>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 12px;">
+                    <a href="respostas/ver.html?file=exej5_8" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                    <a href="respostas/ver.html?file=exej5_8b" target="_blank">Avançado</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex7.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex9.html';
+    });
+
+    fetch('qrrjs005_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

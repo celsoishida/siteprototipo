@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 4</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 4: Listas com Props</h1>
+            <ul>
+                <li>Descrição: Crie um componente <code>ListaDeItens</code> que receba uma prop <code>itens</code>, que será um array de strings. O componente deve renderizar uma lista não ordenada (<code>&lt;ul&gt;</code>) onde cada item do array é um item de lista (<code>&lt;li&gt;</code>).
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Você pode passar arrays como props.</li>
+                        <li>Ao renderizar listas no React, é fundamental usar a prop <code>key</code> em cada item da lista. A <code>key</code> ajuda o React a identificar quais itens foram alterados, adicionados ou removidos, otimizando a performance. A <code>key</code> deve ser uma string única entre os irmãos.</li>
+                        <li>O método <code>map()</code> de arrays é perfeito para transformar um array de dados em um array de elementos JSX.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function ListaDeItens(props) {
+  return (
+    &lt;ul&gt;
+      {props.itens.map((item, index) =&gt; (
+        &lt;li key=&#123;index&#125;&gt;&#123;item&#125;&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+
+function App() {
+  const frutas = ["Maçã", "Banana", "Laranja"];
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;Minhas Frutas:&lt;/h3&gt;
+      &lt;ListaDeItens itens=&#123;frutas&#125; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+Quando não houver um ID único disponível, você pode usar o <code>index</code> como <code>key</code>, mas cuidado: isso não é recomendado se a lista puder ser reordenada ou ter itens adicionados/removidos no meio.
+<strong>Sugestão de Extensão:</strong>
+Crie outra instância de <code>ListaDeItens</code> passando um array de números.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex3.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex5.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

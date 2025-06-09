@@ -1,0 +1,154 @@
+<!-- filepath: d:\projetoufpr\fabricaREA\siteprot\siteprototipo\curso\react\QRRJS017.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS017 - JSX</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+    <h1>Perguntas sobre HTML e CSS</h1>
+    <p>Veja o quanto você sabe dos conceitos importantes para o início do aprendizado do React.</p>
+    <form id="quiz-form"></form>
+    <button id="submit-quiz">Enviar respostas</button>
+    <div id="quiz-result" style="margin-top:20px;font-weight:bold;"></div>
+    <script>
+    const perguntas = [
+        "Qual é a função da tag <div> no HTML?",
+        "Qual propriedade CSS é usada para alterar a cor de fundo de um elemento?",
+        "O que significa a unidade de medida rem no CSS?",
+        "Qual é a diferença entre classes e IDs no HTML?",
+        "Qual é o propósito do atributo alt em uma tag <img>?",
+        "Qual é o propósito do atributo class no HTML?",
+        "Qual é a função do atributo href em uma tag <a>?",
+        "Qual é a diferença entre inline e block no CSS?",
+        "O que acontece se você não definir um doctype no HTML?",
+        "Qual elemento HTML é usado para criar uma lista ordenada?"
+    ];
+    const alternativas = [
+        [
+            "Definir um link para outra página",
+            "Criar um container genérico para agrupar elementos",
+            "Exibir uma imagem na página",
+            "Adicionar estilos diretamente ao HTML"
+        ],
+        [
+            "color",
+            "background-color",
+            "border-color",
+            "font-color"
+        ],
+        [
+            "É relativa ao tamanho da fonte do elemento pai",
+            "É relativa ao tamanho da fonte do elemento raiz (html)",
+            "É uma unidade fixa equivalente a pixels",
+            "É relativa à largura da viewport"
+        ],
+        [
+            "Classes são únicas, enquanto IDs podem ser reutilizados",
+            "IDs são únicas, enquanto classes podem ser reutilizadas",
+            "Classes são usadas para estilizar elementos, enquanto IDs são usados para criar links",
+            "Não há diferença entre classes e IDs"
+        ],
+        [
+            "Definir o tamanho da imagem",
+            "Adicionar um texto alternativo para acessibilidade",
+            "Estilizar a imagem com CSS",
+            "Definir o caminho do arquivo da imagem"
+        ],
+        [
+            "Definir um identificador único para o elemento",
+            "Aplicar estilos CSS a um ou mais elementos",
+            "Adicionar um link para outra página",
+            "Definir o texto alternativo de uma imagem"
+        ],
+        [
+            "Definir o texto do link",
+            "Especificar o destino do link",
+            "Adicionar um estilo ao link",
+            "Definir o comportamento do link ao ser clicado"
+        ],
+        [
+            "Elementos inline ocupam toda a largura disponível, enquanto elementos block ocupam apenas o espaço necessário.",
+            "Elementos block ocupam toda a largura disponível, enquanto elementos inline ocupam apenas o espaço necessário.",
+            "Elementos inline podem conter outros elementos block, enquanto elementos block não podem conter elementos inline.",
+            "Não há diferença entre inline e block."
+        ],
+        [
+            "O navegaddor renderiza a página no mode compatibilidade (quirks mode)",
+            "A página não será exibida no navegaddor",
+            "O navegador renderiza a página no modo padrão (standards mode)",
+            "O navegador ignora o HTML e exibe apenas o CSS"
+        ],
+        [
+            "&lt;ul&gt;",
+            "&lt;ol&gt;",
+            "&lt;li&gt;",
+            "&lt;dl&gt;"
+        ]
+    ];
+    // Respostas corretas (índice da alternativa correta)
+    const corretas = [1, 1, 1, 1, 1, 1, 1, 1, 0, 1];
+
+    // Função para embaralhar um array (Fisher-Yates)
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Renderização do questionário
+    function renderQuiz() {
+        form.innerHTML = '';
+        // Para cada pergunta, embaralhe as alternativas e guarde o índice da correta
+        window.quizOrder = [];
+        perguntas.forEach((pergunta, i) => {
+            // Cria um array de índices para as alternativas
+            const idxs = alternativas[i].map((_, j) => j);
+            shuffle(idxs);
+            // Descobre o novo índice da alternativa correta
+            const novaCorreta = idxs.indexOf(corretas[i]);
+            window.quizOrder[i] = { idxs, correta: novaCorreta };
+            const div = document.createElement('div');
+            div.innerHTML = `<p><b>${i+1}. ${pergunta}</b></p>`;
+            idxs.forEach((altIdx, j) => {
+                const id = `q${i}_a${j}`;
+                div.innerHTML += `<label><input type="radio" name="q${i}" value="${j}"> ${alternativas[i][altIdx]}</label><br>`;
+            });
+            form.appendChild(div);
+        });
+    }
+
+    const form = document.getElementById('quiz-form');
+    renderQuiz();
+
+    document.getElementById('submit-quiz').onclick = function(e) {
+        e.preventDefault();
+        let acertos = 0;
+        let erros = 0;
+        perguntas.forEach((_, i) => {
+            const radios = document.getElementsByName(`q${i}`);
+            let marcada = -1;
+            radios.forEach((r, idx) => { if(r.checked) marcada = idx; });
+            if(marcada === window.quizOrder[i].correta) acertos++;
+            else if(marcada !== -1) erros++;
+        });
+        document.getElementById('quiz-result').innerText = `Você acertou ${acertos} e errou ${erros} perguntas.`;
+        renderQuiz(); // Embaralha novamente para próxima tentativa
+    };
+    </script>
+        <p>Obs: Volte para a leitura do livro. Ou estude sobre o tópico que você desconhece.</p>
+        </section>
+    </main>
+    <br />    <br />
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

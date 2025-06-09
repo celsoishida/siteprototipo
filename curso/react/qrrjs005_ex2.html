@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS005 - Exercício 2</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2: Componente de Classe Simples</h1>
+            <ul>
+                <li>Descrição: Crie um <strong>componente de classe</strong> chamado <code>Relogio</code> que renderize um elemento <code>&lt;h2&gt;</code> com a mensagem "Componente de Classe: Hora Atual". Não se preocupe com a hora real ainda.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li><strong>Componentes de classe</strong> são classes JavaScript que estendem <code>React.Component</code>. Eles possuem um método <code>render()</code> obrigatório que retorna o JSX.</li>
+                        <li>Historicamente, componentes de classe eram usados para gerenciar estado e ciclo de vida, mas com os Hooks, componentes funcionais podem fazer tudo isso e são geralmente preferidos. No entanto, é fundamental entender os componentes de classe, pois você os encontrará em muitos projetos existentes.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <pre>
+<strong>Dica:</strong>
+Um componente de classe precisa importar <code>React</code> e estender <code>React.Component</code>. O método <code>render()</code> é onde você retorna o JSX.
+<strong>Sugestão de Extensão:</strong>
+Dentro do método <code>render()</code>, adicione um <code>&lt;span&gt;</code> exibindo a string "12:30:00" ao lado da mensagem.
+                </pre>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 12px;">
+                    <a href="respostas/ver.html?file=exej5_2" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                    <a href="respostas/ver.html?file=exej5_2b" target="_blank">Avançado</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex1.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex3.html';
+    });
+
+    fetch('qrrjs005_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

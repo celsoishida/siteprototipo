@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS005 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Múltiplas Props e Tipos de Dados</h1>
+            <ul>
+                <li>Descrição: Crie um componente funcional <code>Produto</code> que aceita as props <code>nome</code>, <code>preco</code> e <code>disponivel</code> (um booleano). O componente deve exibir o nome do produto em um <code>&lt;h3&gt;</code>, o preço em um <code>&lt;p&gt;</code> e, se <code>disponivel</code> for <code>true</code>, um <code>&lt;span&gt;</code> verde com "Em estoque", caso contrário, um <code>&lt;span&gt;</code> vermelho com "Esgotado". Renderize dois produtos: um disponível e outro esgotado.
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Props podem ser de qualquer tipo de dado JavaScript: strings, números, booleanos, arrays, objetos e até mesmo funções.</li>
+                        <li>Para passar valores que não são strings (como números ou booleanos), você deve envolvê-los em chaves <code>{}</code> no JSX.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <pre>
+<strong>Dica:</strong>
+Use um operador ternário (<code>condicao ? valorSeTrue : valorSeFalse</code>) ou um <code>if</code> para renderização condicional baseado na prop <code>disponivel</code>.
+<strong>Sugestão de Extensão:</strong>
+Adicione uma prop <code>quantidade</code> e exiba a quantidade apenas se o produto estiver disponível.
+                </pre>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 12px;">
+                    <a href="respostas/ver.html?file=exej5_5" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                    <a href="respostas/ver.html?file=exej5_5b" target="_blank">Avançado</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex4.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex6.html';
+    });
+
+    fetch('qrrjs005_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

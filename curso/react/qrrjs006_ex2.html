@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 2</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2: Exibindo Informações de Usuário</h1>
+            <ul>
+                <li>Descrição: Crie um componente chamado <code>PerfilUsuario</code> que receba duas props: <code>nome</code> e <code>idade</code>. Este componente deve exibir o nome e a idade do usuário em parágrafos separados.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Você pode passar múltiplas props para um componente. Cada prop é uma propriedade do objeto <code>props</code>.</li>
+                        <li>É comum usar parênteses <code>()</code> ao retornar múltiplos elementos JSX para facilitar a leitura.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function PerfilUsuario(props) {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Nome: {props.nome}&lt;/p&gt;
+      &lt;p&gt;Idade: {props.idade}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;PerfilUsuario nome="Alice" idade={30} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+Ao passar valores numéricos para props, use chaves <code>{}</code>. Por exemplo: <code>idade=&#123;25&#125;</code>.
+<strong>Sugestão de Extensão:</strong>
+Adicione uma terceira prop chamada <code>cidade</code> e exiba-a no componente.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex1.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex3.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

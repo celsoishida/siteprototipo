@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Props Aninhadas (Nested Props)</h1>
+            <ul>
+                <li>Descrição: Crie um componente <code>DadosContato</code> que receba uma prop <code>contato</code>, que será um objeto com as propriedades <code>nome</code>, <code>email</code> e <code>telefone</code>. O componente deve exibir essas informações.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Props podem ser qualquer tipo de dado JavaScript, incluindo objetos e arrays. Você pode passar objetos complexos como props e acessar suas propriedades no componente filho.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function DadosContato(&#123; contato &#125;) {
+  return (
+    &lt;div&gt;
+      &lt;h4&gt;Contato:&lt;/h4&gt;
+      &lt;p&gt;Nome: &#123;contato.nome&#125;&lt;/p&gt;
+      &lt;p&gt;Email: &#123;contato.email&#125;&lt;/p&gt;
+      &lt;p&gt;Telefone: &#123;contato.telefone&#125;&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  const meuContato = &#123;
+    nome: "João Silva",
+    email: "joao.silva@example.com",
+    telefone: "11987654321"
+  &#125;;
+
+  return (
+    &lt;div&gt;
+      &lt;DadosContato contato=&#123;meuContato&#125; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+Quando você tem um objeto complexo como prop, a desestruturação pode ser usada para extrair as propriedades do objeto <code>contato</code> dentro de <code>DadosContato</code> para tornar o código mais limpo.
+<strong>Sugestão de Extensão:</strong>
+Crie um componente <code>Endereco</code> que receba um objeto <code>endereco</code> como prop (com <code>rua</code>, <code>numero</code>, <code>cidade</code>) e o exiba. Em seguida, inclua o <code>Endereco</code> dentro de <code>DadosContato</code>.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex9.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

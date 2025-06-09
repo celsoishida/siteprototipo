@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS003 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10. Listas e Uso de <code>.map()</code></h1>
+            <ul>
+                <li>Descrição: Renderize uma lista de itens com <code>.map()</code>.
+                  <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
+                <li>Conteúdo Teórico: O método <code>.map()</code> ajuda a transformar arrays em elementos JSX.</li>
+                <li>Exemplo de Código:
+                    <pre><code>
+const itens = ["React", "Vue", "Angular"];
+const lista = itens.map((item) =&gt; &lt;li key=&#123;item&#125;&gt;&#123;item&#125;&lt;/li&gt;);
+                    </code></pre>
+                </li>
+                <li><strong>Dica:</strong> Sempre use <code>key</code> ao renderizar listas.</li>
+                <li><strong>Sugestão de Extensão:</strong> Adicione números às listas dinamicamente.</li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <div style="display: flex; justify-content: center; gap: 32px;">
+                    <div>
+                        <pre>
+<strong>Dicas:</strong>
+  Use o método map para transformar arrays em elementos JSX:
+  <code>
+    const itens = ["React", "Vue", "Angular"];
+    const lista = itens.map((item) =&gt; &lt;li key=&#123;item&#125;&gt;&#123;item&#125;&lt;/li&gt;);
+  </code>
+<strong>Sugestão de Extensão:</strong>
+  Adicione números dinamicamente:
+  <code>
+    const lista = itens.map((item, idx) =&gt; &lt;li key=&#123;item&#125;&gt;&#123;idx+1&#125;. &#123;item&#125;&lt;/li&gt;);
+  </code>
+                        </pre>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                        <a href="respostas/ver.html?file=exej10_3" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                        <a href="respostas/ver.html?file=exej10_3b" target="_blank">Avançado</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs003_ex9.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs003_ex11.html';
+    });
+
+    fetch('qrrjs003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

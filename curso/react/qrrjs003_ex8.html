@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS003 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8. Estilização com CSS Inline e Externo</h1>
+            <ul>
+                <li>Descrição: Aplique estilos ao JSX usando CSS inline.
+                  <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
+                <li>Conteúdo Teórico: Podemos estilizar JSX com objetos JavaScript ou classes externas.</li>
+                <li>Exemplo de Código:
+                    <pre><code>
+const estilo = { color: "blue", fontSize: "20px" };
+const elemento = &lt;h1 style=&#123;estilo&#125;&gt;Texto estilizado&lt;/h1&gt;;
+                    </code></pre>
+                </li>
+                <li><strong>Dica:</strong> Use <code>style=&#123;&#123; propriedade: valor &#125;&#125;</code> para estilos inline.</li>
+                <li><strong>Sugestão de Extensão:</strong> Crie uma classe CSS e use <code>className</code>.</li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <div style="display: flex; justify-content: center; gap: 32px;">
+                    <div>
+                        <pre>
+<strong>Dicas:</strong>
+  Para CSS inline, use um objeto JS:
+  <code>
+    const estilo = &#123; color: "blue", fontSize: "20px" &#125;;
+    const elemento = &lt;h1 style=&#123;estilo&#125;&gt;Texto estilizado&lt;/h1&gt;;
+  </code>
+<strong>Sugestão de Extensão:</strong>
+  Crie uma classe CSS e use className:
+  <code>
+    .meu-titulo &#123; color: red; font-size: 24px; &#125;
+    const elemento = &lt;h1 className="meu-titulo"&gt;Texto estilizado&lt;/h1&gt;;
+  </code>
+                        </pre>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                        <a href="respostas/ver.html?file=exej8_3" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                        <a href="respostas/ver.html?file=exej8_3b" target="_blank">Avançado</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs003_ex7.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs003_ex9.html';
+    });
+
+    fetch('qrrjs003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Passando Funções como Props</h1>
+            <ul>
+                <li>Descrição: Crie um componente <code>ContadorDeCliques</code> que exiba um número e um botão. Crie outro componente <code>BotaoIncrementar</code> que receba uma prop <code>onClick</code> (uma função). Quando o botão for clicado, ele deve chamar a função passada via <code>onClick</code>.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Você pode passar funções como props para componentes filhos. Isso é essencial para a comunicação entre componentes, permitindo que componentes filhos "notifiquem" os pais sobre eventos.</li>
+                        <li>No React, eventos (como <code>onClick</code>, <code>onChange</code>, etc.) são passados como atributos JSX, com o nome do evento em camelCase. O valor é uma função.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React, &#123; useState &#125; from 'react';
+
+function BotaoIncrementar(&#123; onClick &#125;) {
+  return (
+    &lt;button onClick=&#123;onClick&#125;&gt;
+      Incrementar
+    &lt;/button&gt;
+  );
+}
+
+function ContadorDeCliques() {
+  const [contador, setContador] = useState(0);
+
+  const handleClick = () =&gt; {
+    setContador(contador + 1);
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Cliques: &#123;contador&#125;&lt;/p&gt;
+      &lt;BotaoIncrementar onClick=&#123;handleClick&#125; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;Contador:&lt;/h3&gt;
+      &lt;ContadorDeCliques /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+O <code>useState</code> é um Hook do React que permite adicionar estado a componentes funcionais. Não se preocupe muito com ele agora, o foco é entender como as funções são passadas como props.
+<strong>Sugestão de Extensão:</strong>
+Adicione um botão "Decrementar" que também receba uma função via props para diminuir o contador.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex7.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex9.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

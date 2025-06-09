@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 3: Renderização Condicional com Props</h1>
+            <ul>
+                <li>Descrição: Crie um componente <code>StatusOnline</code> que receba uma prop booleana <code>isOnline</code>. Se <code>isOnline</code> for <code>true</code>, o componente deve exibir "Usuário Online". Caso contrário, deve exibir "Usuário Offline". Use uma renderização condicional simples.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Você pode usar expressões JavaScript dentro do JSX, incluindo operadores ternários (<code>condicao ? valorSeVerdadeiro : valorSeFalso</code>) para renderização condicional baseada em props.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function StatusOnline(props) {
+  return (
+    &lt;div&gt;
+      {props.isOnline ? &lt;p&gt;Usuário Online&lt;/p&gt; : &lt;p&gt;Usuário Offline&lt;/p&gt;}
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;StatusOnline isOnline=&#123;true&#125; /&gt;
+      &lt;StatusOnline isOnline=&#123;false&#125; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+Lembre-se que booleanos também são passados entre chaves <code>{}</code>.
+<strong>Sugestão de Extensão:</strong>
+Adicione um estilo diferente (cor, por exemplo) para a mensagem "Online" e "Offline".
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex2.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex4.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

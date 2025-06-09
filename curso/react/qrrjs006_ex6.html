@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Props com Valores Padrão</h1>
+            <ul>
+                <li>Descrição: Crie um componente <code>Botao</code> que receba uma prop <code>texto</code>. Se a prop <code>texto</code> não for fornecida, o botão deve exibir "Clique aqui".
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Você pode definir <strong>valores padrão para props</strong> de duas maneiras principais:</li>
+                        <li><strong>Dentro da desestruturação:</strong> Usando o operador de atribuição de valor padrão (<code>=</code>) diretamente na desestruturação das props. Ex: <code>function Botao(&#123; texto = "Valor Padrão" &#125;) &#123; ... &#125;</code>.</li>
+                        <li><strong><code>defaultProps</code>:</strong> Uma propriedade estática no componente que define valores padrão. Embora ainda funcione, a desestruturação com valores padrão é mais moderna e preferida para componentes funcionais.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function Botao(&#123; texto = "Clique aqui" &#125;) {
+  return &lt;button&gt;&#123;texto&#125;&lt;/button&gt;;
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Botao texto="Enviar" /&gt;
+      &lt;Botao /&gt; {/* Não passa a prop texto */}
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+Valores padrão são úteis para tornar seus componentes mais robustos e flexíveis.
+<strong>Sugestão de Extensão:</strong>
+Adicione uma prop <code>cor</code> ao botão com um valor padrão, por exemplo, "azul".
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex5.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex7.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

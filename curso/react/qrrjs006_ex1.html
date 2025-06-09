@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Minha Primeira Prop</h1>
+            <ul>
+                <li>Descrição: Crie um componente funcional chamado <code>Saudacao</code> que exiba uma mensagem de saudação. Esta mensagem deve ser passada para o componente através de uma prop chamada <code>mensagem</code>. Exiba a mensagem dentro de um <code>&lt;h2&gt;</code>.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Props</strong> (abreviação de "properties") são argumentos que você passa para componentes React. Elas permitem que você envie dados de um componente pai para um componente filho, tornando os componentes reutilizáveis e dinâmicos.</li>
+                        <li>Componentes funcionais recebem as props como um único objeto JavaScript no seu primeiro argumento.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function Saudacao(props) {
+  return &lt;h2&gt;{props.mensagem}&lt;/h2&gt;;
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Saudacao mensagem="Olá, mundo do React!" /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+Lembre-se que as props são acessadas como propriedades de um objeto. Por exemplo, se você tem uma prop chamada <code>nome</code>, você a acessa como <code>props.nome</code>.
+<strong>Sugestão de Extensão:</strong>
+Crie uma nova instância do componente <code>Saudacao</code> passando uma mensagem diferente.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex2.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

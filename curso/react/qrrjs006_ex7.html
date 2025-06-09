@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS006 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Children Prop</h1>
+            <ul>
+                <li>Descrição: Crie um componente <code>Card</code> que receba qualquer conteúdo aninhado (filhos) como uma prop especial chamada <code>children</code>. O <code>Card</code> deve envolver esse conteúdo em um <code>&lt;div&gt;</code> com uma borda simples.
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>A prop especial <code>children</code> permite que você passe elementos ou componentes para dentro de outros componentes, tornando-os como "envelopes" ou "contêineres".</li>
+                        <li>O conteúdo entre as tags de abertura e fechamento de um componente React (por exemplo, <code>&lt;Card&gt;Este é o conteúdo do card&lt;/Card&gt;</code>) é acessível via <code>props.children</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// App.js
+import React from 'react';
+
+function Card(&#123; children &#125;) {
+  const cardStyle = &#123;
+    border: '1px solid #ccc',
+    padding: '15px',
+    margin: '10px',
+    borderRadius: '5px'
+  &#125;;
+
+  return (
+    &lt;div style=&#123;cardStyle&#125;&gt;
+      &#123;children&#125;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Card&gt;
+        &lt;h3&gt;Título do Card&lt;/h3&gt;
+        &lt;p&gt;Este é o conteúdo principal do meu card.&lt;/p&gt;
+      &lt;/Card&gt;
+
+      &lt;Card&gt;
+        &lt;p&gt;Um card mais simples com apenas um parágrafo.&lt;/p&gt;
+      &lt;/Card&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+<br>
+            <pre>
+<strong>Dicas:</strong>
+A prop <code>children</code> é superpoderosa para criar layouts flexíveis e componentes reutilizáveis.
+<strong>Sugestão de Extensão:</strong>
+Adicione uma prop <code>titulo</code> ao <code>Card</code> e exiba-a acima do <code>children</code>.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex6.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs006_ex8.html';
+    });
+
+    fetch('qrrjs006_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

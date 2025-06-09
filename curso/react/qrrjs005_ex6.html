@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS005 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Composição de Componentes</h1>
+            <ul>
+                <li>Descrição: Crie um componente funcional <code>Pagina</code> que renderize um componente <code>Cabecalho</code> (com um <code>&lt;h1&gt;</code> "Minha Loja Online") e um componente <code>Rodape</code> (com um <code>&lt;p&gt;</code> "© 2025 Minha Loja"). Dentro da <code>Pagina</code>, entre o cabeçalho e o rodapé, renderize <strong>três</strong> instâncias do componente <code>Produto</code> (do Exercício 5), cada um com dados diferentes.
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li><strong>Composição de componentes</strong> é a prática de construir componentes maiores a partir de componentes menores e mais simples. Isso promove a reutilização, a modularidade e a legibilidade do código.</li>
+                        <li>Em vez de ter um único componente gigante, você divide a interface em componentes menores e mais gerenciáveis, e então os "compõe" juntos para formar a interface final.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+            <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+            <div id="resposta-content" style="display:none;">
+                <pre>
+<strong>Dica:</strong>
+Você precisará criar os componentes <code>Cabecalho</code> e <code>Rodape</code> e então importá-los e usá-los dentro do componente <code>Pagina</code>, junto com os componentes <code>Produto</code>.
+<strong>Sugestão de Extensão:</strong>
+Crie um componente <code>MenuNavegacao</code> e inclua-o no <code>Cabecalho</code>.
+                </pre>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 12px;">
+                    <a href="respostas/ver.html?file=exej5_6" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                    <a href="respostas/ver.html?file=exej5_6b" target="_blank">Avançado</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex5.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs005_ex7.html';
+    });
+
+    fetch('qrrjs005_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise1dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>
