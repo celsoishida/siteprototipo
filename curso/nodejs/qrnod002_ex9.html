@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD002 - Exercício 9 - MySQL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Organizando o Código em Funções Modularizadas</h1>
+            <ul>
+                <li>
+                    <b>Descrição:</b> Refatore o seu <b>app.js</b> para organizar as funções de CRUD (Create, Read, Update, Delete) em arquivos separados (e.g., <b>db.js</b> para a conexão, <b>userRepository.js</b> para as operações da tabela Usuario).
+                </li>
+                <li>
+                    <b>Conteúdo Teórico:</b>
+                    <ul>
+                        <li><b>Modularização:</b> Dividir um programa em módulos independentes, cada um com uma responsabilidade específica. Isso torna o código mais organizado, reutilizável e fácil de manter.</li>
+                        <li><b>module.exports:</b> Objeto usado para exportar módulos no Node.js.</li>
+                        <li><b>require():</b> Função usada para importar módulos em Node.js.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+<b>Exemplo de Código:</b>
+Crie um arquivo <b>db.js</b>:
+<code>
+// db.js
+const mysql = require('mysql2/promise');
+const pool = mysql.createPool({
+host: 'localhost',
+user: 'root',
+password: '',
+database: 'api_nodejs_db',
+waitForConnections: true,
+connectionLimit: 10,
+queueLimit: 0
+});
+async function getConnection() {
+return await pool.getConnection();
+}
+module.exports = {
+getConnection
+};
+</code>
+Crie um arquivo <b>userRepository.js</b>:
+<code>
+// userRepository.js
+const { getConnection } = require('./db');
+async function insertUser(userData) {
+let connection;
+try {
+connection = await getConnection();
+const sql = "INSERT INTO Usuario (Nome, Email, CPF, DDD, Telefone, DataNiver, Obs) VALUES (?, ?, ?, ?, ?, ?, ?)";
+const values = [
+userData.Nome,
+userData.Email,
+userData.CPF,
+userData.DDD,
+userData.Telefone,
+userData.DataNiver,
+userData.Obs
+];
+const [rows] = await connection.execute(sql, values);
+return rows.insertId;
+} finally {
+if (connection) connection.release(); // Libera a conexão de volta para o pool
+}
+}
+async function getAllUsers() {
+let connection;
+try {
+connection = await getConnection();
+const [rows] = await connection.execute('SELECT * FROM Usuario');
+return rows;
+} finally {
+if (connection) connection.release();
+}
+}
+async function findUserById(id) {
+let connection;
+try {
+connection = await getConnection();
+const sql = "SELECT * FROM Usuario WHERE Id = ?";
+const [rows] = await connection.execute(sql, [id]);
+return rows[0] || null;
+} finally {
+if (connection) connection.release();
+}
+}
+async function updateUser(id, newData) {
+let connection;
+try {
+connection = await getConnection();
+const fields = Object.keys(newData).map(key => `${key} = ?`).join(', ');
+const values = Object.values(newData);
+values.push(id);
+const sql = `UPDATE Usuario SET ${fields} WHERE Id = ?`;
+const [result] = await connection.execute(sql, values);
+return result.affectedRows > 0;
+} finally {
+if (connection) connection.release();
+}
+}
+async function deleteUser(id) {
+let connection;
+try {
+connection = await getConnection();
+const sql = "DELETE FROM Usuario WHERE Id = ?";
+const [result] = await connection.execute(sql, [id]);
+return result.affectedRows > 0;
+} finally {
+if (connection) connection.release();
+}
+}
+module.exports = {
+insertUser,
+getAllUsers,
+findUserById,
+updateUser,
+deleteUser
+};
+</code>
+Modifique o <b>app.js</b> para usar os módulos:
+<code>
+// app.js
+const userRepository = require('./userRepository');
+async function main() {
+try {
+// Inserir um usuário
+const newUserId = await userRepository.insertUser({
+Nome: 'Maria Souza',
+Email: 'maria.souza@example.com',
+CPF: '11122233344',
+DDD: 21,
+Telefone: 912345678,
+DataNiver: '1992-11-20',
+Obs: 'Nova aluna'
+});
+console.log(`Usuário inserido com ID: ${newUserId}`);
+    // Listar todos os usuários
+    const users = await userRepository.getAllUsers();
+    console.log('\nTodos os usuários:');
+    users.forEach(user => console.log(`ID: ${user.Id}, Nome: ${user.Nome}, Email: ${user.Email}`));
+
+    // Buscar usuário por ID
+    const userFound = await userRepository.findUserById(newUserId);
+    if (userFound) {
+        console.log(`\nUsuário encontrado por ID ${newUserId}:`, userFound);
+    }
+
+    // Atualizar usuário
+    const updated = await userRepository.updateUser(newUserId, {
+        Nome: 'Maria Souza Pires',
+        Email: 'maria.pires@example.com'
+    });
+    if (updated) {
+        console.log(`\nUsuário com ID ${newUserId} atualizado.`);
+    }
+
+    // Excluir usuário
+    const deleted = await userRepository.deleteUser(newUserId);
+    if (deleted) {
+        console.log(`\nUsuário com ID ${newUserId} excluído.`);
+    }
+
+    // Listar novamente para confirmar exclusão
+    const remainingUsers = await userRepository.getAllUsers();
+    console.log('\nUsuários restantes:');
+    remainingUsers.forEach(user => console.log(`ID: ${user.Id}, Nome: ${user.Nome}, Email: ${user.Email}`));
+
+} catch (error) {
+    console.error('Erro na execução principal:', error);
+}
+}
+main();
+</code>
+<b>Dica:</b>
+Preste atenção nos caminhos (<b>./db</b> e <b>./userRepository</b>) ao importar os módulos. Eles devem refletir a estrutura de pastas do seu projeto.
+<b>Sugestão de Extensão:</b>
+Crie um módulo <b>errorHandler.js</b> para centralizar o tratamento de erros em um único local.
+</pre>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

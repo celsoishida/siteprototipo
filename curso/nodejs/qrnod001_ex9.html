@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Lidando com Múltiplos Middlewares em uma Rota</h1>
+            <ul>
+                <li>Descrição: Crie uma rota <code>/informacao-avancada</code> que utilize dois middlewares antes de sua função de rota final. O primeiro middleware deve registrar "Primeiro middleware executado.", e o segundo deve registrar "Segundo middleware executado.". A função de rota final deve responder com "Informação avançada.".</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Você pode passar múltiplas funções de middleware para um método de rota (como <code>app.get()</code>). Elas serão executadas em sequência.</li>
+                        <li>Cada middleware precisa chamar <code>next()</code> para passar o controle para o próximo middleware ou para a função de rota final.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+const primeiroMiddleware = (req, res, next) => {
+  console.log('Primeiro middleware executado.');
+  next();
+};
+const segundoMiddleware = (req, res, next) => {
+  console.log('Segundo middleware executado.');
+  next();
+};
+app.get('/informacao-avancada', primeiroMiddleware, segundoMiddleware, (req, res) => {
+  res.send('Informação avançada.');
+});
+</code>
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Verifique a ordem dos logs no seu terminal para confirmar a sequência de execução dos middlewares.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Faça com que o primeiro middleware adicione uma propriedade ao objeto <code>req</code> (ex: <code>req.dados = 'algum dado'</code>) e o segundo middleware use essa propriedade para fazer alguma lógica.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Verifique a ordem dos logs no seu terminal para confirmar a sequência de execução dos middlewares.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex8.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex10.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

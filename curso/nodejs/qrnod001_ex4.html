@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 4</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 4: Usando Query Parameters</h1>
+            <ul>
+                <li>Descrição: Crie uma rota <code>/pesquisar</code> que receba um termo de busca como um query parameter (<code>?termo=valor</code>). A resposta deve ser "Você pesquisou por: [valor do termo]". Se nenhum termo for fornecido, responda "Nenhum termo de pesquisa fornecido.".</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Query parameters (parâmetros de consulta) são pares chave-valor anexados à URL após um ponto de interrogação (?). Eles são usados para filtrar, classificar ou passar dados adicionais em uma requisição GET.</li>
+                        <li>Você pode acessá-los através de <code>req.query</code>. Por exemplo, para <code>?categoria=livros</code>, <code>req.query.categoria</code> seria "livros".</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+app.get('/pesquisar', (req, res) => {
+  const termo = req.query.termo;
+  if (termo) {
+    res.send(`Você pesquisou por: ${termo}`);
+  } else {
+    res.send('Nenhum termo de pesquisa fornecido.');
+  }
+});
+</code>
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Verifique se o <code>req.query.termo</code> existe antes de usá-lo para evitar erros.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Permita múltiplos query parameters, por exemplo, <code>/produtos?categoria=eletronicos&amp;marca=samsung</code>.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Verifique se o <code>req.query.termo</code> existe antes de usá-lo para evitar erros.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex3.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex5.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

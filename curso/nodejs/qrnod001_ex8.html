@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Rota para Erro 404 (Not Found)</h1>
+            <ul>
+                <li>Descrição: Configure uma rota "coringa" no final do seu arquivo de rotas que lide com todas as requisições para rotas não definidas. Esta rota deve retornar um status 404 e a mensagem "Rota não encontrada.".</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>No Express, a ordem das rotas importa. A primeira rota que corresponde à URL da requisição será executada.</li>
+                        <li>Você pode usar <code>app.use()</code> sem um caminho específico ou com <code>*</code> como último <code>app.get()</code> para capturar todas as requisições que não foram tratadas por rotas anteriores.</li>
+                        <li>Retornar um status 404 é uma prática padrão para indicar que o recurso solicitado não foi encontrado.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// Suas rotas normais aqui...
+app.get('/', (req, res) => {
+  res.send('Página inicial.');
+});
+// ... outras rotas ...
+// Rota 404 - SEMPRE no final
+app.use((req, res, next) => {
+  res.status(404).send('Rota não encontrada.');
+});
+</code>
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Qualquer rota que você digitar no navegador que não esteja explicitamente definida em seu código deve cair nesta rota 404.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Em vez de apenas uma mensagem de texto, envie um objeto JSON com uma mensagem de erro e o status.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Qualquer rota que você digitar no navegador que não esteja explicitamente definida em seu código deve cair nesta rota 404.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex7.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex9.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD002 - Exercício 4 - MySQL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 4: Inserindo Dados na Tabela Usuario (INSERT)</h1>
+            <ul>
+                <li>
+                    <b>Descrição:</b> Modifique o <b>app.js</b> para inserir um novo usuário na tabela <b>Usuario</b>. Após a inserção, exiba uma mensagem de sucesso no console.
+                </li>
+                <li>
+                    <b>Conteúdo Teórico:</b>
+                    <ul>
+                        <li>A operação <b>INSERT</b> é usada para adicionar novas linhas (registros) a uma tabela.</li>
+                        <li><b>connection.execute(sql, [values])</b>: É o método recomendado para executar consultas SQL parametrizadas no mysql2. Ele ajuda a prevenir ataques de injeção de SQL, substituindo os <b>?</b> pelos valores fornecidos no array.</li>
+                        <li>O resultado de um <b>INSERT</b> geralmente inclui informações sobre o número de linhas afetadas e o ID gerado (se for uma chave primária <b>AUTO_INCREMENT</b>).</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+<b>Exemplo de Código:</b>
+<code>
+// app.js
+const mysql = require('mysql2/promise');
+async function insertUser() {
+let connection;
+try {
+connection = await mysql.createConnection({
+host: 'localhost',
+user: 'root',
+password: '',
+database: 'api_nodejs_db'
+});
+    const newUser = {
+        Nome: 'João Silva',
+        Email: 'joao.silva@example.com',
+        CPF: '12345678901',
+        DDD: 11,
+        Telefone: 987654321,
+        DataNiver: '1990-05-15',
+        Obs: 'Aluno dedicado'
+    };
+
+    const sql = `INSERT INTO Usuario (Nome, Email, CPF, DDD, Telefone, DataNiver, Obs) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    const values = [
+        newUser.Nome,
+        newUser.Email,
+        newUser.CPF,
+        newUser.DDD,
+        newUser.Telefone,
+        newUser.DataNiver,
+        newUser.Obs
+    ];
+
+    const [rows] = await connection.execute(sql, values);
+    console.log(`Usuário "${newUser.Nome}" inserido com sucesso! ID: ${rows.insertId}`);
+
+} catch (error) {
+    console.error('Erro ao inserir usuário:', error);
+} finally {
+    if (connection) {
+        await connection.end();
+    }
+}
+}
+insertUser();
+</code>
+<b>Dica:</b>
+Execute o código várias vezes e observe que um novo ID será gerado para cada inserção. Para evitar erros de UNIQUE no Email, altere o email para cada execução.
+<b>Sugestão de Extensão:</b>
+Crie uma função que receba os dados do novo usuário como parâmetros e a utilize para inserir múltiplos usuários.
+</pre>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

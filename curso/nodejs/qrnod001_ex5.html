@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Lidando com Requisições POST</h1>
+            <ul>
+                <li>Descrição: Crie uma rota <code>/enviar-dados</code> que aceite requisições POST. Quando uma requisição POST é feita para essa rota, o servidor deve responder com a mensagem "Dados recebidos com sucesso!". Por enquanto, não se preocupe em ler os dados enviados no corpo da requisição.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Requisições POST são usadas para enviar dados para o servidor, geralmente para criar ou atualizar recursos.</li>
+                        <li><code>app.post(path, callback)</code> é o método do Express para lidar com requisições POST.</li>
+                        <li>Para testar requisições POST, você precisará de uma ferramenta como o Postman, Insomnia, ou a extensão Thunder Client no VS Code, ou até mesmo um formulário HTML básico.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Lembre-se de iniciar seu servidor e usar uma ferramenta externa para fazer a requisição POST. Um navegador web por padrão faz requisições GET.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Crie um formulário HTML simples que faça uma requisição POST para essa rota.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Lembre-se de iniciar seu servidor e usar uma ferramenta externa para fazer a requisição POST. Um navegador web por padrão faz requisições GET.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex4.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex6.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

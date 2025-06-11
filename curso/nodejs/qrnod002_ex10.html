@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD002 - Exercício 10 - MySQL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Tratamento de Erros e Conexão Robusta</h1>
+            <ul>
+                <li>
+                    <b>Descrição:</b> Adicione tratamento de erros mais robusto em todas as operações do <b>userRepository.js</b>. Garanta que a conexão com o banco de dados seja sempre liberada de volta para o pool, mesmo em caso de erro.
+                </li>
+                <li>
+                    <b>Conteúdo Teórico:</b>
+                    <ul>
+                        <li><b>Pool de Conexões:</b> Uma coleção de conexões de banco de dados pré-abertas e reutilizáveis. Em vez de abrir e fechar uma nova conexão para cada operação, sua aplicação solicita uma conexão do pool, a utiliza e depois a libera de volta para o pool. Isso melhora a performance e a escalabilidade.</li>
+                        <li><b>connection.release():</b> Libera uma conexão de volta para o pool, tornando-a disponível para outras operações. É crucial chamá-lo no bloco finally para garantir que a conexão seja sempre liberada.</li>
+                        <li>Tratamento de erros explícito em cada função assíncrona.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+<b>Exemplo de Código:</b>
+db.js (já está usando pool, mas revise o getConnection para garantir release nos exemplos anteriores):
+<code>
+// db.js
+const mysql = require('mysql2/promise');
+const pool = mysql.createPool({
+host: 'localhost',
+user: 'root',
+password: '',
+database: 'api_nodejs_db',
+waitForConnections: true,
+connectionLimit: 10, // Define o número máximo de conexões no pool
+queueLimit: 0 // Onde 0 significa sem limite para a fila de espera
+});
+async function getConnection() {
+try {
+const connection = await pool.getConnection();
+return connection;
+} catch (error) {
+console.error('Erro ao obter conexão do pool:', error);
+throw error; // Propagar o erro
+}
+}
+module.exports = {
+getConnection
+};
+</code>
+userRepository.js (com tratamento de erros aprimorado e finally para release):
+<code>
+// userRepository.js
+const { getConnection } = require('./db');
+async function insertUser(userData) {
+let connection;
+try {
+connection = await getConnection();
+const sql = "INSERT INTO Usuario (Nome, Email, CPF, DDD, Telefone, DataNiver, Obs) VALUES (?, ?, ?, ?, ?, ?, ?)";
+const values = [
+userData.Nome,
+userData.Email,
+userData.CPF,
+userData.DDD,
+userData.Telefone,
+userData.DataNiver,
+userData.Obs
+];
+const [rows] = await connection.execute(sql, values);
+return rows.insertId;
+} catch (error) {
+console.error('Erro ao inserir usuário:', error);
+throw error; // Re-lança o erro para ser tratado pela função que chamou
+} finally {
+if (connection) connection.release(); // Garante que a conexão é liberada
+}
+}
+async function getAllUsers() {
+let connection;
+try {
+connection = await getConnection();
+const [rows] = await connection.execute('SELECT * FROM Usuario');
+return rows;
+} catch (error) {
+console.error('Erro ao buscar todos os usuários:', error);
+throw error;
+} finally {
+if (connection) connection.release();
+}
+}
+async function findUserById(id) {
+let connection;
+try {
+connection = await getConnection();
+const sql = "SELECT * FROM Usuario WHERE Id = ?";
+const [rows] = await connection.execute(sql, [id]);
+return rows[0] || null;
+} catch (error) {
+console.error(`Erro ao buscar usuário com ID ${id}:`, error);
+throw error;
+} finally {
+if (connection) connection.release();
+}
+}
+async function updateUser(id, newData) {
+let connection;
+try {
+connection = await getConnection();
+const fields = Object.keys(newData).map(key => `${key} = ?`).join(', ');
+const values = Object.values(newData);
+values.push(id);
+const sql = `UPDATE Usuario SET ${fields} WHERE Id = ?`;
+const [result] = await connection.execute(sql, values);
+return result.affectedRows > 0;
+} catch (error) {
+console.error(`Erro ao atualizar usuário com ID ${id}:`, error);
+throw error;
+} finally {
+if (connection) connection.release();
+}
+}
+async function deleteUser(id) {
+let connection;
+try {
+connection = await getConnection();
+const sql = "DELETE FROM Usuario WHERE Id = ?";
+const [result] = await connection.execute(sql, [id]);
+return result.affectedRows > 0;
+} catch (error) {
+console.error(`Erro ao excluir usuário com ID ${id}:`, error);
+throw error;
+} finally {
+if (connection) connection.release();
+}
+}
+module.exports = {
+insertUser,
+getAllUsers,
+findUserById,
+updateUser,
+deleteUser
+};
+</code>
+app.js (o main já usa try...catch):
+<code>
+// app.js
+const userRepository = require('./userRepository');
+async function main() {
+try {
+// Exemplo de como chamar as funções e lidar com erros
+const newUserId = await userRepository.insertUser({
+Nome: 'Carlos Almeida',
+Email: 'carlos.almeida@example.com',
+CPF: '55566677788',
+DDD: 31,
+Telefone: 999887766,
+DataNiver: '1988-03-25',
+Obs: 'Testando tratamento de erro'
+});
+console.log(`Usuário inserido com ID: ${newUserId}`);
+    // Tentar inserir um usuário com email duplicado para testar erro de UNIQUE
+    try {
+        await userRepository.insertUser({
+            Nome: 'Carlos Duplicado',
+            Email: 'carlos.almeida@example.com', // Email duplicado
+            CPF: '99988877766',
+            DDD: 31,
+            Telefone: 999887766,
+            DataNiver: '1988-03-25',
+            Obs: 'Testando tratamento de erro'
+        });
+    } catch (error) {
+        console.warn('\nErro esperado ao inserir usuário duplicado (email):', error.message);
+    }
+
+    // Listar todos os usuários
+    const users = await userRepository.getAllUsers();
+    console.log('\nTodos os usuários:');
+    users.forEach(user => console.log(`ID: ${user.Id}, Nome: ${user.Nome}, Email: ${user.Email}`));
+
+} catch (error) {
+    console.error('\nErro fatal na execução principal:', error);
+}
+}
+main();
+</code>
+<b>Dica:</b>
+Sempre use try...catch em operações que podem falhar e finally para garantir a liberação de recursos (como a conexão do banco).
+<b>Sugestão de Extensão:</b>
+Implemente um sistema de logging (como winston ou pino) para registrar erros e informações importantes da aplicação.
+</pre>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

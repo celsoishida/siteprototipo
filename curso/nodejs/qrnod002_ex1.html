@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD002 - Exercício 1 - MySQL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Preparando o Ambiente MySQL</h1>
+            <ul>
+                <li>
+                    <b>Descrição:</b> Configure um servidor MySQL localmente (usando XAMPP, Docker, ou instalação direta) e crie um banco de dados chamado <b>api_nodejs_db</b>. Em seguida, execute o script SQL para criar a tabela <b>Usuario</b>.
+                </li>
+                <li>
+                    <b>Conteúdo Teórico:</b>
+                    <ul>
+                        <li>Antes de conectar o Node.js a um banco de dados, precisamos ter o banco de dados e as tabelas criadas. O MySQL é um sistema de gerenciamento de banco de dados relacional muito popular.</li>
+                        <li>SQL (Structured Query Language) é a linguagem padrão para gerenciar dados em bancos de dados relacionais.</li>
+                        <li>A instrução <b>CREATE DATABASE</b> é usada para criar um novo banco de dados.</li>
+                        <li>A instrução <b>CREATE TABLE</b> é usada para criar uma nova tabela.</li>
+                        <li><b>AUTO_INCREMENT</b>: Garante que o Id seja automaticamente incrementado para cada novo registro.</li>
+                        <li><b>PRIMARY KEY</b>: Define uma coluna como chave primária, garantindo unicidade e otimizando buscas.</li>
+                        <li><b>NOT NULL</b>: Impede que a coluna tenha um valor nulo.</li>
+                        <li><b>UNIQUE</b>: Garante que todos os valores na coluna sejam diferentes.</li>
+                        <li><b>NULL</b>: Permite que a coluna tenha um valor nulo.</li>
+                        <li><b>VARCHAR(n)</b>: Tipo de dado para armazenar strings de caracteres de comprimento variável, com um limite de n caracteres.</li>
+                        <li><b>CHAR(n)</b>: Tipo de dado para armazenar strings de caracteres de comprimento fixo de n caracteres.</li>
+                        <li><b>SMALLINT</b>: Tipo de dado para números inteiros pequenos.</li>
+                        <li><b>NUMERIC(p,s)</b>: Tipo de dado para números com precisão e escala definidas. No seu caso, NUMERIC(9) significa 9 dígitos no total.</li>
+                        <li><b>DATE</b>: Tipo de dado para armazenar datas no formato 'YYYY-MM-DD'.</li>
+                        <li><b>TEXT</b>: Tipo de dado para armazenar grandes blocos de texto.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+<b>Exemplo de Código (SQL para criar o banco e a tabela):</b>
+<code>
+-- Crie o banco de dados
+CREATE DATABASE IF NOT EXISTS api_nodejs_db;
+-- Use o banco de dados recém-criado
+USE api_nodejs_db;
+-- Crie a tabela Usuario
+CREATE TABLE IF NOT EXISTS Usuario (
+Id INT AUTO_INCREMENT PRIMARY KEY,
+Nome VARCHAR(200) NOT NULL,
+Email VARCHAR(250) UNIQUE NOT NULL,
+CPF CHAR(11) NULL,
+DDD SMALLINT NULL,
+Telefone NUMERIC(9) NULL,
+DataNiver DATE NULL,
+Obs TEXT null
+);
+</code>
+<b>Dica:</b>
+Você pode usar ferramentas como o MySQL Workbench, phpMyAdmin (se estiver com XAMPP) ou a linha de comando do MySQL para executar esses comandos SQL.
+<b>Sugestão de Extensão:</b>
+Pesquise sobre outros tipos de dados em MySQL e tente criar uma tabela simples com diferentes tipos.
+</pre>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

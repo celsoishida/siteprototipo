@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD002 - Exercício 8 - MySQL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Excluindo um Usuário (DELETE)</h1>
+            <ul>
+                <li>
+                    <b>Descrição:</b> Implemente uma função que receba um <b>Id</b> e exclua o usuário correspondente da tabela <b>Usuario</b>. Informe se a exclusão foi bem-sucedida ou se o usuário não foi encontrado.
+                </li>
+                <li>
+                    <b>Conteúdo Teórico:</b>
+                    <ul>
+                        <li>A operação <b>DELETE</b> é usada para remover registros existentes de uma tabela.</li>
+                        <li><b>DELETE FROM &lt;nome-da-tabela&gt; WHERE &lt;condição&gt;</b>: Remove as linhas que satisfazem a condição.</li>
+                        <li><b>ATENÇÃO:</b> Use DELETE com WHERE sempre, ou você removerá todas as linhas da tabela!</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+<b>Exemplo de Código:</b>
+<code>
+// app.js
+const mysql = require('mysql2/promise');
+async function deleteUser(id) {
+let connection;
+try {
+connection = await mysql.createConnection({
+host: 'localhost',
+user: 'root',
+password: '',
+database: 'api_nodejs_db'
+});
+    const sql = `DELETE FROM Usuario WHERE Id = ?`;
+    const [result] = await connection.execute(sql, [id]);
+
+    if (result.affectedRows > 0) {
+        console.log(`Usuário com ID ${id} excluído com sucesso!`);
+    } else {
+        console.log(`Nenhum usuário encontrado com ID ${id} para excluir.`);
+    }
+
+} catch (error) {
+    console.error('Erro ao excluir usuário:', error);
+} finally {
+    if (connection) {
+        await connection.end();
+    }
+}
+}
+// Teste a função
+async function runDelete() {
+// Insira um usuário para ter algo para excluir
+await insertUser();
+// Liste todos os usuários para ver os IDs
+await listUsers();
+
+// Escolha um ID para excluir
+const userToDeleteId = 1; // Substitua pelo ID de um usuário existente
+
+await deleteUser(userToDeleteId);
+
+// Tente buscar o usuário excluído para confirmar
+await findUserById(userToDeleteId);
+
+// Liste todos os usuários novamente para ver a mudança
+await listUsers();
+}
+runDelete();
+</code>
+<b>Dica:</b>
+Sempre liste os usuários antes e depois da exclusão para confirmar o efeito da operação.
+<b>Sugestão de Extensão:</b>
+Implemente um prompt para que o usuário confirme a exclusão antes de executá-la, como uma medida de segurança.
+</pre>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

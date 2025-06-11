@@ -1,0 +1,17 @@
+create database cursonode;
+CREATE TABLE cursonode.Curso LIKE Curso;
+INSERT INTO cursonode.Curso
+SELECT * FROM Curso;
+
+
+CREATE USER 'usucursonode'@'%' IDENTIFIED BY 'ma52wsy1ael%6s&nHa12345';
+GRANT USAGE ON cursonode.* TO 'usucursonode'@'%';
+
+GRANT SELECT ON cursonode.Curso TO 'usucursonode'@'%';
+
+GRANT EXECUTE ON PROCEDURE cursonode.cursosel TO 'usucursonode'@'%';
+FLUSH PRIVILEGES;
+
+
+http://localhost:5002/librasapi/cursosufpr
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Middleware para Autenticação Simples</h1>
+            <ul>
+                <li>Descrição: Crie um middleware que verifique se um header <code>Authorization</code> está presente na requisição. Se estiver, chame <code>next()</code>. Caso contrário, retorne um status 401 (Unauthorized) com a mensagem "Acesso não autorizado.". Aplique este middleware a uma rota específica, por exemplo, <code>/secreta</code>.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Headers HTTP são pares nome-valor que contêm informações contextuais sobre a requisição ou resposta.</li>
+                        <li>Você pode acessar os headers da requisição através de <code>req.headers</code>. Por exemplo, <code>req.headers.authorization</code>.</li>
+                        <li><code>res.status(statusCode)</code> define o status HTTP da resposta.</li>
+                        <li><code>res.send()</code> ou <code>res.json()</code> envia o corpo da resposta.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+const verificaAuth = (req, res, next) => {
+  const token = req.headers.authorization;
+  if (token) {
+    console.log('Token de autorização presente.');
+    next();
+  } else {
+    res.status(401).send('Acesso não autorizado. Token de autorização ausente.');
+  }
+};
+app.get('/secreta', verificaAuth, (req, res) => {
+  res.send('Bem-vindo à página secreta!');
+});
+</code>
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Para testar, use uma ferramenta como Postman e adicione um header <code>Authorization</code> com qualquer valor.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Faça com que o middleware verifique se o valor do token é "meu-token-secreto".
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Para testar, use uma ferramenta como Postman e adicione um header <code>Authorization</code> com qualquer valor.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex6.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex8.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

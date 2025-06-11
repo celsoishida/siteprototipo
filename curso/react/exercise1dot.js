@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 100);
 
-  /**
-   * Highlights the dot corresponding to the current page
-   */
   function highlightCurrentDot() {
     try {
       // Clear any existing highlights first
@@ -23,16 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Map filenames to their corresponding dot IDs
       const exerciseMap = {
-        'qrrjs003_ex1.html': 'dot-ex1',
-        'qrrjs003_ex2.html': 'dot-ex2',
-        'qrrjs003_ex3.html': 'dot-ex3',
-        'qrrjs003_ex4.html': 'dot-ex4',
-        'qrrjs003_ex5.html': 'dot-ex5',
-        'qrrjs003_ex6.html': 'dot-ex6',
-        'qrrjs003_ex7.html': 'dot-ex7',
-        'qrrjs003_ex8.html': 'dot-ex8',
-        'qrrjs003_ex9.html': 'dot-ex9',
-        'qrrjs003_ex10.html': 'dot-ex10'
+        'qrrjs005_ex1.html': 'dot-ex1',
+        'qrrjs005_ex2.html': 'dot-ex2',
+        'qrrjs005_ex3.html': 'dot-ex3',
+        'qrrjs005_ex4.html': 'dot-ex4',
+        'qrrjs005_ex5.html': 'dot-ex5',
+        'qrrjs005_ex6.html': 'dot-ex6',
+        'qrrjs005_ex7.html': 'dot-ex7',
+        'qrrjs005_ex8.html': 'dot-ex8',
+        'qrrjs005_ex9.html': 'dot-ex9',
+        'qrrjs005_ex10.html': 'dot-ex10'
       };
 
       const dotId = exerciseMap[file];

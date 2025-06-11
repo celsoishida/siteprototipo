@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD002 - Exercício 6 - MySQL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Buscando Usuário por ID (SELECT WHERE)</h1>
+            <ul>
+                <li>
+                    <b>Descrição:</b> Crie uma função que receba um <b>Id</b> como parâmetro e retorne os dados do usuário correspondente. Se o usuário não for encontrado, exiba uma mensagem apropriada.
+                </li>
+                <li>
+                    <b>Conteúdo Teórico:</b>
+                    <ul>
+                        <li>A cláusula <b>WHERE</b> é usada com SELECT (e outras operações) para filtrar os resultados com base em uma condição.</li>
+                        <li><b>SELECT * FROM &lt;nome-da-tabela&gt; WHERE &lt;coluna&gt; = ?</b>: Retorna linhas onde o valor da coluna corresponde ao valor fornecido.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+<b>Exemplo de Código:</b>
+<code>
+// app.js
+const mysql = require('mysql2/promise');
+async function findUserById(id) {
+let connection;
+try {
+connection = await mysql.createConnection({
+host: 'localhost',
+user: 'root',
+password: '',
+database: 'api_nodejs_db'
+});
+    const sql = `SELECT * FROM Usuario WHERE Id = ?`;
+    const [rows] = await connection.execute(sql, [id]);
+
+    if (rows.length > 0) {
+        console.log(`Usuário encontrado para o ID ${id}:`);
+        console.log(rows[0]);
+        return rows[0];
+    } else {
+        console.log(`Nenhum usuário encontrado para o ID ${id}.`);
+        return null;
+    }
+
+} catch (error) {
+    console.error('Erro ao buscar usuário por ID:', error);
+} finally {
+    if (connection) {
+        await connection.end();
+    }
+}
+}
+// Teste a função
+async function runSearch() {
+// Insira um usuário primeiro se não tiver nenhum
+await insertUser(); // Chame a função de inserção do Exercício 4
+// Tente buscar um usuário que você sabe que existe
+await findUserById(1); // Substitua 1 pelo ID de um usuário existente
+
+// Tente buscar um usuário que não existe
+await findUserById(999);
+}
+runSearch();
+</code>
+<b>Dica:</b>
+Use um Id que você sabe que existe no seu banco de dados para testar a busca bem-sucedida, e um Id inexistente para testar o caso de não encontrado.
+<b>Sugestão de Extensão:</b>
+Modifique a função para buscar por Email em vez de Id.
+</pre>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

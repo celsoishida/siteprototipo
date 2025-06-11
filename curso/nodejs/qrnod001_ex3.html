@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 3: Requisição com Parâmetros de Rota</h1>
+            <ul>
+                <li>Descrição: Crie uma rota <code>/ola/:nome</code> que receba um nome como parâmetro na URL e responda com "Olá, [nome]!". Por exemplo, se a URL for <code>/ola/Maria</code>, a resposta deve ser "Olá, Maria!".</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Parâmetros de rota são segmentos da URL que capturam valores dinâmicos. Eles são definidos usando dois pontos (<code>:</code>) no caminho da rota.</li>
+                        <li>Você pode acessar esses parâmetros através de <code>req.params</code>. Por exemplo, se a rota é <code>/usuario/:id</code>, <code>req.params.id</code> conterá o valor do ID.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+app.get('/ola/:nome', (req, res) => {
+  const nome = req.params.nome;
+  res.send(`Olá, ${nome}!`);
+});
+</code>
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Lembre-se que <code>req.params</code> é um objeto, então você acessa as propriedades por seus nomes.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Adicione outro parâmetro de rota, por exemplo, <code>/saudacao/:idioma/:nome</code>, e tente retornar "Olá, [nome]!" em outro idioma.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Lembre-se que <code>req.params</code> é um objeto, então você acessa as propriedades por seus nomes.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex2.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex4.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

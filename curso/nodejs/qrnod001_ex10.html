@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Servindo Arquivos Estáticos</h1>
+            <ul>
+                <li>Descrição: Configure o Express para servir arquivos estáticos de uma pasta chamada <code>public</code>. Crie um arquivo <code>index.html</code> dentro dessa pasta com o conteúdo "&lt;h1&gt;Bem-vindo ao meu site estático!&lt;/h1&gt;". Em seguida, acesse <code>http://localhost:3000/index.html</code> no navegador.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>O Express pode servir arquivos estáticos (HTML, CSS, JavaScript, imagens, etc.) usando o middleware <code>express.static()</code>.</li>
+                        <li>Você precisa especificar o diretório onde seus arquivos estáticos estão localizados.</li>
+                        <li>Quando você acessa uma URL que corresponde a um arquivo dentro do diretório estático, o Express o servirá automaticamente.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+const path = require('path'); // Módulo nativo do Node.js para lidar com caminhos de arquivo
+// ... seu setup do Express ...
+app.use(express.static(path.join(__dirname, 'public')));
+// Não é necessário uma rota app.get('/') para servir o index.html,
+// o middleware static fará isso automaticamente se a URL for /index.html
+</code>
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Crie a pasta <code>public</code> na mesma raiz do seu arquivo .js do servidor.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Adicione um arquivo <code>style.css</code> na pasta <code>public</code> e linke-o ao seu <code>index.html</code> para estilizar a página.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Crie a pasta <code>public</code> na mesma raiz do seu arquivo .js do servidor.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex9.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

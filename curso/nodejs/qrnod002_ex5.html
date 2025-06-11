@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD002 - Exercício 5 - MySQL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Listando Todos os Usuários (SELECT ALL)</h1>
+            <ul>
+                <li>
+                    <b>Descrição:</b> Adicione uma função ao <b>app.js</b> para buscar e exibir todos os usuários da tabela <b>Usuario</b>.
+                </li>
+                <li>
+                    <b>Conteúdo Teórico:</b>
+                    <ul>
+                        <li>A operação <b>SELECT</b> é usada para recuperar dados de uma ou mais tabelas.</li>
+                        <li><b>SELECT * FROM &lt;nome-da-tabela&gt;</b>: Retorna todas as colunas de todas as linhas da tabela especificada.</li>
+                        <li>O método <b>execute</b> retorna um array onde o primeiro elemento são as linhas (os dados) e o segundo são informações adicionais sobre o campo.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+<b>Exemplo de Código:</b>
+<code>
+// app.js
+const mysql = require('mysql2/promise');
+async function listUsers() {
+let connection;
+try {
+connection = await mysql.createConnection({
+host: 'localhost',
+user: 'root',
+password: '',
+database: 'api_nodejs_db'
+});
+    const [rows] = await connection.execute('SELECT * FROM Usuario');
+    console.log('Usuários cadastrados:');
+    rows.forEach(user => {
+        console.log(`ID: ${user.Id}, Nome: ${user.Nome}, Email: ${user.Email}`);
+    });
+
+} catch (error) {
+    console.error('Erro ao listar usuários:', error);
+} finally {
+    if (connection) {
+        await connection.end();
+    }
+}
+}
+// Chame a função para inserir um usuário (se ainda não tiver nenhum) e depois liste
+async function run() {
+await insertUser(); // Use a função do exercício anterior
+await listUsers();
+}
+run();
+</code>
+<b>Dica:</b>
+Certifique-se de ter inserido alguns usuários (usando o exercício 4) antes de rodar este código para ver resultados.
+<b>Sugestão de Extensão:</b>
+Implemente uma função para buscar um usuário específico por Id ou Email.
+</pre>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
