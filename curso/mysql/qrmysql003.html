@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL003 - SELECT</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+    <h1>G1 - SELECT</h1>
+<p>Olá! Vamos praticar comandos SELECT em MySQL. Tente resolver os exercícios abaixo com a tabela MovCuritiba com os dados e, se precisar, pergunte sobre cada comando ou conceito.</p>
+
+<pre><code>
+CREATE TABLE MovCuritiba (
+    competenciamov INT,
+    secao VARCHAR(10),
+    subclasse INT,
+    saldomovimentacao INT,
+    cbo2002ocupacao INT,
+    categoria INT,
+    graudeinstrucao INT,
+    idade INT null,
+    horascontratuais DECIMAL(5,2),
+    racacor INT,
+    sexo INT,
+    tipoempregador INT,
+    tipoestabelecimento INT,
+    tipomovimentacao INT,
+    tipodedeficiencia INT,
+    indtrabintermitente INT,
+    indtrabparcial INT,
+    salario DECIMAL(10,2), 
+    tamestabjan INT,
+    indicadoraprendiz INT,
+    origemdainformacao INT,
+    competenciadec INT,
+    indicadordeforadoprazo INT,
+    unidadesalariocodigo INT,
+    valorsalariofixo DECIMAL(10,2) -
+)
+</code></pre>
+
+<p>Você pode utilizar a tabela no <a href="qrmysql004.html">servidor de testes</a> ou inserir os dados <a href="qrmysql005.html">no seu computador</a>.</p>
+    <ul>
+        <li><a href="qrmysql003_ex1.html">Exercício 1: Quantas contrações e demissões teve em Curitiba?</a></li>
+        <li><a href="qrmysql003_ex2.html">Exercício 2: Qual a média salarial das contratações?</a></li>
+        <li><a href="qrmysql003_ex3.html">Exercício 3: Qual a média salarial das demissões?</a></li>
+        <li><a href="qrmysql003_ex4.html">Exercício 4: Existem informações de quantas profissões diferentes?</a></li>
+        <li><a href="qrmysql003_ex5.html">Exercício 5: Algum cientista de dados foi contratado? Qual foi seu salário?</a></li>
+        <li><a href="qrmysql003_ex6.html">Exercício 6: Selecione a idade e o salário de todas as contratações de programadores</a></li>
+        <li><a href="qrmysql003_ex7.html">Exercício 7: Qual foi o menor salário e o maior salário das profissões que um gestor da informação pode trabalhar?</a></li>
+        <li><a href="qrmysql003_ex8.html">Exercício 8: Quais as profissões que tiveram saldo positivo de empregos?</a></li>
+        <li><a href="qrmysql003_ex9.html">Exercício 9: O que você pode dizer a contratação de pessoas acima de 50 anos?</a></li>
+        <li><a href="qrmysql003_ex10.html">Exercício 10: Existe diferença salarial entre os sexos?</a></li>
+    </ul>
+
+    <br /><br />
+    <style>
+        @media (max-width: 600px) {
+            .images ai {
+                flex-wrap: wrap;
+            }
+        }
+        @media (min-width: 601px) {
+            .images ai {
+                flex-wrap: nowrap;
+            }
+            .images img {
+                height: 200px;
+            }
+        }
+    </style>
+    <p>Obs: Após o término dos exercícios: parabéns! Você concluiu a última etapa do curso.</p>
+    <br />
+    <p style="font-size: 0.8em">QR code número 3 do livro <a href="livromysql.html">MySQL</a>.</p>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

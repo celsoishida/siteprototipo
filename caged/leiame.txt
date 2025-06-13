@@ -2,3 +2,8 @@
 
 lista CBO
 http://www.mtecbo.gov.br/cbosite/pages/downloads.jsf;jsessionid=V8pNd6yfNg_vHvqJNDSP7KwBElhoYz4O4eBRx789.CBO-SLV02:mte-cbo
+
+POPULAÇÃO DOS MUNICÍPIOS
+https://www.ibge.gov.br/estatisticas/sociais/populacao/22827-censo-demografico-2022.html?edicao=35938
+
+https://censo2022.ibge.gov.br/panorama/

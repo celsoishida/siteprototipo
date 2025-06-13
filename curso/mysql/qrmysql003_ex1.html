@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL003 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Quantas contrações e demissões teve em Curitiba?</h1>
+            <ul>
+                <li>Descrição: Utilizando a tabela <code>MovCuritiba</code>, descubra quantas contrações (<code>tipomovimentacao</code> referente a contratação) e quantas demissões (<code>tipomovimentacao</code> referente a demissão) ocorreram em Curitiba.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>O comando <strong>SELECT</strong> é utilizado para consultar dados em tabelas do banco de dados.</li>
+                        <li>Você pode utilizar funções de agregação como <code>COUNT</code> e <code>SUM</code> para obter totais.</li>
+                        <li>Exemplo de estrutura da tabela utilizada:</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>CREATE TABLE MovCuritiba</strong> (
+    competenciamov INT,
+    secao VARCHAR(10),
+    subclasse INT,
+    saldomovimentacao INT,
+    cbo2002ocupacao INT,
+    categoria INT,
+    graudeinstrucao INT,
+    idade INT null,
+    horascontratuais DECIMAL(5,2),
+    racacor INT,
+    sexo INT,
+    tipoempregador INT,
+    tipoestabelecimento INT,
+    tipomovimentacao INT,
+    tipodedeficiencia INT,
+    indtrabintermitente INT,
+    indtrabparcial INT,
+    salario DECIMAL(10,2), 
+    tamestabjan INT,
+    indicadoraprendiz INT,
+    origemdainformacao INT,
+    competenciadec INT,
+    indicadordeforadoprazo INT,
+    unidadesalariocodigo INT,
+    valorsalariofixo DECIMAL(10,2)
+);
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Para contar as contratações e demissões, utilize <code>SELECT COUNT(1)</code> filtrando pelo campo <code>saldomovimentacao</code> (por exemplo, 1 para contratação e -1 para demissão).
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Consulta:</strong>
+SELECT tipomovimentacao, COUNT(*) AS total
+FROM MovCuritiba
+GROUP BY tipomovimentacao;
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Utilize o campo <code>tipomovimentacao</code> para diferenciar contratações e demissões.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrmysql003.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrmysql003_ex2.html';
+    });
+    fetch('qrmysql003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

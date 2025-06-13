@@ -18,7 +18,7 @@ console.log(process.env.DB_PASSWORD);
 app.get( '/cursosufpr', async (req, res) => {
   try {
       const [[results]] = await pool.query("CALL cursosel()"); // Use pool.query directly
-      const jsonResults = results.map(result => ({ id: result.ID, descricao: result.CursoCampus }));
+      const jsonResults = results.map(result => ({ id: result.ID, descricao2: result.CursoCampus }));
       res.json(jsonResults);
   } catch (err) {
       console.error('Erro ao buscar cursos UFPR:', err);

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD001 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Nosso Primeiro Servidor Express</h1>
+            <ul>
+                <li>Descrição: Crie um servidor Node.js usando o Express.js que responda com a mensagem "Olá, Express!" quando acessado na rota raiz (/).</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Express.js é um framework web minimalista e flexível para Node.js que simplifica a criação de aplicações web e APIs. Ele oferece ferramentas para roteamento, gerenciamento de requisições e respostas, e muito mais.</li>
+                        <li>Para começar, você precisa instalar o Express (<code>npm install express</code>) e depois importá-lo no seu arquivo JavaScript.</li>
+                        <li><code>express()</code> cria uma instância do aplicativo Express.</li>
+                        <li><code>app.listen(port, callback)</code> inicia o servidor e o faz "escutar" em uma porta específica.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+const express = require('express');
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => {
+  res.send('Olá, Express!');
+});
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
+</code>
+</pre>
+<br>
+<pre>
+<strong>Dica:</strong>
+Lembre-se de criar um arquivo package.json usando <code>npm init -y</code> antes de instalar o Express.
+</pre>
+<br>
+<pre>
+<strong>Sugestão de Extensão:</strong>
+Altere a porta do servidor para 5000.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <pre>
+<strong>Dica:</strong>
+Lembre-se de criar um arquivo package.json usando <code>npm init -y</code> antes de instalar o Express.
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <!-- Links para respostas podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod001_ex2.html';
+    });
+    fetch('qrnod001_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>
