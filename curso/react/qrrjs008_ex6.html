@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS008 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Lista de Itens Adicionáveis</h1>
+            <ul>
+                <li>Descrição: Crie um componente que exiba uma lista de itens (por exemplo, <code>&lt;ul&gt;</code>). Adicione um campo de input e um botão "Adicionar". Ao digitar um texto no input e clicar no botão, o texto deve ser adicionado como um novo item na lista.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li><strong>Arrays no Estado:</strong> Você pode armazenar arrays no estado do React. Para adicionar um novo item a um array no estado, você precisa criar um novo array que inclua o item antigo e o novo. Não use <code>push()</code> diretamente no array do estado, pois isso mutaria o estado.</li>
+                        <li><strong>Função de Atualização com Callback:</strong> Quando o novo estado depende do estado anterior (como adicionar um item a uma lista), é uma boa prática usar a forma de função para a função de atualização de estado: <code>setLista(prevLista =&gt; [...prevLista, novoItem])</code>. Isso garante que você esteja sempre trabalhando com o valor mais recente do estado.</li>
+                        <li><strong>Map para Renderizar Listas:</strong> Para renderizar uma lista de itens de um array, usamos o método <code>map</code> do JavaScript. Lembre-se de fornecer uma <code>key</code> única para cada item renderizado em uma lista.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+import React, { useState } from 'react';
+
+function ListaDeCompras() {
+  const [item, setItem] = useState('');
+  const [lista, setLista] = useState([]);
+
+  function handleAddItem() {
+    if (item.trim() !== '') { // Evita adicionar itens vazios
+      setLista(prevLista => [...prevLista, item]);
+      setItem(''); // Limpa o input após adicionar
+    }
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={item}
+        onChange={(e) => setItem(e.target.value)}
+        placeholder="Adicione um item"
+      />
+      <button onClick={handleAddItem}>Adicionar</button>
+      <ul>
+        {lista.map((itemDaLista, index) => (
+          <li key={index}>{itemDaLista}</li> // Use um ID único em um projeto real
+        ))}
+      </ul>
+    </div>
+  );
+}
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Ao adicionar um item a um array no estado, use o operador ... (spread operator) para criar uma nova cópia do array e adicionar o novo item.
+<strong>Sugestão de Extensão:</strong>
+Adicione um botão "Remover" ao lado de cada item da lista que permita remover o item correspondente.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs008_ex5.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs008_ex7.html';
+    });
+
+    fetch('qrrjs008_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS008 - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 3 (Variação): Contador Visual de Emojis</h1>
+            <ul>
+                <li>Descrição: Crie um componente React que exiba uma quantidade de emojis de estrelas (⭐) equivalente a um número inicial (começando em 0). Adicione dois botões: um "Adicionar Estrela" que incrementa o número em 1 (e adiciona uma estrela), e um "Remover Estrela" que decrementa o número em 1 (e remove uma estrela), mas nunca deixando o contador abaixo de zero.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li><strong>Imutabilidade do Estado em Ação:</strong> Para atualizar o nosso contador, sempre criamos um novo valor de estado, seja ele um número ou um array. Nunca modificamos o estado diretamente. Quando usamos <code>setContador(contador + 1)</code>, não estamos alterando o contador existente, mas sim dizendo ao React qual será o próximo valor do contador.</li>
+                        <li><strong>Renderização de Listas e Mapeamento:</strong> Para exibir múltiplos emojis, vamos usar o método <code>Array.from()</code> ou um loop <code>map</code> em um array para gerar dinamicamente os elementos JSX. Isso nos permite "desenhar" a quantidade correta de estrelas com base no nosso estado numérico.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+    <pre><code>
+        function ContadorDeEstrelas() {
+            const [quantidadeEstrelas, setQuantidadeEstrelas] = React.useState(0);
+
+            const adicionarEstrela = () => {
+                setQuantidadeEstrelas(prevQuantidade => prevQuantidade + 1);
+            };
+
+            const removerEstrela = () => {
+                setQuantidadeEstrelas(prevQuantidade => (prevQuantidade > 0 ? prevQuantidade - 1 : 0));
+            };
+
+            // Cria um array com a quantidade de estrelas e mapeia para emojis
+            const estrelas = Array.from({ length: quantidadeEstrelas }, (_, index) => (
+                <span key={index} role="img" aria-label="estrela">⭐</span>
+            ));
+
+            return (
+                <div>
+                    <h2>Seu Contador de Estrelas:</h2>
+                    <p style={{ fontSize: '3em' }}>{estrelas}</p>
+                    <p>Total de Estrelas: {quantidadeEstrelas}</p>
+                    <button onClick={adicionarEstrela}>Adicionar Estrela</button>
+                    <button onClick={removerEstrela}>Remover Estrela</button>
+                </div>
+            );
+        }
+
+        // Renderiza o componente React no elemento com id "root"
+        ReactDOM.createRoot(document.getElementById('root')).render(<ContadorDeEstrelas />);
+    </code></pre>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Pense em como garantir que a contagem de estrelas nunca seja negativa. Você pode usar uma condição antes de decrementar o valor do estado.
+<strong>Sugestão de Extensão:</strong>
+- Adicione um botão "Resetar" que zere a contagem de estrelas.
+- Implemente um limite máximo de estrelas (ex: 10 estrelas), desabilitando o botão "Adicionar Estrela" quando o limite for atingido.
+- Permita que o usuário escolha um emoji diferente para contar, talvez com um input de texto para o emoji.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs008_ex2.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs008_ex4.html';
+    });
+
+    fetch('qrrjs008_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

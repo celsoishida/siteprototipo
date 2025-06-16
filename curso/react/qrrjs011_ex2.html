@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 2</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2: Consumindo Contexto com useContext para Dados Simples</h1>
+            <ul>
+                <li>Descrição: Utilizando o ThemeContext criado no exercício anterior, crie dois componentes irmãos (Header e Footer). Ambos os componentes devem consumir o ThemeContext para exibir o tema atual.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><code>useContext</code> Hook: É um hook do React que permite que um componente de função se inscreva em um contexto. Ele recebe o objeto de contexto como argumento e retorna o valor atual desse contexto para o componente.</li>
+                        <li>Este hook simplifica o acesso ao contexto em componentes funcionais, tornando o código mais limpo do que as abordagens baseadas em classes.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// ThemeContext.js (o mesmo do exercício 1)
+import React, { createContext } from 'react';
+
+export const ThemeContext = createContext('light');
+
+// Header.js
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+function Header() {
+  const theme = useContext(ThemeContext);
+  return &lt;header style={{ background: theme === 'dark' ? '#333' : '#eee', color: theme === 'dark' ? '#eee' : '#333' }}>Cabeçalho - Tema: {theme}&lt;/header>;
+}
+
+// Footer.js
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+function Footer() {
+  const theme = useContext(ThemeContext);
+  return &lt;footer style={{ background: theme === 'dark' ? '#333' : '#eee', color: theme === 'dark' ? '#eee' : '#333' }}>Rodapé - Tema: {theme}&lt;/footer>;
+}
+
+// App.js
+import React from 'react';
+import { ThemeContext } from './ThemeContext';
+import Header from './Header';
+import Footer from './Footer';
+
+function App() {
+  return (
+    &lt;ThemeContext.Provider value="dark"&gt;
+      &lt;Header /&gt;
+      &lt;main&gt;Conteúdo principal&lt;/main&gt;
+      &lt;Footer /&gt;
+    &lt;/ThemeContext.Provider&gt;
+  );
+}
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Verifique se o ThemeProvider está envolvendo todos os componentes que precisam acessar o contexto.
+
+<strong>Sugestão de Extensão:</strong>
+Adicione um botão no Header ou Footer que alterne o tema de 'light' para 'dark' e vice-versa. Para isso, o provedor precisará gerenciar um estado para o tema.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex1.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex3.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

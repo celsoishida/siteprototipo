@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Introdução à Context API - Criando um Contexto Simples</h1>
+            <ul>
+                <li>Descrição: Crie um contexto React chamado ThemeContext e um provedor (ThemeProvider) que envolva um componente filho. O contexto deve fornecer um valor simples (por exemplo, uma string 'light' para o tema). Exiba esse valor em um componente filho.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>A Context API no React permite compartilhar dados que podem ser considerados "globais" para uma árvore de componentes, como tema, idioma do usuário ou dados autenticados.</li>
+                        <li><code>createContext()</code>: Cria um objeto Context. Quando o React renderiza um componente que se inscreve neste objeto Context, ele lê o valor de contexto mais próximo do Provider correspondente na árvore.</li>
+                        <li><code>Context.Provider</code>: É um componente React que permite aos componentes consumidores se inscreverem em alterações de contexto. Ele recebe uma prop value que é o valor a ser passado para os componentes descendentes que consomem este contexto.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// ThemeContext.js
+import React, { createContext } from 'react';
+
+export const ThemeContext = createContext('light'); // Valor padrão
+
+// App.js
+import React from 'react';
+import { ThemeContext } from './ThemeContext';
+import DisplayTheme from './DisplayTheme';
+
+function App() {
+  return (
+    &lt;ThemeContext.Provider value="dark"&gt;
+      &lt;DisplayTheme /&gt;
+    &lt;/ThemeContext.Provider&gt;
+  );
+}
+
+// DisplayTheme.js
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+function DisplayTheme() {
+  const theme = useContext(ThemeContext);
+  return &lt;h2&gt;Tema atual: {theme}&lt;/h2&gt;;
+}
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Lembre-se de importar createContext e useContext dos seus respectivos locais. A hierarquia dos componentes é crucial para que o provedor envolva o consumidor.
+
+<strong>Sugestão de Extensão:</strong>
+Crie um botão que, ao ser clicado, altere o valor do tema para 'light' ou 'dark' dentro do ThemeProvider.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex2.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

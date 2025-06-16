@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS010 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Navegação Programática com <code>useNavigate</code></h1>
+            <ul>
+                <li>Descrição: Na sua página `ProductDetail.js`, adicione um botão "Voltar para Produtos" que, ao ser clicado, navegue programaticamente de volta para a página `Products.js` usando o hook `useNavigate`.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><code>useNavigate</code>: Um hook que retorna uma função que você pode usar para navegar programaticamente pela aplicação. Útil para redirecionamentos após ações do usuário (ex: envio de formulário).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// src/components/ProductDetail.js (atualizado)
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom'; // Importe useNavigate
+
+function ProductDetail() {
+  const { id } = useParams();
+  const navigate = useNavigate(); // Obtenha a função de navegação
+
+  const product = { id: id, name: `Produto ${id}`, description: `Detalhes do Produto ${id}.` };
+
+  const handleGoBack = () => {
+    navigate('/products'); // Navega para a rota /products
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Detalhes do Produto: {product.name}&lt;/h2&gt;
+      &lt;p&gt;ID: {product.id}&lt;/p&gt;
+      &lt;p&gt;{product.description}&lt;/p&gt;
+      &lt;button onClick={handleGoBack}&gt;Voltar para Produtos&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default ProductDetail;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+- `navigate()` pode receber um caminho como string ou um número para navegar para trás ou para frente no histórico do navegador (ex: `navigate(-1)` para voltar).
+</pre>
+            <pre>
+<strong>Sugestão de Extensão:</strong>
+- Adicione um botão "Voltar" genérico em um componente de layout que use `navigate(-1)`.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex5.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex7.html';
+    });
+
+    fetch('qrrjs010_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise7dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

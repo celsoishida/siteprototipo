@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livro React - QRRJS007 - Exercício 1</title>
+    <title>Livro React - QRRJS008 - Exercício 5</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
 </head>
@@ -11,13 +11,14 @@
     <div id="header-container"></div>
     <main>
         <section>
-            <h1>Exercício 1: Nosso Primeiro State!</h1>
+            <h1>Exercício 5: Entrada de Texto Dinâmica</h1>
             <ul>
-                <li>Descrição: Crie um componente funcional jsx chamado <code>Saudacao</code> que exiba a mensagem "Olá, mundo!" usando um state para armazenar essa mensagem. O objetivo é ver o state em ação de forma simples.</li>
+                <li>Descrição: Crie um componente que contenha um campo de input de texto (<code>&lt;input type="text" /&gt;</code>) e um parágrafo. O texto digitado no input deve ser exibido em tempo real no parágrafo.</li>
                 <li>Conteúdo Teórico:
                     <ul>
-                        <li><strong>State</strong> em React: É um objeto JavaScript que armazena dados que são específicos de um componente e que podem mudar ao longo do tempo. Quando o state de um componente muda, o componente é re-renderizado para refletir essas mudanças na interface do usuário.</li>
-                        <li><code>useState</code>: É um Hook do React que permite adicionar state a componentes funcionais. Ele retorna um par de valores: o estado atual e uma função para atualizá-lo.</li>
+                        <li><strong>Evento onChange:</strong> Para monitorar as mudanças em campos de formulário (como input, textarea, select), usamos o evento <code>onChange</code>. Este evento é disparado a cada vez que o valor do campo muda.</li>
+                        <li><strong>Acessando o Valor do Input:</strong> Dentro da função de manipulação do <code>onChange</code>, o evento (<code>e</code>) contém a propriedade <code>e.target.value</code>, que é o valor atual do campo de input.</li>
+                        <li><strong>Controlled Components:</strong> No React, é uma boa prática ter os elementos de formulário "controlados" pelo estado do componente. Isso significa que o valor do input é sempre derivado do estado.</li>
                     </ul>
                 </li>
             </ul>
@@ -25,26 +26,30 @@
             <pre>
 <strong>Exemplo de Código:</strong>
 <code>
-// App.js
-import React, &#123; useState &#125; from 'react';
+import React, { useState } from 'react';
 
-function Saudacao() &#123;
-  const [mensagem, setMensagem] = useState('Olá, mundo!');
+function InputDinamico() {
+  const [textoDigitado, setTextoDigitado] = useState('');
+
+  function handleChange(e) {
+    setTextoDigitado(e.target.value);
+  }
 
   return (
-    &lt;h1&gt;&#123;mensagem&#125;&lt;/h1&gt;
+    <div>
+      <input type="text" value={textoDigitado} onChange={handleChange} />
+      <p>Você está digitando: {textoDigitado}</p>
+    </div>
   );
-&#125;
-
-export default Saudacao;
+}
 </code>
 </pre>
             <br>
             <pre>
 <strong>Dica:</strong>
-Lembre-se de importar o <code>useState</code> do React!
+Lembre-se de definir a propriedade <code>value</code> do input para o seu estado. Isso o torna um "componente controlado".
 <strong>Sugestão de Extensão:</strong>
-Tente mudar a mensagem inicial do state e veja o que acontece.
+Adicione um botão "Limpar" que, ao ser clicado, apague o texto do input e do parágrafo.
 </pre>
             <div class="centered-nav-btn">
                 <button class="nav-btn prev-btn">
@@ -61,18 +66,18 @@ Tente mudar a mensagem inicial do state e veja o que acontece.
     <div id="footer-container"></div>
     <script>
     document.querySelector('.prev-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007.html';
+      window.location.href = 'qrrjs008_ex4.html';
     });
 
     document.querySelector('.next-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007_ex2.html';
+      window.location.href = 'qrrjs008_ex6.html';
     });
 
-    fetch('qrrjs007_menu.html')
+    fetch('qrrjs008_menu.html')
       .then(res => res.text())
       .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
     </script>
-    <script src="exercise4dot.js"></script>
+    <script src="exercise5dot.js"></script>
     <script src="../../scripts/copyToClipboard.js"></script>
     <script src="cabecalho.js"></script>
     <script src="rodape.js"></script>

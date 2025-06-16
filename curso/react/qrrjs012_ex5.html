@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS012 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Introdução aos CSS Modules</h1>
+            <ul>
+                <li>Descrição: Refatore o componente <code>BotaoSimples</code> do Exercício 1 para usar <strong>CSS Modules</strong>. Crie um arquivo <code>BotaoSimples.module.css</code> e aplique os estilos definidos nele.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>CSS Modules</strong>: Resolvem o problema de escopo global do CSS tradicional, "localizando" as classes CSS. Quando você importa um arquivo <code>.module.css</code>, as classes são exportadas como propriedades de um objeto JavaScript, gerando nomes de classe únicos automaticamente (ex: <code>BotaoSimples_botao-simples__xyz123</code>).</li>
+                        <li><strong>Importação</strong>: Você importa o arquivo CSS Module como um objeto (ex: <code>import styles from './BotaoSimples.module.css';</code>).</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+Crie um arquivo <code>BotaoSimples.module.css</code>:
+<code>
+/* BotaoSimples.module.css */
+.botaoSimples {
+background-color: #007bff;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+}
+</code>
+No seu componente <code>BotaoSimples.jsx</code>:
+<code>
+import React from 'react';
+import styles from './BotaoSimples.module.css'; // Importe o CSS Module
+
+function BotaoSimples() {
+return (
+<button className={styles.botaoSimples}> {/* Use styles.nomeDaClasse */}
+Clique com CSS Module!
+</button>
+);
+}
+
+export default BotaoSimples;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Observe a diferença na forma como você importa e aplica as classes CSS. O nome da classe no CSS Module deve ser um nome válido de propriedade JavaScript.
+<strong>Sugestão de Extensão:</strong>
+Crie um componente <code>Titulo</code> que use CSS Modules para estilizar um <code>h1</code>.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex4.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex6.html';
+    });
+
+    fetch('qrrjs012_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise9dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

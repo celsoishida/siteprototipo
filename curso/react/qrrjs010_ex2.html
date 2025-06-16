@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS010 - Exercício 2</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2: Criando suas Primeiras Rotas com <code>BrowserRouter</code> e <code>Routes</code></h1>
+            <ul>
+                <li>Descrição: Configure o <code>BrowserRouter</code> no seu arquivo <code>index.js</code> e crie dois componentes simples (<code>Home.js</code> e <code>About.js</code>). Defina as rotas para esses componentes usando <code>Routes</code> e <code>Route</code> no seu <code>App.js</code>.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><code>BrowserRouter</code>: O roteador principal que utiliza a API de histórico do HTML5 para manter a interface de usuário em sincronia com a URL.</li>
+                        <li><code>Routes</code>: Um componente que agrupa e gerencia os <code>Route</code>s. É onde você define suas rotas.</li>
+                        <li><code>Route</code>: Define um caminho (<code>path</code>) e o componente que será renderizado quando esse caminho for acessado.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<pre><code>
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<React.StrictMode>
+<BrowserRouter>
+<App />
+</BrowserRouter>
+</React.StrictMode>
+);
+
+// src/components/Home.js
+import React from 'react';
+
+function Home() {
+return <h2>Página Inicial</h2>;
+}
+
+export default Home;
+
+// src/components/About.js
+import React from 'react';
+
+function About() {
+return <h2>Sobre Nós</h2>;
+}
+
+export default About;
+
+// src/App.js
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+
+function App() {
+return (
+<div>
+<h1>Meu App de Rotas</h1>
+<Routes>
+<Route path="/" element={<Home />} />
+<Route path="/about" element={<About />} />
+</Routes>
+</div>
+);
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Crie uma pasta <code>components</code> para organizar seus componentes de página.
+Você pode testar as rotas alterando a URL no seu navegador para <code>/</code> e <code>/about</code>.
+</pre>
+            <pre>
+<strong>Sugestão de Extensão:</strong>
+Crie um terceiro componente <code>Contact.js</code> e adicione uma rota para ele.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex1.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex3.html';
+    });
+
+    fetch('qrrjs010_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise7dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

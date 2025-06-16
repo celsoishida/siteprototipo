@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS010 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Usando <code>NavLink</code> para Estilizar Links Ativos</h1>
+            <ul>
+                <li>Descrição: Substitua os <code>Link</code>s do seu menu de navegação por <code>NavLink</code> e utilize a prop <code>className</code> para aplicar um estilo diferente ao link da página ativa.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><code>NavLink</code>: Um componente especial do <code>react-router-dom</code> que é como um <code>Link</code>, mas com a funcionalidade adicional de aplicar uma classe CSS quando o link está "ativo" (ou seja, a URL atual corresponde ao <code>to</code> do <code>NavLink</code>).</li>
+                        <li><code>className</code>: Uma prop que pode receber uma string ou uma função para aplicar classes CSS dinamicamente.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// src/App.js (atualizado)
+import React from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom'; // Importe NavLink
+import Home from './components/Home';
+import About from './components/About';
+import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
+import Settings from './components/Settings';
+import Products from './components/Products';
+import ProductDetail from './components/ProductDetail';
+import NotFound from './components/NotFound';
+import './App.css'; // Crie este arquivo CSS
+
+function App() {
+  const activeLinkStyle = ({ isActive }) => ({
+    fontWeight: isActive ? 'bold' : 'normal',
+    color: isActive ? 'red' : 'blue',
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Meu App de Rotas&lt;/h1&gt;
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/" style={activeLinkStyle}&gt;Home&lt;/NavLink&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/about" style={activeLinkStyle}&gt;Sobre&lt;/NavLink&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/dashboard" style={activeLinkStyle}&gt;Dashboard&lt;/NavLink&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/products" style={activeLinkStyle}&gt;Produtos&lt;/NavLink&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+        &lt;Route path="/dashboard" element={&lt;Dashboard /&gt;}&gt;
+          &lt;Route path="profile" element={&lt;Profile /&gt;} /&gt;
+          &lt;Route path="settings" element={&lt;Settings /&gt;} /&gt;
+        &lt;/Route&gt;
+        &lt;Route path="/products" element={&lt;Products /&gt;} /&gt;
+        &lt;Route path="/products/:id" element={&lt;ProductDetail /&gt;} /&gt;
+        &lt;Route path="*" element={&lt;NotFound /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+- A prop `style` no `NavLink` pode receber uma função que recebe um objeto com `isActive` para estilização condicional.
+- Você também pode usar a prop `className` que recebe uma função com `{ isActive }` para aplicar classes CSS.
+</pre>
+            <pre>
+<strong>Sugestão de Extensão:</strong>
+- Experimente usar a prop `end` no `NavLink` para rotas que você não quer que sejam ativadas por sub-rotas (ex: se `/` for ativo para `/dashboard`).
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex7.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex9.html';
+    });
+
+    fetch('qrrjs010_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise7dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

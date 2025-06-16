@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Introdução ao Redux - Configurando a Store</h1>
+            <ul>
+                <li>Descrição: Configure uma store Redux básica. Crie um reducer simples para gerenciar um contador. A store deve ser capaz de incrementar e decrementar esse contador.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Redux:</strong> É uma biblioteca JavaScript para gerenciar o estado da aplicação. É frequentemente usada com React, mas não é exclusiva dele. Ajuda a criar aplicações que se comportam de forma consistente, executam em diferentes ambientes e são fáceis de testar.</li>
+                        <li><strong>Store:</strong> É o objeto que mantém o estado da aplicação. Existe apenas uma store por aplicação Redux.</li>
+                        <li><strong>Reducer:</strong> Uma função pura que recebe o estado atual e uma ação, e retorna o novo estado. É o único lugar onde a lógica de atualização do estado deve ocorrer.</li>
+                        <li><strong>Ação (Action):</strong> Um objeto JavaScript puro que descreve o que aconteceu. Possui uma propriedade type que indica o tipo de ação, e pode ter outras propriedades com o payload (dados) necessários.</li>
+                        <li><strong>createStore (Redux Legado) / configureStore (Redux Toolkit):</strong> Funções para criar a store Redux. Para iniciantes, é recomendado começar com o Redux Toolkit devido à sua simplicidade e boas práticas embutidas.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// store/index.js (usando Redux Toolkit)
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
+    },
+    decrement: (state) => {
+      state.value -= 1;
+    },
+    incrementByAmount: (state, action) => {
+      state.value += action.payload;
+    },
+  },
+});
+
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+
+export const store = configureStore({
+  reducer: {
+    counter: counterSlice.reducer,
+  },
+});
+
+// index.js (ou main.jsx se usando Vite)
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { store } from './store';
+import { Provider } from 'react-redux';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  &lt;React.StrictMode>
+    &lt;Provider store={store}>
+      &lt;App />
+    &lt;/Provider>
+  &lt;/React.StrictMode>,
+);
+
+// App.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from './store';
+
+function App() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    &lt;div>
+      &lt;h1>Contador Redux: {count}&lt;/h1>
+      &lt;button onClick={() => dispatch(increment())}>Incrementar&lt;/button>
+      &lt;button onClick={() => dispatch(decrement())}>Decrementar&lt;/button>
+    &lt;/div>
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+O Redux Toolkit simplifica muito a configuração do Redux. createSlice define o nome, estado inicial e os reducers (que também geram as ações automaticamente).
+
+<strong>Sugestão de Extensão:</strong>
+Adicione um input para que o usuário possa incrementar o contador por uma quantidade específica (usando a ação incrementByAmount).
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex5.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex7.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

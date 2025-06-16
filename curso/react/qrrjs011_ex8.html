@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Gerenciando uma Lista de Tarefas com Redux</h1>
+            <ul>
+                <li>Descrição: Crie um novo slice Redux para gerenciar uma lista de tarefas (to-dos). As tarefas devem ter um ID, texto e status de conclusão (completed). Implemente ações para adicionar uma tarefa, alternar o status de conclusão de uma tarefa e remover uma tarefa. Crie componentes para exibir a lista e adicionar novas tarefas.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Múltiplos Slices:</strong> Em aplicações Redux maiores, é comum dividir o estado em fatias ("slices") lógicas, cada uma com seu próprio reducer e ações relacionadas. O Redux Toolkit facilita isso.</li>
+                        <li><strong>Imutabilidade:</strong> Em Redux, você nunca deve modificar o estado diretamente. Em vez disso, retorne sempre um novo objeto de estado com as alterações desejadas. O Redux Toolkit (com Immer.js) permite que você escreva código "mutante" dentro dos reducers de createSlice, e ele se encarrega de criar cópias imutáveis para você.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// store/index.js
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+
+// Slice do Contador (do exercício anterior, apenas para referência)
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: {
+    increment: (state) => { state.value += 1; },
+    decrement: (state) => { state.value -= 1; },
+  },
+});
+
+export const { increment, decrement } = counterSlice.actions;
+
+// Novo Slice de Tarefas
+const todosSlice = createSlice({
+  name: 'todos',
+  initialState: [], // Array de objetos { id, text, completed }
+  reducers: {
+    addTodo: (state, action) => {
+      state.push({ id: Date.now(), text: action.payload, completed: false });
+    },
+    toggleTodo: (state, action) => {
+      const todo = state.find((todo) => todo.id === action.payload);
+      if (todo) {
+        todo.completed = !todo.completed;
+      }
+    },
+    removeTodo: (state, action) => {
+      return state.filter((todo) => todo.id !== action.payload);
+    },
+  },
+});
+
+export const { addTodo, toggleTodo, removeTodo } = todosSlice.actions;
+
+export const store = configureStore({
+  reducer: {
+    counter: counterSlice.reducer,
+    todos: todosSlice.reducer, // Adicione o novo reducer
+  },
+});
+
+// TodoList.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTodo, removeTodo } from './store';
+
+function TodoList() {
+  const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
+  return (
+    &lt;ul style={{ listStyle: 'none', padding: 0 }}>
+      {todos.map((todo) => (
+        &lt;li key={todo.id} style={{ 
+          textDecoration: todo.completed ? 'line-through' : 'none',
+          margin: '8px 0',
+          padding: '8px',
+          backgroundColor: todo.completed ? '#f0f0f0' : 'white',
+          borderRadius: '4px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          &lt;span 
+            onClick={() => dispatch(toggleTodo(todo.id))}
+            style={{ cursor: 'pointer', flexGrow: 1 }}
+          >
+            {todo.text}
+          &lt;/span>
+          &lt;button 
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(removeTodo(todo.id));
+            }}
+            style={{
+              marginLeft: '10px',
+              backgroundColor: '#ff6b6b',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              cursor: 'pointer'
+            }}
+          >
+            Remover
+          &lt;/button>
+        &lt;/li>
+      ))}
+    &lt;/ul>
+  );
+}
+
+// AddTodoForm.js
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from './store';
+
+function AddTodoForm() {
+  const [todoText, setTodoText] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (todoText.trim()) {
+      dispatch(addTodo(todoText));
+      setTodoText('');
+    }
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
+      &lt;input
+        type="text"
+        value={todoText}
+        onChange={(e) => setTodoText(e.target.value)}
+        placeholder="Adicionar nova tarefa"
+        style={{
+          padding: '8px',
+          marginRight: '8px',
+          borderRadius: '4px',
+          border: '1px solid #ccc',
+          width: '300px',
+          maxWidth: '100%'
+        }}
+      />
+      &lt;button 
+        type="submit"
+        style={{
+          padding: '8px 16px',
+          backgroundColor: '#4caf50',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer'
+        }}
+      >
+        Adicionar
+      &lt;/button>
+    &lt;/form>
+  );
+}
+
+// App.js
+import React from 'react';
+import TodoList from './TodoList';
+import AddTodoForm from './AddTodoForm';
+
+function App() {
+  return (
+    &lt;div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      &lt;h1 style={{ color: '#333' }}>Minhas Tarefas com Redux&lt;/h1>
+      &lt;AddTodoForm />
+      &lt;TodoList />
+    &lt;/div>
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Ao adicionar um novo item, use Date.now() ou uma biblioteca como uuid para gerar um ID único.
+
+<strong>Sugestão de Extensão:</strong>
+Adicione filtros para exibir apenas tarefas concluídas, não concluídas ou todas as tarefas.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex7.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex9.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

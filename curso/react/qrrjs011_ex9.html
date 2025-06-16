@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+    <style>
+        .loading {
+            color: #666;
+            font-style: italic;
+            padding: 20px;
+            text-align: center;
+        }
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .post {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post h3 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        .post p {
+            color: #555;
+            line-height: 1.5;
+        }
+        .reload-btn {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .reload-btn:hover {
+            background-color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Redux com Dados Assíncronos - Simulação de API</h1>
+            <ul>
+                <li>Descrição: Simule uma chamada de API para buscar uma lista de posts. Use Redux Thunk (ou crie um createAsyncThunk do Redux Toolkit) para lidar com a lógica assíncrona. O estado deve ter loading, error e posts. Exiba uma mensagem de carregamento ou erro.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Redux Thunk:</strong> É um middleware que permite que você escreva "action creators" que retornam uma função em vez de um objeto de ação. Essa função pode então realizar lógica assíncrona e despachar ações quando a operação assíncrona for concluída.</li>
+                        <li><strong>createAsyncThunk (Redux Toolkit):</strong> É uma maneira simplificada e mais robusta de lidar com lógica assíncrona em Redux com o Redux Toolkit. Ele gera automaticamente as ações pending, fulfilled e rejected para você.</li>
+                        <li><strong>Estados de Carregamento:</strong> É importante gerenciar o estado de carregamento e erro ao lidar com operações assíncronas para fornecer feedback ao usuário.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// store/index.js
+import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+// Simulação de chamada de API
+const fetchPostsFromApi = async () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([
+        { id: 1, title: 'Primeiro Post', body: 'Conteúdo do primeiro post.' },
+        { id: 2, title: 'Segundo Post', body: 'Conteúdo do segundo post.' },
+      ]);
+    }, 1500); // Simula atraso de 1.5 segundos
+  });
+};
+
+// Async Thunk para buscar posts
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+  const response = await fetchPostsFromApi();
+  return response;
+});
+
+const postsSlice = createSlice({
+  name: 'posts',
+  initialState: {
+    posts: [],
+    loading: 'idle', // 'idle' | 'pending' | 'succeeded' | 'failed'
+    error: null,
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchPosts.pending, (state) => {
+        state.loading = 'pending';
+      })
+      .addCase(fetchPosts.fulfilled, (state, action) => {
+        state.loading = 'succeeded';
+        state.posts = action.payload;
+      })
+      .addCase(fetchPosts.rejected, (state, action) => {
+        state.loading = 'failed';
+        state.error = action.error.message;
+      });
+  },
+});
+
+export const store = configureStore({
+  reducer: {
+    posts: postsSlice.reducer,
+  },
+});
+
+// PostsList.js
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPosts } from './store';
+
+function PostsList() {
+  const { posts, loading, error } = useSelector((state) => state.posts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
+
+  const handleReload = () => {
+    dispatch(fetchPosts());
+  };
+
+  if (loading === 'pending') {
+    return <div className="loading">Carregando posts...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Erro ao carregar posts: {error}</div>;
+  }
+
+  return (
+    <div>
+      <button className="reload-btn" onClick={handleReload}>
+        Recarregar Posts
+      </button>
+      <div className="posts-container">
+        {posts.map((post) => (
+          <div key={post.id} className="post">
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// App.js
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import PostsList from './PostsList';
+
+function App() {
+  return (
+    <Provider store={store}>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
+        <h1>Minha Aplicação de Posts</h1>
+        <PostsList />
+      </div>
+    </Provider>
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+createAsyncThunk é a maneira recomendada de lidar com lógica assíncrona no Redux Toolkit. Ele lida com o gerenciamento dos diferentes estados de uma requisição (pendente, sucesso, falha) de forma elegante.
+
+<strong>Sugestão de Extensão:</strong>
+Implemente um botão "Recarregar Posts" que dispare novamente a ação fetchPosts.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex8.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex10.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

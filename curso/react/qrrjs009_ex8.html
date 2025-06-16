@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS009 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Introdução ao <code>useContext</code></h1>
+            <ul>
+                <li>Descrição: Crie dois componentes: <code>App</code> e <code>ComponenteFilho</code>. O componente <code>App</code> deve ter um estado chamado <code>tema</code> (por exemplo, 'claro' ou 'escuro'). Passe este estado para o <code>ComponenteFilho</code> usando <code>useContext</code>, de modo que o <code>ComponenteFilho</code> possa exibir o tema atual.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>useContext</strong>: É um Hook que permite a componentes funcionais subscreverem a um Contexto React. O Contexto é uma forma de passar dados através da árvore de componentes sem ter que passar props manualmente em cada nível.</li>
+                        <li><strong>createContext</strong>: Usado para criar um objeto Contexto.</li>
+                        <li><strong>Provider</strong>: O componente <code>Provider</code> do Contexto permite que componentes descendentes assinem as mudanças de um Contexto.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// TemaContext.js
+import React, { createContext } from 'react';
+
+export const TemaContext = createContext('claro'); // Valor padrão
+
+// ComponenteFilho.js
+import React, { useContext } from 'react';
+import { TemaContext } from './TemaContext';
+
+function ComponenteFilho() {
+const tema = useContext(TemaContext);
+return (
+<div>
+<p>O tema atual é: {tema}</p>
+</div>
+);
+}
+
+export default ComponenteFilho;
+
+// App.js
+import React, { useState } from 'react';
+import { TemaContext } from './TemaContext';
+import ComponenteFilho from './ComponenteFilho';
+
+function App() {
+const [tema, setTema] = useState('claro');
+
+const toggleTema = () => {
+setTema(tema === 'claro' ? 'escuro' : 'claro');
+};
+
+return (
+<TemaContext.Provider value={tema}>
+<h1>Exemplo de Contexto</h1>
+<ComponenteFilho />
+<button onClick={toggleTema}>Alternar Tema</button>
+</TemaContext.Provider>
+);
+}
+
+export default App;
+</code>
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs009_ex7.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs009_ex9.html';
+    });
+
+    fetch('qrrjs009_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise6dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

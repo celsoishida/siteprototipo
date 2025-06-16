@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3: Estilos Inline</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #e83e8c;
+        }
+        .container {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercício 3: Estilos Inline</h1>
+    <ul>
+        <li>Descrição: Crie um componente `TextoColorido` que exiba um parágrafo. Use estilos inline para definir a cor do texto como vermelho e o tamanho da fonte como 18px.</li>
+        <li>Conceitos Teóricos:
+            <ul>
+                <li><strong>Estilos Inline</strong>: Em React, você pode aplicar estilos diretamente nos elementos usando a propriedade `style`. O valor deve ser um objeto JavaScript onde as chaves são as propriedades CSS em `camelCase` e os valores são as strings de estilo.</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <div id="root"></div>
+    
+    <h3>Exemplo de Código:</h3>
+    <pre><code>
+function TextoColorido() {
+    const estiloDoTexto = {
+        color: 'red',
+        fontSize: '18px'
+    };
+
+    return (
+        &lt;p style={estiloDoTexto}&gt;
+            Este texto é vermelho e tem 18 pixels de tamanho!
+        &lt;/p&gt;
+    );
+}
+
+ReactDOM.render(&lt;TextoColorido /&gt;, 
+    document.getElementById('root'));
+    </code></pre>
+
+    <div class="container">
+        <h3>Seu código aqui:</h3>
+        <div id="solution"></div>
+    </div>
+
+    <div>
+        <h3>Dica:</h3>
+        <p>Propriedades CSS com hífen (ex: `font-size`) são convertidas para `camelCase` (ex: `fontSize`) em estilos inline.</p>
+        <h3>Sugestão de Extensão:</h3>
+        <p>Crie um estado para a cor do texto e um botão que, ao ser clicado, mude a cor do parágrafo.</p>
+    </div>
+
+    <script type="text/babel">
+        // Solução do exercício
+        function TextoColorido() {
+            const estiloDoTexto = {
+                color: 'red',
+                fontSize: '18px'
+            };
+
+            return (
+                <p style={estiloDoTexto}>
+                    Este texto é vermelho e tem 18 pixels de tamanho!
+                </p>
+            );
+        }
+
+
+        // Solução estendida com estado
+        function TextoColoridoComEstado() {
+            const [cor, setCor] = React.useState('red');
+            
+            const estiloDoTexto = {
+                color: cor,
+                fontSize: '18px',
+                transition: 'color 0.3s ease'
+            };
+
+            const mudarCor = () => {
+                const cores = ['red', 'blue', 'green', 'purple', 'orange'];
+                const proximaCor = cores[Math.floor(Math.random() * cores.length)];
+                setCor(proximaCor);
+            };
+
+            return (
+                <div>
+                    <p style={estiloDoTexto}>
+                        Clique no botão para mudar minha cor!
+                    </p>
+                    <button onClick={mudarCor}>
+                        Mudar Cor
+                    </button>
+                </div>
+            );
+        }
+
+        // Renderização dos componentes
+        ReactDOM.render(
+            <div>
+                <h3>Exercício Básico:</h3>
+                <TextoColorido />
+                <h3>Exercício Estendido:</h3>
+                <TextoColoridoComEstado />
+            </div>,
+            document.getElementById('solution')
+        );
+    </script>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex2.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex4.html';
+    });
+
+    fetch('qrrjs012_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise9dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

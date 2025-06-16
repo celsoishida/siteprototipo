@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 4</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 4: Compartilhando Estado de Usuário com Context API</h1>
+            <ul>
+                <li>Descrição: Crie um novo contexto chamado AuthContext para gerenciar o estado de autenticação de um usuário. O estado deve conter um objeto user (inicialmente null) e uma função login e logout. Crie componentes para simular login e exibir o nome do usuário logado.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>A Context API pode ser usada para compartilhar qualquer tipo de dado, não apenas temas. Informações de autenticação, carrinho de compras, configurações de idioma são exemplos comuns.</li>
+                        <li>Passar objetos com múltiplas propriedades (estado e funções) no value do Provider é uma prática comum para expor a interface de um contexto.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// AuthContext.js
+import React, { createContext, useState } from 'react';
+
+export const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  
+  const login = (username) => {
+    setUser({ name: username });
+  };
+  
+  const logout = () => {
+    setUser(null);
+  };
+  
+  return (
+    &lt;AuthContext.Provider value={{ user, login, logout }}>
+      {children}
+    &lt;/AuthContext.Provider>
+  );
+};
+
+// App.js
+import React from 'react';
+import { AuthProvider } from './AuthContext';
+import UserProfile from './UserProfile';
+import AuthButtons from './AuthButtons';
+
+function App() {
+  return (
+    &lt;AuthProvider>
+      &lt;h1>Aplicação de Autenticação&lt;/h1>
+      &lt;UserProfile />
+      &lt;AuthButtons />
+    &lt;/AuthProvider>
+  );
+}
+
+// UserProfile.js
+import React, { useContext } from 'react';
+import { AuthContext } from './AuthContext';
+
+function UserProfile() {
+  const { user } = useContext(AuthContext);
+  
+  return (
+    &lt;div>
+      {user ? &lt;p>Bem-vindo, {user.name}!&lt;/p> : &lt;p>Nenhum usuário logado.&lt;/p>}
+    &lt;/div>
+  );
+}
+
+// AuthButtons.js
+import React, { useContext } from 'react';
+import { AuthContext } from './AuthContext';
+
+function AuthButtons() {
+  const { user, login, logout } = useContext(AuthContext);
+  
+  return (
+    &lt;div>
+      {!user ? (
+        &lt;button onClick={() => login('João Silva')}>Login&lt;/button>
+      ) : (
+        &lt;button onClick={logout}>Logout&lt;/button>
+      )}
+    &lt;/div>
+  );
+}
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Considere o value do Provider como um objeto que contém tanto os dados que você quer compartilhar quanto as funções para manipulá-los.
+
+<strong>Sugestão de Extensão:</strong>
+Adicione um formulário de login para que o usuário possa digitar o nome antes de fazer login.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex3.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex5.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

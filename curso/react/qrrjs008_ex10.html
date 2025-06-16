@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS008 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Tabs Simples</h1>
+            <ul>
+                <li>Descrição: Crie um componente com três botões, cada um representando uma aba (por exemplo, "Aba 1", "Aba 2", "Aba 3"). Abaixo dos botões, deve haver uma área de conteúdo. Ao clicar em um botão, o conteúdo correspondente àquela aba deve ser exibido, e o conteúdo das outras abas deve ser escondido.</li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li><strong>Estado para Abas Ativas:</strong> Use um estado para manter qual aba está "ativa" no momento. Pode ser um número, uma string com o nome da aba, etc.</li>
+                        <li><strong>Renderização Condicional Avançada:</strong> Combine a renderização condicional com o estado da aba ativa para exibir o conteúdo correto.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+import React, { useState } from 'react';
+
+function TabsComponent() {
+  const [activeTab, setActiveTab] = useState('aba1'); // 'aba1', 'aba2', 'aba3'
+
+  return (
+    <div>
+      <div>
+        <button onClick={() => setActiveTab('aba1')}>Aba 1</button>
+        <button onClick={() => setActiveTab('aba2')}>Aba 2</button>
+        <button onClick={() => setActiveTab('aba3')}>Aba 3</button>
+      </div>
+
+      <div style={{ border: '1px solid #ccc', padding: '15px', marginTop: '10px' }}>
+        {activeTab === 'aba1' && <p>Conteúdo da Aba 1. Bem-vindo!</p>}
+        {activeTab === 'aba2' && <p>Este é o conteúdo da Aba 2.</p>}
+        {activeTab === 'aba3' && <p>Você está na Aba 3.</p>}
+      </div>
+    </div>
+  );
+}
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Use o estado para guardar qual aba está selecionada e use operadores ternários ou <code>&&</code> para renderizar condicionalmente o conteúdo de cada aba.
+<strong>Sugestão de Extensão:</strong>
+Adicione um estilo visual aos botões das abas para indicar qual aba está ativa (por exemplo, mudar a cor de fundo do botão da aba ativa).
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs008_ex9.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs008.html';
+    });
+
+    fetch('qrrjs008_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

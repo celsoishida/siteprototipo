@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS010 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Parâmetros de Rota (`URL Parameters`)</h1>
+            <ul>
+                <li>Descrição: Crie uma página `ProductDetail.js` que exiba informações de um produto com base em um ID passado na URL (ex: `/products/123`). Adicione um link para essa página a partir de um componente `Products.js`.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Parâmetros de Rota</strong>: Permitem capturar valores dinâmicos na URL. Você define um parâmetro prefixando-o com `:` (ex: `:id`).</li>
+                        <li><code>useParams</code>: Hook do `react-router-dom` para acessar os parâmetros de rota.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// src/components/Products.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Products() {
+  const products = [
+    { id: '1', name: 'Notebook' },
+    { id: '2', name: 'Mouse' },
+    { id: '3', name: 'Teclado' },
+  ];
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Nossos Produtos&lt;/h2&gt;
+      &lt;ul&gt;
+        {products.map(product =&gt; (
+          &lt;li key={product.id}&gt;
+            &lt;Link to={`/products/${product.id}`}&gt;{product.name}&lt;/Link&gt;
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Products;
+
+// src/components/ProductDetail.js
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+function ProductDetail() {
+  const { id } = useParams(); // Captura o parâmetro 'id' da URL
+
+  // Aqui você faria uma requisição para buscar os detalhes do produto com base no ID
+  const product = { id: id, name: `Produto ${id}`, description: `Detalhes do Produto ${id}.` };
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Detalhes do Produto: {product.name}&lt;/h2&gt;
+      &lt;p&gt;ID: {product.id}&lt;/p&gt;
+      &lt;p&gt;{product.description}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default ProductDetail;
+
+// src/App.js (atualizado)
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
+import Settings from './components/Settings';
+import Products from './components/Products'; // Importe Products
+import ProductDetail from './components/ProductDetail'; // Importe ProductDetail
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Meu App de Rotas&lt;/h1&gt;
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;Link to="/"&gt;Home&lt;/Link&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;Link to="/about"&gt;Sobre&lt;/Link&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;Link to="/dashboard"&gt;Dashboard&lt;/Link&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;Link to="/products"&gt;Produtos&lt;/Link&gt;&lt;/li&gt; {/* Adicione o link para Produtos */}
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+        &lt;Route path="/dashboard" element={&lt;Dashboard /&gt;}&gt;
+          &lt;Route path="profile" element={&lt;Profile /&gt;} /&gt;
+          &lt;Route path="settings" element={&lt;Settings /&gt;} /&gt;
+        &lt;/Route&gt;
+        &lt;Route path="/products" element={&lt;Products /&gt;} /&gt; {/* Rota para lista de produtos */}
+        &lt;Route path="/products/:id" element={&lt;ProductDetail /&gt;} /&gt; {/* Rota com parâmetro */}
+      &lt;/Routes&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+- O nome do parâmetro na rota (`:id`) deve ser o mesmo usado no `useParams({ id })`.
+</pre>
+            <pre>
+<strong>Sugestão de Extensão:</strong>
+- Crie um array de objetos `products` no `Products.js` e passe-o como `prop` para `ProductDetail` para simular a busca de dados.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex4.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex6.html';
+    });
+
+    fetch('qrrjs010_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise7dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

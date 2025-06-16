@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livro React - QRRJS007 - Exercício 1</title>
+    <title>Livro React - QRRJS007 - Exercício 6</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
 </head>
@@ -11,13 +11,12 @@
     <div id="header-container"></div>
     <main>
         <section>
-            <h1>Exercício 1: Nosso Primeiro State!</h1>
+            <h1>Exercício 6: Exibindo e Escondendo um Elemento</h1>
             <ul>
-                <li>Descrição: Crie um componente funcional jsx chamado <code>Saudacao</code> que exiba a mensagem "Olá, mundo!" usando um state para armazenar essa mensagem. O objetivo é ver o state em ação de forma simples.</li>
+                <li>Descrição: Crie um componente <code>MostrarEsconder</code> com um botão e um texto. Inicialmente, o texto deve estar visível. Ao clicar no botão, o texto deve alternar entre visível e escondido.</li>
                 <li>Conteúdo Teórico:
                     <ul>
-                        <li><strong>State</strong> em React: É um objeto JavaScript que armazena dados que são específicos de um componente e que podem mudar ao longo do tempo. Quando o state de um componente muda, o componente é re-renderizado para refletir essas mudanças na interface do usuário.</li>
-                        <li><code>useState</code>: É um Hook do React que permite adicionar state a componentes funcionais. Ele retorna um par de valores: o estado atual e uma função para atualizá-lo.</li>
+                        <li><strong>Renderização Condicional:</strong> Você pode usar o state para controlar condicionalmente a renderização de elementos. Isso significa que você pode exibir ou esconder partes da sua UI com base no valor do state.</li>
                     </ul>
                 </li>
             </ul>
@@ -26,25 +25,30 @@
 <strong>Exemplo de Código:</strong>
 <code>
 // App.js
-import React, &#123; useState &#125; from 'react';
+import React, { useState } from 'react';
 
-function Saudacao() &#123;
-  const [mensagem, setMensagem] = useState('Olá, mundo!');
+function MostrarEsconder() {
+  const [visivel, setVisivel] = useState(true);
 
   return (
-    &lt;h1&gt;&#123;mensagem&#125;&lt;/h1&gt;
+    <div>
+      <button onClick={() => setVisivel(!visivel)}>
+        {visivel ? 'Esconder' : 'Mostrar'}
+      </button>
+      {visivel && <p>Este é o texto que pode ser exibido ou escondido.</p>}
+    </div>
   );
-&#125;
+}
 
-export default Saudacao;
+export default MostrarEsconder;
 </code>
 </pre>
             <br>
             <pre>
 <strong>Dica:</strong>
-Lembre-se de importar o <code>useState</code> do React!
+Use um state booleano para controlar a visibilidade e aplique renderização condicional (por exemplo, <code>state && &lt;p&gt;Meu Texto&lt;/p&gt;</code>) ou classes CSS.
 <strong>Sugestão de Extensão:</strong>
-Tente mudar a mensagem inicial do state e veja o que acontece.
+Altere o texto do botão para "Esconder" quando o texto estiver visível e para "Mostrar" quando estiver escondido.
 </pre>
             <div class="centered-nav-btn">
                 <button class="nav-btn prev-btn">
@@ -61,11 +65,11 @@ Tente mudar a mensagem inicial do state e veja o que acontece.
     <div id="footer-container"></div>
     <script>
     document.querySelector('.prev-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007.html';
+      window.location.href = 'qrrjs007_ex5.html';
     });
 
     document.querySelector('.next-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007_ex2.html';
+      window.location.href = 'qrrjs007_ex7.html';
     });
 
     fetch('qrrjs007_menu.html')

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS012 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Combinando Estilos (CSS Modules e Styled Components)</h1>
+            <ul>
+                <li>Descrição: Crie um componente chamado <strong><code>SecaoProduto</code></strong>. A <strong>seção principal</strong> (<code>div</code> externa) deve ser estilizada usando <strong>Styled Components</strong>, com uma borda e um padding. Dentro dela, o <strong>título do produto</strong> (<code>h2</code>) deve ser estilizado usando <strong>CSS Modules</strong> para definir a cor e o tamanho da fonte.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Em uma aplicação React, é comum que diferentes partes do seu código usem <strong>diferentes abordagens de estilização</strong>. Você pode, por exemplo, usar Styled Components para layout e temas globais, e CSS Modules para componentes mais específicos ou que precisam de isolamento de escopo.</li>
+                        <li>A chave é saber <strong>como importar e aplicar</strong> os estilos de cada método corretamente.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+Crie um arquivo <code>TituloProduto.module.css</code>:
+<code>
+/* TituloProduto.module.css */
+.tituloDestaque {
+color: #8A2BE2; /* Azul violeta */
+font-size: 28px;
+text-align: center;
+margin-bottom: 15px;
+}
+</code>
+No seu arquivo de componente (por exemplo, <code>SecaoProduto.jsx</code>):
+<code>
+import React from 'react';
+import styled from 'styled-components';
+import tituloEstilos from './TituloProduto.module.css'; // Importe o CSS Module
+
+// Componente de contêiner estilizado com Styled Components
+const ContainerEstilizado = styled.div`border: 3px solid #FFD700; /* Dourado */ padding: 25px; margin: 20px auto; border-radius: 12px; max-width: 600px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);`;
+
+function SecaoProduto() {
+return (
+<ContainerEstilizado>
+{/* Título usando CSS Modules */}
+<h2 className={tituloEstilos.tituloDestaque}>
+Novo Smartwatch X-Pro
+</h2>
+<p>
+Descubra a tecnologia de ponta com o Smartwatch X-Pro. Monitore sua saúde, receba notificações e personalize seu dia, tudo no seu pulso!
+</p>
+<p>
+<strong style={{ color: '#007bff' }}>Preço: R$ 899,99</strong>
+</p>
+</ContainerEstilizado>
+);
+}
+
+export default SecaoProduto;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Ao misturar estilos, lembre-se de que o CSS Module usa <code>import nomeVariavel from './arquivo.module.css'</code> e você aplica as classes como <code>className={nomeVariavel.nomeDaClasse}</code>, enquanto Styled Components cria um novo componente React que você usa diretamente, aplicando os estilos na sua definição.
+<strong>Sugestão de Extensão:</strong>
+Adicione um botão de "Comprar" a essa seção, estilizado com os Styled Components que você criou no Exercício 9.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex9.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012.html';
+    });
+
+    fetch('qrrjs012_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise9dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

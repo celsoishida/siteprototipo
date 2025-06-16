@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 3: Gerenciamento de Estado com useReducer e Context API</h1>
+            <ul>
+                <li>Descrição: Refatore o ThemeContext para usar useReducer para gerenciar o estado do tema. O contexto deve fornecer o estado atual do tema e uma função dispatch para alterá-lo. Crie botões em diferentes componentes para alternar o tema.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><code>useReducer</code> Hook: É um hook alternativo para useState para gerenciar estados mais complexos. Ele é útil quando o estado de um componente depende de seu estado anterior ou quando as atualizações de estado envolvem lógica complexa.</li>
+                        <li><code>reducer</code> função: É uma função pura que recebe o estado atual e uma ação como argumentos, e retorna o novo estado.</li>
+                        <li><code>dispatch</code> função: A função retornada por useReducer que permite enviar "ações" para o reducer, desencadeando uma atualização de estado.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// ThemeContext.js
+import React, { createContext, useReducer } from 'react';
+
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE_THEME':
+      return state === 'light' ? 'dark' : 'light';
+    default:
+      return state;
+  }
+};
+
+export const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [theme, dispatch] = useReducer(themeReducer, 'light'); // Estado inicial 'light'
+  
+  return (
+    &lt;ThemeContext.Provider value={{ theme, dispatch }}>
+      {children}
+    &lt;/ThemeContext.Provider>
+  );
+};
+
+// App.js
+import React from 'react';
+import { ThemeProvider } from './ThemeContext';
+import Header from './Header';
+import Footer from './Footer';
+import ThemeSwitcher from './ThemeSwitcher';
+
+function App() {
+  return (
+    &lt;ThemeProvider>
+      &lt;Header />
+      &lt;main>Conteúdo principal&lt;/main>
+      &lt;ThemeSwitcher />
+      &lt;Footer />
+    &lt;/ThemeProvider>
+  );
+}
+
+// ThemeSwitcher.js
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+function ThemeSwitcher() {
+  const { theme, dispatch } = useContext(ThemeContext);
+  
+  return (
+    &lt;button onClick={() => dispatch({ type: 'TOGGLE_THEME' })}>
+      Alternar Tema ({theme})
+    &lt;/button>
+  );
+}
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+O useReducer é especialmente útil quando você tem múltiplas transições de estado que dependem da lógica do estado anterior ou quando o estado é um objeto complexo.
+
+<strong>Sugestão de Extensão:</strong>
+Adicione mais ações ao reducer (por exemplo, SET_THEME_TO_LIGHT, SET_THEME_TO_DARK) e crie botões específicos para cada ação.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex2.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex4.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

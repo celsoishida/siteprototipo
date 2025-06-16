@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS015 - JSX</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+    <h1>Perguntas desafio para finalizar o curso</h1>
+
+<form id="quiz-form">
+    <ol>
+        <li>
+            <strong>Qual a principal função dos Componentes no React?</strong><br>
+            <label><input type="radio" name="q1" value="a">São funções que retornam HTML puro.</label><br>
+            <label><input type="radio" name="q1" value="b">São os blocos de construção do React, permitindo criar elementos de interface reutilizáveis.</label><br>
+            <label><input type="radio" name="q1" value="c">São bibliotecas externas para gerenciar o estado global da aplicação.</label><br>
+            <label><input type="radio" name="q1" value="d">São arquivos CSS para estilizar a aplicação.</label>
+        </li>
+        <li>
+            <strong>O que é JSX (JavaScript XML) no contexto do React?</strong><br>
+            <label><input type="radio" name="q2" value="a">É uma linguagem de estilização similar ao CSS.</label><br>
+            <label><input type="radio" name="q2" value="b">É uma biblioteca para gerenciamento de estado global.</label><br>
+            <label><input type="radio" name="q2" value="c">É uma extensão do JavaScript que permite escrever código semelhante ao HTML dentro do JavaScript.</label><br>
+            <label><input type="radio" name="q2" value="d">É um método para realizar requisições HTTP em APIs.</label>
+        </li>
+        <li>
+            <strong>Qual a diferença fundamental entre Props e State no React?</strong><br>
+            <label><input type="radio" name="q3" value="a">Props gerenciam dados internos e State passa dados entre componentes.</label><br>
+            <label><input type="radio" name="q3" value="b">Ambos são usados para estilizar componentes.</label><br>
+            <label><input type="radio" name="q3" value="c">Props são para gerenciar dados internos de um componente, e State é para passar dados entre componentes.</label><br>
+            <label><input type="radio" name="q3" value="d">Props passam dados de um componente pai para um filho, enquanto State gerencia dados internos do componente que podem ser alterados.</label>
+        </li>
+        <li>
+            <strong>Para que servem Eventos e Manipulação de Estado no React?</strong><br>
+            <label><input type="radio" name="q4" value="a">São usados apenas para animações de UI.</label><br>
+            <label><input type="radio" name="q4" value="b">Permitem capturar interações do usuário (ex: clique, digitação) e atualizar dinamicamente os dados internos do componente.</label><br>
+            <label><input type="radio" name="q4" value="c">São bibliotecas para gerenciamento de rotas.</label><br>
+            <label><input type="radio" name="q4" value="d">Serve para otimizar o desempenho da aplicação, evitando re-renderizações.</label>
+        </li>
+        <li>
+            <strong>Qual a função principal dos Hooks <code>useState</code>, <code>useEffect</code> e <code>useContext</code> no React?</strong><br>
+            <label><input type="radio" name="q5" value="a"><code>useState</code> para efeitos colaterais, <code>useEffect</code> para gerenciar estado.</label><br>
+            <label><input type="radio" name="q5" value="b"><code>useState</code> para gerenciar estado, <code>useEffect</code> para lidar com efeitos colaterais, e <code>useContext</code> para compartilhamento de dados.</label><br>
+            <label><input type="radio" name="q5" value="c"><code>useState</code> para roteamento, <code>useEffect</code> para requisições API.</label><br>
+            <label><input type="radio" name="q5" value="d">São ferramentas para otimização de performance apenas.</label>
+        </li>
+        <li>
+            <strong>Qual o propósito da biblioteca React Router?</strong><br>
+            <label><input type="radio" name="q6" value="a">Para estilizar componentes de forma global.</label><br>
+            <label><input type="radio" name="q6" value="b">Para gerenciar dados internos de um único componente.</label><br>
+            <label><input type="radio" name="q6" value="c">É uma biblioteca para criar rotas e gerenciar a navegação em Single Page Applications (SPAs).</label><br>
+            <label><input type="radio" name="q6" value="d">Para otimizar o carregamento de imagens na aplicação.</label>
+        </li>
+        <li>
+            <strong>Por que ferramentas como Redux ou Context API são úteis no gerenciamento de estado global?</strong><br>
+            <label><input type="radio" name="q7" value="a">Para estilizar componentes isoladamente.</label><br>
+            <label><input type="radio" name="q7" value="b">Para passar dados de um componente pai para um filho.</label><br>
+            <label><input type="radio" name="q7" value="c">Para compartilhar estados entre diferentes componentes sem precisar passar props manualmente.</label><br>
+            <label><input type="radio" name="q7" value="d">Para realizar requisições HTTP.</label>
+        </li>
+        <li>
+            <strong>Como os Componentes Estilizados são abordados no React?</strong><br>
+            <label><input type="radio" name="q8" value="a">São usadas apenas para criar componentes funcionais.</label><br>
+            <label><input type="radio" name="q8" value="b">Permitem estilizar componentes com CSS tradicional, CSS Modules, ou bibliotecas como Styled Components.</label><br>
+            <label><input type="radio" name="q8" value="c">São bibliotecas para gerenciamento de estado global.</label><br>
+            <label><input type="radio" name="q8" value="d">Serve para otimizar o desempenho de requisições de API.</label>
+        </li>
+        <li>
+            <strong>Qual a finalidade de usar <code>fetch</code> ou <code>axios</code> em uma aplicação React?</strong><br>
+            <label><input type="radio" name="q9" value="a">Para criar novos componentes de UI.</label><br>
+            <label><input type="radio" name="q9" value="b">Para gerenciar o estado interno de um componente.</label><br>
+            <label><input type="radio" name="q9" value="c">Para realizar requisições HTTP usando 'fetch' ou 'axios' para obter e manipular dados dinâmicos de um backend.</label><br>
+            <label><input type="radio" name="q9" value="d">Para configurar rotas de navegação na aplicação.</label>
+        </li>
+        <li>
+            <strong>Qual o objetivo de técnicas como memoization, <code>React.memo</code>, <code>useMemo</code> e <code>useCallback</code> no React?</strong><br>
+            <label><input type="radio" name="q10" value="a">Para adicionar mais funcionalidades aos componentes.</label><br>
+            <label><input type="radio" name="q10" value="b">Para estilizar componentes de forma mais rápida.</label><br>
+            <label><input type="radio" name="q10" value="c">Técnicas como memoization, <code>React.memo</code>, <code>useMemo</code>, e <code>useCallback</code> são usadas para evitar re-renderizações desnecessárias e melhorar a eficiência da aplicação.</label><br>
+            <label><input type="radio" name="q10" value="d">Para gerenciar a navegação entre diferentes páginas.</label>
+        </li>
+    </ol>
+    <button type="button" onclick="corrigirQuiz()">Enviar respostas</button>
+</form>
+<div id="quiz-resultado" style="font-weight:bold; margin-top:20px;"></div>
+<script>
+function corrigirQuiz() {
+    const respostasCorretas = {
+        q1: 'b',
+        q2: 'c',
+        q3: 'd',
+        q4: 'b',
+        q5: 'b',
+        q6: 'c',
+        q7: 'c',
+        q8: 'b',
+        q9: 'c',
+        q10: 'c'
+    };
+    let acertos = 0;
+    let erros = 0;
+    for (let i = 1; i <= 10; i++) {
+        const resposta = document.querySelector('input[name="q'+i+'"]:checked');
+        if (resposta && resposta.value === respostasCorretas['q'+i]) {
+            acertos++;
+        } else {
+            erros++;
+        }
+    }
+    document.getElementById('quiz-resultado').textContent =
+        `Você acertou ${acertos} e errou ${erros} questões.`;
+}
+</script>
+
+
+
+
+        </section>
+    </main>
+	<br />	<br />
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS012 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Herança de Estilos com Styled Components</h1>
+            <ul>
+                <li>Descrição: Crie um componente <strong><code>BotaoPadrao</code></strong> que servirá como base. Em seguida, crie outros dois componentes, <strong><code>BotaoConfirmar</code></strong> e <strong><code>BotaoCancelar</code></strong>, que <strong>herdarão os estilos de <code>BotaoPadrao</code></strong>, mas terão suas próprias cores de fundo e de texto.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Herança de Estilos</strong>: Com Styled Components, você pode criar um componente estilizado e depois <strong>reutilizar seus estilos</strong> como base para outros componentes. Isso promove a <strong>reusabilidade de código</strong> e facilita a manutenção, pois você define estilos comuns apenas uma vez.</li>
+                        <li>A sintaxe para herdar estilos é <code>styled(ComponenteBase)</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+Primeiro, garanta que <code>styled-components</code> esteja instalado:
+<code>npm install styled-components</code> ou <code>yarn add styled-components</code>
+
+No seu arquivo de componente (por exemplo, <code>BotoesHerdados.jsx</code>):
+<code>
+import React from 'react';
+import styled from 'styled-components';
+
+// 1. Componente Base com estilos comuns
+const BotaoPadrao = styled.button`padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; font-weight: bold; margin: 5px; /* Adicionado para melhor visualização */`;
+
+// 2. Botão de Confirmação que herda de BotaoPadrao
+const BotaoConfirmar = styled(BotaoPadrao)`
+background-color: #28a745; /* Verde */
+color: white;
+
+&:hover {
+background-color: #218838; /* Verde mais escuro no hover */
+}
+`;
+
+// 3. Botão de Cancelamento que herda de BotaoPadrao
+const BotaoCancelar = styled(BotaoPadrao)`
+background-color: #dc3545; /* Vermelho */
+color: white;
+
+&:hover {
+background-color: #c82333; /* Vermelho mais escuro no hover */
+}
+`;
+
+function BotoesHerdados() {
+return (
+<div>
+<BotaoConfirmar>Confirmar Ação</BotaoConfirmar>
+<BotaoCancelar>Cancelar Operação</BotaoCancelar>
+</div>
+);
+}
+
+export default BotoesHerdados;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Pense no <code>BotaoPadrao</code> como um "molde" ou "modelo" para os outros botões. Ele define o que é comum entre eles, e os botões derivados apenas adicionam ou modificam o que é específico.
+<strong>Sugestão de Extensão:</strong>
+Crie um <code>LinkEstilizado</code> que herda os estilos de um <code>BotaoPadrao</code> e adicione estilos para remover o sublinhado e mudar a cor do texto.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex8.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex10.html';
+    });
+
+    fetch('qrrjs012_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise9dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

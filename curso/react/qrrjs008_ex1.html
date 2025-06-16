@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livro React - QRRJS007 - Exercício 1</title>
+    <title>Livro React - QRRJS008 - Exercício 1</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
 </head>
@@ -11,13 +11,13 @@
     <div id="header-container"></div>
     <main>
         <section>
-            <h1>Exercício 1: Nosso Primeiro State!</h1>
+            <h1>Exercício 1: Nosso Primeiro Botão Interativo</h1>
             <ul>
-                <li>Descrição: Crie um componente funcional jsx chamado <code>Saudacao</code> que exiba a mensagem "Olá, mundo!" usando um state para armazenar essa mensagem. O objetivo é ver o state em ação de forma simples.</li>
+                <li>Descrição: Crie um componente React que exiba um botão. Ao clicar no botão, ele deve exibir um alerta simples no navegador com a mensagem "Botão clicado!".</li>
                 <li>Conteúdo Teórico:
                     <ul>
-                        <li><strong>State</strong> em React: É um objeto JavaScript que armazena dados que são específicos de um componente e que podem mudar ao longo do tempo. Quando o state de um componente muda, o componente é re-renderizado para refletir essas mudanças na interface do usuário.</li>
-                        <li><code>useState</code>: É um Hook do React que permite adicionar state a componentes funcionais. Ele retorna um par de valores: o estado atual e uma função para atualizá-lo.</li>
+                        <li><strong>Eventos em React:</strong> No React, lidamos com eventos de forma muito semelhante ao JavaScript tradicional, mas com algumas diferenças importantes. Em vez de <code>onclick="minhaFuncao()"</code>, usamos <code>onClick=&#123;minhaFuncao&#125;</code> (observe o camelCase e o uso de chaves para passar a função).</li>
+                        <li><strong>Funções de Manipulação de Eventos:</strong> Geralmente, definimos funções separadas para lidar com os eventos. Essas funções são passadas como props para os elementos JSX.</li>
                     </ul>
                 </li>
             </ul>
@@ -25,26 +25,22 @@
             <pre>
 <strong>Exemplo de Código:</strong>
 <code>
-// App.js
-import React, &#123; useState &#125; from 'react';
+// Dentro do seu componente React
+function handleClick() {
+  alert("Botão clicado!");
+}
 
-function Saudacao() &#123;
-  const [mensagem, setMensagem] = useState('Olá, mundo!');
-
-  return (
-    &lt;h1&gt;&#123;mensagem&#125;&lt;/h1&gt;
-  );
-&#125;
-
-export default Saudacao;
+return (
+  <button onClick={handleClick}>Clique-me!</button>
+);
 </code>
 </pre>
             <br>
             <pre>
 <strong>Dica:</strong>
-Lembre-se de importar o <code>useState</code> do React!
+Lembre-se de que a função passada para <code>onClick</code> não deve ser chamada no JSX (ou seja, <code>handleClick()</code>), mas sim referenciada (<code>handleClick</code>).
 <strong>Sugestão de Extensão:</strong>
-Tente mudar a mensagem inicial do state e veja o que acontece.
+Adicione um segundo botão que exiba uma mensagem diferente ao ser clicado.
 </pre>
             <div class="centered-nav-btn">
                 <button class="nav-btn prev-btn">
@@ -61,18 +57,18 @@ Tente mudar a mensagem inicial do state e veja o que acontece.
     <div id="footer-container"></div>
     <script>
     document.querySelector('.prev-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007.html';
+      window.location.href = 'qrrjs008.html';
     });
 
     document.querySelector('.next-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007_ex2.html';
+      window.location.href = 'qrrjs008_ex2.html';
     });
 
-    fetch('qrrjs007_menu.html')
+    fetch('qrrjs008_menu.html')
       .then(res => res.text())
       .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
     </script>
-    <script src="exercise4dot.js"></script>
+    <script src="exercise5dot.js"></script>
     <script src="../../scripts/copyToClipboard.js"></script>
     <script src="cabecalho.js"></script>
     <script src="rodape.js"></script>

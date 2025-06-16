@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Múltiplos Contextos - Integrando Tema e Autenticação</h1>
+            <ul>
+                <li>Descrição: Combine os conceitos dos exercícios anteriores. Sua aplicação deve ter o ThemeContext e o AuthContext ativos simultaneamente. O Header deve exibir tanto o tema atual quanto o nome do usuário logado (se houver).</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Você pode ter vários contextos em uma aplicação React. Basta envolver os componentes filhos com múltiplos Providers.</li>
+                        <li>A ordem dos Providers geralmente não importa, a menos que um contexto dependa do valor de outro.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// ThemeContext.js, AuthContext.js (os mesmos dos exercícios anteriores)
+
+// Header.js
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+import { AuthContext } from './AuthContext';
+
+function Header() {
+  const { theme } = useContext(ThemeContext);
+  const { user } = useContext(AuthContext);
+  
+  return (
+    &lt;header style={{ 
+      background: theme === 'dark' ? '#333' : '#eee', 
+      color: theme === 'dark' ? '#eee' : '#333',
+      padding: '1rem',
+      marginBottom: '1rem'
+    }}>
+      &lt;h1>Minha Aplicação&lt;/h1>
+      &lt;p>Tema: {theme}&lt;/p>
+      {user ? &lt;p>Logado como: {user.name}&lt;/p> : &lt;p>Não Logado&lt;/p>}
+    &lt;/header>
+  );
+}
+
+// App.js
+import React from 'react';
+import { ThemeProvider } from './ThemeContext';
+import { AuthProvider } from './AuthContext';
+import Header from './Header';
+import ThemeSwitcher from './ThemeSwitcher';
+import AuthButtons from './AuthButtons';
+
+function App() {
+  return (
+    &lt;ThemeProvider>
+      &lt;AuthProvider>
+        &lt;Header />
+        &lt;main style={{ padding: '1rem' }}>
+          &lt;h2>Conteúdo Principal&lt;/h2>
+          &lt;ThemeSwitcher />
+          &lt;AuthButtons />
+        &lt;/main>
+      &lt;/AuthProvider>
+    &lt;/ThemeProvider>
+  );
+}
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Aninhe os Providers na ordem que fizer mais sentido para a sua aplicação. No caso, a ordem não afeta a funcionalidade.
+
+<strong>Sugestão de Extensão:</strong>
+Crie um componente de Dashboard que só seja renderizado se o usuário estiver logado e exiba informações personalizadas com base no tema.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex4.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex6.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

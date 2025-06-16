@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS012 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Introdução ao Styled Components</h1>
+            <ul>
+                <li>Descrição: Refatore o componente <code>BotaoSimples</code> novamente, mas desta vez usando <strong>Styled Components</strong>. Crie um botão azul com texto branco.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Styled Components</strong>: É uma biblioteca que permite escrever CSS dentro do seu código JavaScript, criando componentes React com estilos já acoplados. Isso oferece estilização com escopo e reusabilidade.</li>
+                        <li><strong>Instalação</strong>: Você precisará instalar <code>styled-components</code> (<code>npm install styled-components</code> ou <code>yarn add styled-components</code>).</li>
+                        <li><strong>Sintaxe</strong>: Use a sintaxe de <em>tagged template literals</em> (strings com acento grave <code> ` ` </code>) após <code>styled.</code> para definir os estilos.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+Primeiro, instale <code>styled-components</code>:
+<code>npm install styled-components</code> ou <code>yarn add styled-components</code>
+
+No seu componente <code>BotaoSimples.jsx</code>:
+<code>
+import React from 'react';
+import styled from 'styled-components'; // Importe styled
+
+const BotaoEstilizado = styled.button`
+background-color: #007bff;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+
+&:hover { /* Estilo de hover diretamente no CSS */
+background-color: #0056b3;
+}
+`;
+
+function BotaoSimples() {
+return (
+<BotaoEstilizado>
+Clique com Styled Components!
+</BotaoEstilizado>
+);
+}
+
+export default BotaoSimples;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Styled Components cria um componente React com os estilos. Você o usa como qualquer outro componente.
+<strong>Sugestão de Extensão:</strong>
+Crie um componente <code>Caixa</code> estilizado com Styled Components, definindo largura e altura.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex6.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs012_ex8.html';
+    });
+
+    fetch('qrrjs012_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise9dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

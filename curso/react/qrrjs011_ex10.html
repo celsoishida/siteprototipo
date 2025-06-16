@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+    <style>
+        .app-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        h1 {
+            color: #1976d2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .theme-section {
+            background-color: #f0f7ff;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .shopping-section {
+            background-color: #f5fff0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .shopping-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .shopping-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .item-name {
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+        
+        button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin: 0 2px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: #1565c0;
+        }
+        
+        button:disabled {
+            background-color: #bdbdbd;
+            cursor: not-allowed;
+        }
+        
+        .remove-btn {
+            background-color: #f44336;
+        }
+        
+        .remove-btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+        
+        form button[type="submit"] {
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .theme-switcher {
+            padding: 10px;
+            border-radius: 4px;
+            background: white;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section class="app-container">
+            <h1>Exercício 10: Comparando Context API vs. Redux - Quando Usar Cada Um</h1>
+            <ul>
+                <li>Descrição: Para finalizar, crie uma pequena aplicação onde você tenha um tema gerenciado pela Context API e uma lista de compras gerenciada pelo Redux. A ideia é reforçar quando cada ferramenta é mais apropriada.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Context API:</strong> Ideal para compartilhar dados que não mudam com muita frequência ou que são usados por uma pequena parte da árvore de componentes (por exemplo, tema, preferências de idioma). É mais simples de configurar para casos de uso menos complexos.</li>
+                        <li><strong>Redux:</strong> Mais adequado para aplicações com estado complexo, que precisam de um fluxo de dados previsível, depuração facilitada, e onde a mutabilidade de estado é um problema. Ótimo para estados que precisam ser acessados por muitos componentes, ter histórico (undo/redo), ou ser persistido.</li>
+                        <li><strong>Não há uma regra rígida.</strong> A escolha depende da complexidade do estado da sua aplicação e dos requisitos de manutenção e escalabilidade. Muitas aplicações se beneficiam de uma combinação de ambos.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// ThemeContext.js (do Exercício 3)
+import React, { createContext, useReducer } from 'react';
+
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE_THEME':
+      return state === 'light' ? 'dark' : 'light';
+    default:
+      return state;
+  }
+};
+
+export const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [theme, dispatch] = useReducer(themeReducer, 'light');
+  
+  return (
+    &lt;ThemeContext.Provider value={{ theme, dispatch }}>
+      {children}
+    &lt;/ThemeContext.Provider>
+  );
+};
+
+// store/index.js (Slice de compras)
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+
+const shoppingSlice = createSlice({
+  name: 'shopping',
+  initialState: [],
+  reducers: {
+    addItem: (state, action) => {
+      state.push({ id: Date.now(), name: action.payload, quantity: 1 });
+    },
+    removeItem: (state, action) => {
+      return state.filter(item => item.id !== action.payload);
+    },
+    updateQuantity: (state, action) => {
+      const item = state.find(item => item.id === action.payload.id);
+      if (item) {
+        item.quantity = action.payload.quantity;
+      }
+    }
+  },
+});
+
+export const { addItem, removeItem, updateQuantity } = shoppingSlice.actions;
+
+export const store = configureStore({
+  reducer: {
+    shopping: shoppingSlice.reducer,
+  },
+});
+
+// ThemeSwitcher.js
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
+
+function ThemeSwitcher() {
+  const { theme, dispatch } = useContext(ThemeContext);
+  
+  return (
+    <div className="theme-switcher">
+      <p>Tema atual: <strong>{theme}</strong></p>
+      <button onClick={() => dispatch({ type: 'TOGGLE_THEME' })}>
+        Alternar Tema
+      </button>
+    </div>
+  );
+}
+
+export default ThemeSwitcher;
+
+// ShoppingList.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeItem, updateQuantity } from './store';
+
+function ShoppingList() {
+  const items = useSelector(state => state.shopping);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h3>Itens na Lista:</h3>
+      {items.length === 0 ? (
+        <p>Nenhum item na lista de compras.</p>
+      ) : (
+        <ul className="shopping-list">
+          {items.map(item => (
+            <li key={item.id}>
+              <span className="item-name">
+                {item.name} (x{item.quantity})
+              </span>
+              <button 
+                onClick={() => dispatch(updateQuantity({ 
+                  id: item.id, 
+                  quantity: item.quantity + 1 
+                }))}
+              >
+                +
+              </button>
+              <button 
+                onClick={() => dispatch(updateQuantity({ 
+                  id: item.id, 
+                  quantity: Math.max(1, item.quantity - 1)
+                }))} 
+                disabled={item.quantity <= 1}
+              >
+                -
+              </button>
+              <button 
+                className="remove-btn"
+                onClick={() => dispatch(removeItem(item.id))}
+              >
+                Remover
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+// AddShoppingItem.js
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from './store';
+
+function AddShoppingItem() {
+  const [itemName, setItemName] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (itemName.trim()) {
+      dispatch(addItem(itemName));
+      setItemName('');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={itemName}
+        onChange={(e) => setItemName(e.target.value)}
+        placeholder="Nome do item"
+      />
+      <button type="submit">Adicionar Item</button>
+    </form>
+  );
+}
+
+// App.js
+import React from 'react';
+import { ThemeProvider } from './ThemeContext';
+import ThemeSwitcher from './ThemeSwitcher';
+import ShoppingList from './ShoppingList';
+import AddShoppingItem from './AddShoppingItem';
+import { Provider } from 'react-redux';
+import { store } from './store';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Provider store={store}>
+        <div className="app-container">
+          <h1>Comparando Context API e Redux</h1>
+          
+          <section className="theme-section">
+            <h2>Gerenciamento de Tema (Context API)</h2>
+            <ThemeSwitcher />
+          </section>
+          
+          <section className="shopping-section">
+            <h2>Gerenciamento de Lista de Compras (Redux)</h2>
+            <AddShoppingItem />
+            <ShoppingList />
+          </section>
+          
+          <div style={{ marginTop: '30px', padding: '15px', background: '#f5f5f5', borderRadius: '4px' }}>
+            <h3>Quando usar cada um?</h3>
+            <p><strong>Context API</strong> é ótimo para dados que não mudam frequentemente e são acessados por muitos componentes (como tema, autenticação, preferências).</p>
+            <p><strong>Redux</strong> é melhor para estados complexos que envolvem muitas atualizações e precisam de um fluxo de dados previsível.</p>
+          </div>
+        </div>
+      </Provider>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Observe como a complexidade e a natureza do estado (simples para tema, mais complexa e com ações bem definidas para lista de compras) influenciam a escolha entre Context API e Redux.
+
+<strong>Sugestão de Extensão:</strong>
+Adicione um filtro para exibir apenas itens da lista de compras com uma quantidade específica.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex9.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+        window.location.href = 'qrrjs011.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

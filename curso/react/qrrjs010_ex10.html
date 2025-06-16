@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS010 - Exercício 10</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 10: Redirecionamento com <code>Navigate</code> e <code>index</code> routes</h1>
+            <ul>
+                <li>Descrição: No seu `Dashboard.js`, adicione uma rota `index` que redirecione para `profile` automaticamente quando o usuário acessar apenas `/dashboard`.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>`index` Route</strong>: Uma rota aninhada com a propriedade `index` definida como `true` será renderizada quando o caminho da rota pai for acessado, e nenhuma outra rota aninhada corresponder. É como um `default` para rotas aninhadas.</li>
+                        <li><code>Navigate</code>: Um componente que renderiza e automaticamente navega para um novo local. É um wrapper declarativo para `useNavigate`.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// src/App.js (atualizado)
+import React from 'react';
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom'; // Importe Navigate
+import Home from './components/Home';
+import About from './components/About';
+import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
+import Settings from './components/Settings';
+import Products from './components/Products';
+import ProductDetail from './components/ProductDetail';
+import NotFound from './components/NotFound';
+import './App.css';
+
+function App() {
+  const activeLinkStyle = ({ isActive }) => ({
+    fontWeight: isActive ? 'bold' : 'normal',
+    color: isActive ? 'red' : 'blue',
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Meu App de Rotas&lt;/h1&gt;
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/" style={activeLinkStyle}&gt;Home&lt;/NavLink&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/about" style={activeLinkStyle}&gt;Sobre&lt;/NavLink&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/dashboard" style={activeLinkStyle}&gt;Dashboard&lt;/NavLink&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;NavLink to="/products" style={activeLinkStyle}&gt;Produtos&lt;/NavLink&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+        &lt;Route path="/dashboard" element={&lt;Dashboard /&gt;}&gt;
+          &lt;Route index element={&lt;Navigate to="profile" replace /&gt;} /&gt; {/* Rota index com redirecionamento */}
+          &lt;Route path="profile" element={&lt;Profile /&gt;} /&gt;
+          &lt;Route path="settings" element={&lt;Settings /&gt;} /&gt;
+        &lt;/Route&gt;
+        &lt;Route path="/products" element={&lt;Products /&gt;} /&gt;
+        &lt;Route path="/products/:id" element={&lt;ProductDetail /&gt;} /&gt;
+        &lt;Route path="*" element={&lt;NotFound /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+- A prop `replace` no `Navigate` impede que a rota de destino seja adicionada ao histórico do navegador, substituindo a entrada atual.
+- A rota `index` é útil para definir uma página padrão para um layout aninhado.
+</pre>
+            <pre>
+<strong>Sugestão de Extensão:</strong>
+- Crie um componente de layout para o `Dashboard` que inclua uma barra lateral de navegação e use `Outlet` para renderizar o conteúdo.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex9.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+        window.location.href = 'qrrjs010.html';
+    });
+
+    fetch('qrrjs010_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise7dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

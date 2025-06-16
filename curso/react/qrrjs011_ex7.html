@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS011 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Conectando Componentes ao Redux com useSelector e useDispatch</h1>
+            <ul>
+                <li>Descrição: Crie um componente CounterDisplay que apenas exiba o valor do contador e um componente CounterControls que tenha os botões para incrementar e decrementar. Ambos devem se conectar à store Redux.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>react-redux:</strong> É a biblioteca oficial de binding para Redux com React. Ela fornece hooks para facilitar a integração.</li>
+                        <li><strong>Provider (de react-redux):</strong> Componente que torna a store Redux disponível para qualquer componente aninhado.</li>
+                        <li><strong>useSelector:</strong> Hook que permite que um componente de função extraia dados do estado da store Redux. Recebe uma função seletora que pega o estado da store e retorna o pedaço do estado que o componente precisa.</li>
+                        <li><strong>useDispatch:</strong> Hook que retorna uma referência à função dispatch da store Redux. Você pode usá-lo para despachar ações conforme necessário.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// store/index.js (o mesmo do exercício 6)
+
+// CounterDisplay.js
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+function CounterDisplay() {
+  const count = useSelector((state) => state.counter.value);
+  return &lt;h2>Valor do Contador: {count}&lt;/h2>;
+}
+
+export default CounterDisplay;
+
+// CounterControls.js
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { increment, decrement } from './store';
+
+function CounterControls() {
+  const dispatch = useDispatch();
+  
+  return (
+    &lt;div>
+      &lt;button onClick={() => dispatch(increment())}>Incrementar&lt;/button>
+      &lt;button onClick={() => dispatch(decrement())}>Decrementar&lt;/button>
+    &lt;/div>
+  );
+}
+
+export default CounterControls;
+
+// App.js
+import React from 'react';
+import CounterDisplay from './CounterDisplay';
+import CounterControls from './CounterControls';
+
+function App() {
+  return (
+    &lt;div style={{ padding: '20px' }}>
+      &lt;h1>Minha Aplicação Redux&lt;/h1>
+      &lt;CounterDisplay />
+      &lt;CounterControls />
+    &lt;/div>
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+O useSelector se certifica de que o componente só renderize novamente quando o pedaço de estado que ele está "selecionando" realmente mudar.
+
+<strong>Sugestão de Extensão:</strong>
+Adicione um botão "Resetar" que defina o contador de volta para 0, criando uma nova ação e adicionando-a ao reducer.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex6.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs011_ex8.html';
+    });
+
+    fetch('qrrjs011_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise8dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

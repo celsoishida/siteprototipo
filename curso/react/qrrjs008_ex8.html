@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livro React - QRRJS007 - Exercício 1</title>
+    <title>Livro React - QRRJS008 - Exercício 8</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
 </head>
@@ -11,13 +11,12 @@
     <div id="header-container"></div>
     <main>
         <section>
-            <h1>Exercício 1: Nosso Primeiro State!</h1>
+            <h1>Exercício 8: Validação Simples de Formulário</h1>
             <ul>
-                <li>Descrição: Crie um componente funcional jsx chamado <code>Saudacao</code> que exiba a mensagem "Olá, mundo!" usando um state para armazenar essa mensagem. O objetivo é ver o state em ação de forma simples.</li>
+                <li>Descrição: Crie um formulário simples com um campo de input de texto e um botão "Enviar". O botão deve estar desabilitado inicialmente. Ele só deve ser habilitado se o campo de input não estiver vazio (ou seja, se tiver pelo menos um caractere).</li>
                 <li>Conteúdo Teórico:
                     <ul>
-                        <li><strong>State</strong> em React: É um objeto JavaScript que armazena dados que são específicos de um componente e que podem mudar ao longo do tempo. Quando o state de um componente muda, o componente é re-renderizado para refletir essas mudanças na interface do usuário.</li>
-                        <li><code>useState</code>: É um Hook do React que permite adicionar state a componentes funcionais. Ele retorna um par de valores: o estado atual e uma função para atualizá-lo.</li>
+                        <li><strong>Propriedade disabled:</strong> A propriedade <code>disabled</code> em elementos de formulário (como <code>button</code>, <code>input</code>) pode ser definida como <code>true</code> ou <code>false</code> para controlar se o elemento está habilitado ou desabilitado.</li>
                     </ul>
                 </li>
             </ul>
@@ -25,26 +24,42 @@
             <pre>
 <strong>Exemplo de Código:</strong>
 <code>
-// App.js
-import React, &#123; useState &#125; from 'react';
+import React, { useState } from 'react';
 
-function Saudacao() &#123;
-  const [mensagem, setMensagem] = useState('Olá, mundo!');
+function FormularioValidado() {
+  const [texto, setTexto] = useState('');
+
+  function handleChange(e) {
+    setTexto(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('Formulário enviado!');
+  }
 
   return (
-    &lt;h1&gt;&#123;mensagem&#125;&lt;/h1&gt;
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={texto}
+        onChange={handleChange}
+        placeholder="Digite algo"
+      />
+      <button type="submit" disabled={texto.length === 0}>
+        Enviar
+      </button>
+    </form>
   );
-&#125;
-
-export default Saudacao;
+}
 </code>
 </pre>
             <br>
             <pre>
 <strong>Dica:</strong>
-Lembre-se de importar o <code>useState</code> do React!
+Use um estado para o valor do input e outro estado (ou uma variável derivada do estado do input) para controlar a propriedade <code>disabled</code> do botão.
 <strong>Sugestão de Extensão:</strong>
-Tente mudar a mensagem inicial do state e veja o que acontece.
+Adicione uma validação de que o texto digitado deve ter no mínimo 5 caracteres para habilitar o botão.
 </pre>
             <div class="centered-nav-btn">
                 <button class="nav-btn prev-btn">
@@ -61,18 +76,18 @@ Tente mudar a mensagem inicial do state e veja o que acontece.
     <div id="footer-container"></div>
     <script>
     document.querySelector('.prev-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007.html';
+      window.location.href = 'qrrjs008_ex7.html';
     });
 
     document.querySelector('.next-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007_ex2.html';
+      window.location.href = 'qrrjs008_ex9.html';
     });
 
-    fetch('qrrjs007_menu.html')
+    fetch('qrrjs008_menu.html')
       .then(res => res.text())
       .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
     </script>
-    <script src="exercise4dot.js"></script>
+    <script src="exercise5dot.js"></script>
     <script src="../../scripts/copyToClipboard.js"></script>
     <script src="cabecalho.js"></script>
     <script src="rodape.js"></script>

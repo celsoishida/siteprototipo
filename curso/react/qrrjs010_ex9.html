@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS010 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Rotas Relativas e Absolutas</h1>
+            <ul>
+                <li>Descrição: Na sua página `Dashboard.js`, modifique os `Link`s para `Profile` e `Settings` para usarem caminhos relativos. Entenda a diferença entre caminhos relativos e absolutos em rotas.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Caminhos Absolutos</strong>: Começam com `/` e referem-se à raiz do aplicativo (ex: `/dashboard/profile`).</li>
+                        <li><strong>Caminhos Relativos</strong>: Não começam com `/` e são relativos ao caminho da rota pai. São úteis para rotas aninhadas, pois o componente pai já conhece sua base.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// src/components/Dashboard.js (atualizado)
+import React from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+
+function Dashboard() {
+  const activeLinkStyle = ({ isActive }) => ({
+    fontWeight: isActive ? 'bold' : 'normal',
+    color: isActive ? 'green' : 'purple',
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Dashboard&lt;/h2&gt;
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;NavLink to="profile" style={activeLinkStyle}&gt;Perfil&lt;/NavLink&gt;&lt;/li&gt; {/* Caminho relativo */}
+          &lt;li&gt;&lt;NavLink to="settings" style={activeLinkStyle}&gt;Configurações&lt;/NavLink&gt;&lt;/li&gt; {/* Caminho relativo */}
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+      &lt;hr /&gt;
+      &lt;Outlet /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Dashboard;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+- Em rotas aninhadas, o uso de caminhos relativos é geralmente mais robusto, pois o componente pai pode ser movido sem que as rotas filhas precisem ser atualizadas.
+- Caminhos absolutos são úteis para navegação de qualquer lugar para uma rota específica.
+</pre>
+            <pre>
+<strong>Sugestão de Extensão:</strong>
+- Crie um sub-sub-componente dentro de `Profile` e tente navegar para ele usando um caminho relativo do `Profile`.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex8.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex10.html';
+    });
+
+    fetch('qrrjs010_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise7dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livro React - QRRJS007 - Exercício 1</title>
+    <title>Livro React - QRRJS008 - Exercício 2</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../google-tag.js"></script>
 </head>
@@ -11,13 +11,14 @@
     <div id="header-container"></div>
     <main>
         <section>
-            <h1>Exercício 1: Nosso Primeiro State!</h1>
+            <h1>Exercício 2: Mudando o Texto de um Parágrafo</h1>
             <ul>
-                <li>Descrição: Crie um componente funcional jsx chamado <code>Saudacao</code> que exiba a mensagem "Olá, mundo!" usando um state para armazenar essa mensagem. O objetivo é ver o state em ação de forma simples.</li>
+                <li>Descrição: Crie um componente que contenha um parágrafo com o texto inicial "Olá!". Adicione um botão que, ao ser clicado, mude o texto do parágrafo para "Texto Alterado!".</li>
                 <li>Conteúdo Teórico:
                     <ul>
-                        <li><strong>State</strong> em React: É um objeto JavaScript que armazena dados que são específicos de um componente e que podem mudar ao longo do tempo. Quando o state de um componente muda, o componente é re-renderizado para refletir essas mudanças na interface do usuário.</li>
-                        <li><code>useState</code>: É um Hook do React que permite adicionar state a componentes funcionais. Ele retorna um par de valores: o estado atual e uma função para atualizá-lo.</li>
+                        <li><strong>State Hook (useState):</strong> O <code>useState</code> é uma função especial do React (um Hook) que nos permite adicionar o "estado" a componentes de função. O estado é basicamente uma variável que o React "monitora". Quando o estado muda, o componente é renderizado novamente.</li>
+                        <li><strong>Como usar useState:</strong> Ele retorna um array com duas coisas: o valor atual do estado e uma função para atualizar esse estado. Ex: <code>const [texto, setTexto] = useState('Olá!');</code></li>
+                        <li><strong>Atualizando o Estado:</strong> Para mudar o valor do estado, você sempre usa a função de atualização que o <code>useState</code> te deu (<code>setTexto</code> no exemplo acima). Nunca modifique o estado diretamente.</li>
                     </ul>
                 </li>
             </ul>
@@ -25,26 +26,30 @@
             <pre>
 <strong>Exemplo de Código:</strong>
 <code>
-// App.js
-import React, &#123; useState &#125; from 'react';
+import React, { useState } from 'react';
 
-function Saudacao() &#123;
-  const [mensagem, setMensagem] = useState('Olá, mundo!');
+function MeuComponente() {
+  const [mensagem, setMensagem] = useState('Olá!');
+
+  function handleClick() {
+    setMensagem('Texto Alterado!');
+  }
 
   return (
-    &lt;h1&gt;&#123;mensagem&#125;&lt;/h1&gt;
+    <div>
+      <p>{mensagem}</p>
+      <button onClick={handleClick}>Mudar Texto</button>
+    </div>
   );
-&#125;
-
-export default Saudacao;
+}
 </code>
 </pre>
             <br>
             <pre>
 <strong>Dica:</strong>
-Lembre-se de importar o <code>useState</code> do React!
+Não se esqueça de importar <code>useState</code> do React!
 <strong>Sugestão de Extensão:</strong>
-Tente mudar a mensagem inicial do state e veja o que acontece.
+Adicione um segundo botão que mude o texto para uma terceira mensagem diferente.
 </pre>
             <div class="centered-nav-btn">
                 <button class="nav-btn prev-btn">
@@ -61,18 +66,18 @@ Tente mudar a mensagem inicial do state e veja o que acontece.
     <div id="footer-container"></div>
     <script>
     document.querySelector('.prev-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007.html';
+      window.location.href = 'qrrjs008_ex1.html';
     });
 
     document.querySelector('.next-btn').addEventListener('click', function() {
-      window.location.href = 'qrrjs007_ex2.html';
+      window.location.href = 'qrrjs008_ex3.html';
     });
 
-    fetch('qrrjs007_menu.html')
+    fetch('qrrjs008_menu.html')
       .then(res => res.text())
       .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
     </script>
-    <script src="exercise4dot.js"></script>
+    <script src="exercise5dot.js"></script>
     <script src="../../scripts/copyToClipboard.js"></script>
     <script src="cabecalho.js"></script>
     <script src="rodape.js"></script>

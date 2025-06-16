@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS010 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Página "Não Encontrado" (<code>404</code>)</h1>
+            <ul>
+                <li>Descrição: Crie uma rota coringa (`*`) no seu `App.js` que renderize um componente `NotFound.js` quando o usuário tentar acessar uma URL que não corresponde a nenhuma rota definida.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>Rota Coringa (`*`)</strong>: Uma rota com o <code>path="*"</code> (asterisco) atua como um "catch-all", capturando qualquer URL que não foi correspondida por nenhuma das rotas anteriores. É ideal para páginas de erro 404.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Exemplo de Código:</strong>
+<code>
+// src/components/NotFound.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function NotFound() {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;404 - Página Não Encontrada&lt;/h2&gt;
+      &lt;p&gt;Parece que você se perdeu. &lt;Link to="/"&gt;Voltar para a Home&lt;/Link&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default NotFound;
+
+// src/App.js (atualizado)
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
+import Settings from './components/Settings';
+import Products from './components/Products';
+import ProductDetail from './components/ProductDetail';
+import NotFound from './components/NotFound'; // Importe NotFound
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Meu App de Rotas&lt;/h1&gt;
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;Link to="/"&gt;Home&lt;/Link&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;Link to="/about"&gt;Sobre&lt;/Link&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;Link to="/dashboard"&gt;Dashboard&lt;/Link&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;Link to="/products"&gt;Produtos&lt;/Link&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+        &lt;Route path="/dashboard" element={&lt;Dashboard /&gt;}&gt;
+          &lt;Route path="profile" element={&lt;Profile /&gt;} /&gt;
+          &lt;Route path="settings" element={&lt;Settings /&gt;} /&gt;
+        &lt;/Route&gt;
+        &lt;Route path="/products" element={&lt;Products /&gt;} /&gt;
+        &lt;Route path="/products/:id" element={&lt;ProductDetail /&gt;} /&gt;
+        &lt;Route path="*" element={&lt;NotFound /&gt;} /&gt; {/* Rota coringa no final */}
+      &lt;/Routes&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code>
+</pre>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+- A rota coringa (`*`) deve ser sempre a última rota definida dentro de `Routes`, pois as rotas são avaliadas em ordem.
+</pre>
+            <pre>
+<strong>Sugestão de Extensão:</strong>
+- Adicione um contador regressivo na página `NotFound` que redirecione automaticamente para a página inicial após alguns segundos.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex6.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs010_ex8.html';
+    });
+
+    fetch('qrrjs010_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise7dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    document.getElementById('btn-resposta')?.addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+</body>
+</html>
