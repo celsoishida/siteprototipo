@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Atualizando Dados (UPDATE) com Parâmetros Opcionais e Nulos</h1>
+            <ul>
+                <li>Descrição: Crie uma API para atualizar parcialmente as informações de um cliente. A API deve aceitar requisições PATCH na rota <code>/clientes/:id</code> com um corpo JSON contendo <code>nome</code>, <code>email</code> e/ou <code>telefone</code>. Qualquer campo não fornecido deve ser ignorado. Se um campo for fornecido com <code>null</code>, ele deve ser atualizado para NULL no banco de dados.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Rotas PATCH: Semelhantes a PUT, mas usadas para aplicar modificações parciais a um recurso.</li>
+                        <li>Lógica de Atualização Condicional: Construir dinamicamente a consulta SQL com base nos campos presentes no <code>req.body</code> e tratar explicitamente valores <code>null</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Crie uma tabela clientes com id, nome, email, telefone (VARCHAR, NULLABLE).
+Teste enviando { "email": "novo@email.com" } e { "telefone": null } para o mesmo cliente.
+<strong>Sugestão de Extensão:</strong>
+Adicione validação para o formato de email e telefone, se aplicável.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <strong>Dica:</strong>
+                <pre>
+// Use sempre prepared statements para evitar SQL Injection.
+// Exemplo de chamada: PATCH /clientes/1
+// Corpo JSON: { "nome": "Novo Nome" }
+// Corpo JSON: { "telefone": null }
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <a href="respostas/ver.html?file=exenod3_7" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                <a href="respostas/ver.html?file=exenod3_7b" target="_blank">Avançado</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex6.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex8.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

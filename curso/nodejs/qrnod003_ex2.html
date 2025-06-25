@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 2</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2: Listando Dados (SELECT) com Parâmetros</h1>
+            <ul>
+                <li>Descrição: Modifique a API do exercício anterior para que ela possa listar um produto específico por seu id. A rota deve ser <code>/produtos/:id</code>.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Parâmetros de Rota: O Express permite capturar valores dinâmicos na URL usando <code>:</code> (dois pontos). Por exemplo, <code>/produtos/:id</code> significa que <code>:id</code> será um parâmetro.</li>
+                        <li>SQL WHERE: A cláusula WHERE é usada para filtrar registros que atendem a uma condição especificada.</li>
+                        <li>Prevenção de SQL Injection: É crucial usar prepared statements (declarações preparadas) com <code>?</code> (interrogação) para passar parâmetros para suas consultas SQL. Isso evita ataques de injeção de SQL.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Teste a rota com IDs existentes e inexistentes para ver o comportamento.
+Lembre-se de sempre validar os dados de entrada, mesmo que de forma simples.
+<strong>Sugestão de Extensão:</strong>
+Adicione uma rota <code>/produtos/categoria/:nomeCategoria</code> para buscar produtos por categoria.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <strong>Dica:</strong>
+                <pre>
+// Use sempre prepared statements para evitar SQL Injection.
+// Exemplo de chamada: GET /produtos/1
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <a href="respostas/ver.html?file=exenod3_2" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                <a href="respostas/ver.html?file=exenod3_2b" target="_blank">Avançado</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex1.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex3.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+<script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

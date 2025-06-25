@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Atualizando Dados (UPDATE)</h1>
+            <ul>
+                <li>Descrição: Crie uma API para atualizar as informações de um produto existente. A API deve aceitar requisições PUT na rota <code>/produtos/:id</code> com um corpo JSON contendo <code>nome</code> e <code>preco</code> (ambos opcionais, mas pelo menos um deve ser enviado).</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Rotas PUT: Usadas para atualizar um recurso existente completamente, ou para criar se não existir (embora para APIs RESTful, POST é mais comum para criação e PUT/PATCH para atualização).</li>
+                        <li>SQL UPDATE: A instrução SQL para modificar dados existentes em uma tabela.</li>
+                        <li>Condição WHERE em UPDATE: Crucial para garantir que você atualize apenas o registro desejado.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Teste a atualização de apenas o nome, apenas o preço, e ambos.
+Verifique o affectedRows do resultado da query para saber se algum registro foi realmente atualizado.
+<strong>Sugestão de Extensão:</strong>
+Em vez de PUT, implemente uma rota PATCH para atualização parcial, que seria mais adequada.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <strong>Dica:</strong>
+                <pre>
+// Use sempre prepared statements para evitar SQL Injection.
+// Exemplo de chamada: PUT /produtos/1
+// Corpo JSON: { "nome": "Novo Nome" }
+// Corpo JSON: { "preco": 123.45 }
+// Corpo JSON: { "nome": "Novo Nome", "preco": 123.45 }
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <a href="respostas/ver.html?file=exenod3_6" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                <a href="respostas/ver.html?file=exenod3_6b" target="_blank">Avançado</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex5.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex7.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

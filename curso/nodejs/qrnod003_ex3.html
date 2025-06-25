@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 3: Listando Dados (SELECT) com Parâmetros e Nulos</h1>
+            <ul>
+                <li>
+                    Descrição: Crie uma rota GET <code>/pedidos</code> que permita filtrar pedidos por <code>cliente_id</code> e/ou <code>status</code>. Se nenhum parâmetro for fornecido, deve listar todos os pedidos. Se um dos parâmetros for null ou não for fornecido na query string, ele deve ser ignorado na filtragem.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Query Parameters: Parâmetros de consulta são passados na URL após ? e são pares chave-valor (ex: /pedidos?cliente_id=1&status=pendente). No Express, eles são acessíveis via <code>req.query</code>.</li>
+                        <li>Construção Dinâmica de Consultas SQL: Às vezes, você precisará construir sua consulta SQL de forma dinâmica com base nos parâmetros recebidos.</li>
+                        <li>Valores Nulos (NULL) em SQL: Em bancos de dados, NULL representa a ausência de valor. Você pode verificar se um campo é NULL usando <code>IS NULL</code>.</li>
+                    </ul>
+                </li>
+
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Crie uma tabela pedidos com colunas id, cliente_id, status (ex: 'pendente', 'finalizado') e data.
+Teste as seguintes URLs: /pedidos, /pedidos?cliente_id=1, /pedidos?status=pendente, /pedidos?cliente_id=2&status=finalizado.
+<strong>Sugestão de Extensão:</strong>
+Adicione um filtro por data_inicial e data_final para buscar pedidos em um intervalo de datas.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex2.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex4.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+<script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

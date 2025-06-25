@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 9: Deletando Dados (DELETE) com Parâmetros Opcionais e Nulos</h1>
+            <ul>
+                <li>Descrição: Crie uma API para "cancelar" pedidos. A API deve aceitar requisições DELETE na rota <code>/pedidos/:id</code>. Para fins deste exercício, "cancelar" significa mudar o status do pedido para 'cancelado' e, opcionalmente, definir <code>data_cancelamento</code> para a data/hora atual.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li><strong>"Soft Delete" ou Mudança de Status:</strong> Em muitos cenários, é melhor marcar um registro como inativo ou mudar seu status em vez de excluí-lo permanentemente. Isso preserva o histórico.</li>
+                        <li>Funções SQL de Data/Hora: Usar funções como NOW() ou CURRENT_TIMESTAMP() para registrar a data e hora atuais no banco de dados.</li>
+                    </ul>
+                </li>
+
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Adicione uma coluna data_cancelamento (DATETIME, NULLABLE) à sua tabela pedidos.
+Teste a API em um pedido já cancelado para ver a mensagem de erro.
+<strong>Sugestão de Extensão:</strong>
+Permita que a API aceite um parâmetro de query opcional force_delete=true para remover o registro permanentemente.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <strong>Dica:</strong>
+                <pre>
+// Use sempre prepared statements para evitar SQL Injection.
+// Exemplo de chamada: DELETE /pedidos/1
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <a href="respostas/ver.html?file=exenod3_9" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                <a href="respostas/ver.html?file=exenod3_9b" target="_blank">Avançado</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex8.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex10.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 1: Listando Dados (SELECT)</h1>
+            <ul>
+                <li>
+                    Descrição: Crie uma API que retorne todos os registros de uma tabela chamada <strong>produtos</strong> no seu banco de dados MySQL. A API deve responder a uma requisição GET na rota <code>/produtos</code>.
+                    <button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Node.js e Express: O Express é um framework minimalista e flexível de Node.js que nos ajuda a construir servidores web e APIs de forma rápida. Ele lida com rotas, requisições e respostas.</li>
+                        <li>mysql2: Uma biblioteca para Node.js que permite a comunicação com bancos de dados MySQL. É uma alternativa moderna e eficiente ao <code>mysql</code>.</li>
+                        <li>Rotas GET: São usadas para requisitar dados de um servidor.</li>
+                        <li>SQL SELECT: A instrução SQL para recuperar dados de uma ou mais tabelas.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Comece instalando as dependências: npm init -y e depois npm install express mysql2.
+Crie uma tabela <strong>produtos</strong> no seu banco de dados com alguns dados de exemplo para testar.
+<strong>Sugestão de Extensão:</strong>
+Altere a rota para <code>/itens</code> e liste itens de uma nova tabela <strong>itens</strong>.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex2.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+<script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

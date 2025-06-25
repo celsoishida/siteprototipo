@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 4</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 4: Inserindo Dados (INSERT)</h1>
+            <ul>
+                <li>Descrição: Crie uma API para adicionar novos produtos à tabela produtos. A API deve aceitar requisições POST na rota <code>/produtos</code> com um corpo JSON contendo <code>nome</code> e <code>preco</code> do produto.<button class="copy-btn" style="margin-left:10px;" onclick="copyToClipboard(this)">Copiar</button>
+                </li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Rotas POST: Usadas para enviar dados a um servidor para criar ou atualizar um recurso.</li>
+                        <li>req.body: No Express, o corpo da requisição (geralmente JSON para APIs) é acessado através de <code>req.body</code>. Para isso funcionar, você precisará de um middleware para parsear JSON, como <code>express.json()</code>.</li>
+                        <li>SQL INSERT INTO: A instrução SQL para adicionar novas linhas a uma tabela.</li>
+                        <li>Middleware <code>express.json()</code>: É um middleware embutido no Express que analisa requisições com corpo JSON e as disponibiliza em <code>req.body</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Use uma ferramenta como Postman, Insomnia ou a extensão "REST Client" do VS Code para testar requisições POST.
+O código de status HTTP 201 Created é o ideal para uma inserção bem-sucedida.
+<strong>Sugestão de Extensão:</strong>
+Adicione validação para garantir que o preco é um número válido.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <strong>Dica:</strong>
+                <pre>
+// Use sempre prepared statements para evitar SQL Injection.
+// Exemplo de chamada: POST /produtos
+// Corpo JSON: { "nome": "Produto X", "preco": 99.99 }
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <a href="respostas/ver.html?file=exenod3_4" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                <a href="respostas/ver.html?file=exenod3_4b" target="_blank">Avançado</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex3.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex5.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

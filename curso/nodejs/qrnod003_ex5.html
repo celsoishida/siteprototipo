@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD003 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Inserindo Dados (INSERT) com Parâmetros Opcionais e Nulos</h1>
+            <ul>
+                <li>Descrição: Crie uma API para inserir novos usuários na tabela usuarios. A API deve aceitar requisições POST na rota <code>/usuarios</code> com corpo JSON contendo <code>nome</code>, <code>email</code> e <code>idade</code> (opcional). Se a idade não for fornecida, ela deve ser inserida como NULL no banco de dados.</li>
+                <li>Conceitos Teóricos:
+                    <ul>
+                        <li>Parâmetros Opcionais: Nem todos os campos de um registro são obrigatórios. Sua API deve ser flexível para lidar com a ausência de alguns dados.</li>
+                        <li>Valores Padrão e NULL: No SQL, você pode definir valores padrão para colunas, ou permitir que sejam NULL. Sua lógica de API deve refletir isso.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <pre>
+<strong>Dicas:</strong>
+Crie a tabela usuarios com colunas id, nome (VARCHAR), email (VARCHAR UNIQUE), idade (INT, NULLABLE).
+Teste enviando requests com e sem o campo idade.
+<strong>Sugestão de Extensão:</strong>
+Implemente uma validação simples de e-mail usando uma expressão regular.
+</pre>
+            <br>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <div style="margin-top: 24px; text-align: center;">
+          <button id="btn-resposta" class="btn-resposta">Dica e Resposta</button>
+          <div id="resposta-content" style="display:none;">
+            <div style="display: flex; justify-content: center; gap: 32px;">
+              <div>
+                <strong>Dica:</strong>
+                <pre>
+// Use sempre prepared statements para evitar SQL Injection.
+// Exemplo de chamada: POST /usuarios
+// Corpo JSON: { "nome": "Maria", "email": "maria@email.com" }
+// Corpo JSON com idade: { "nome": "João", "email": "joao@email.com", "idade": 25 }
+                </pre>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <a href="respostas/ver.html?file=exenod3_5" style="margin-bottom: 8px;" target="_blank">Completo</a>
+                <a href="respostas/ver.html?file=exenod3_5b" target="_blank">Avançado</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex4.html';
+    });
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrnod003_ex6.html';
+    });
+    fetch('qrnod003_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    document.getElementById('btn-resposta').addEventListener('click', function() {
+      document.getElementById('resposta-content').style.display = 'block';
+    });
+    </script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="grupo3dot.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
