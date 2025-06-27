@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL009 - CRUD - Exercício 9</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <a href="qrmysql009.html">G5 CRUD</a>
+            <h2>Exercício 9: Deletando Autores por Padrão de Nome (DELETE FROM - Exclusão Condicional por Padrão)</h2>
+            <p><strong>Descrição:</strong><br>
+            Por alguma razão, todos os autores cujo nome começa com a letra 'J' devem ser removidos da base de dados.<br>
+            Deletar todos os autores da tabela <code>autores</code> cujo nome começa com 'J'.
+            </p>
+            <p><strong>Conteúdo Teórico:</strong><br>
+            Você pode usar o operador <code>LIKE</code> na cláusula <code>WHERE</code> para procurar padrões de string. O caractere % (percentual) atua como um curinga que corresponde a zero ou mais caracteres, e _ (underscore) corresponde a um único caractere. Isso é útil para deletar registros com base em partes do texto em uma coluna.
+            </p>
+            <br />
+            <div class="centered-nav-btn">
+                <a href="qrmysql009_ex8.html" class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </a>
+                <a href="qrmysql009_ex10.html" class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </a>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="grupo5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    fetch('qrmysql009_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+</body>
+</html>

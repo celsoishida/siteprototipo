@@ -42,3 +42,20 @@ FROM Movimentacao
 WHERE municipio = 410690
     AND cbo2002ocupacao = 211220
     AND saldomovimentacao > 0;
+
+
+SELECT AVG(salario) AS media_salarial_programadores
+FROM MovCuritiba
+WHERE cbo2002ocupacao in (317105, 317110, 317120);
+
+SELECT COUNT(*) AS total_admissoes
+FROM Movimentacao
+WHERE saldomovimentacao = 1;
+
+
+SELECT sexo,
+       COUNT(*) AS qtde,
+       AVG(salario) AS media_salario,
+       max(salario) AS máximo
+FROM Movimentacao
+GROUP BY sexo;

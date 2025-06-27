@@ -23,16 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Map filenames to their corresponding dot IDs
       const exerciseMap = {
-        'qrsql001_ex1.html': 'dot-ex1',
-        'qrsql001_ex2.html': 'dot-ex2',
-        'qrsql001_ex3.html': 'dot-ex3',
-        'qrsql001_ex4.html': 'dot-ex4',
-        'qrsql001_ex5.html': 'dot-ex5',
-        'qrsql001_ex6.html': 'dot-ex6',
-        'qrsql001_ex7.html': 'dot-ex7',
-        'qrsql001_ex8.html': 'dot-ex8',
-        'qrsql001_ex9.html': 'dot-ex9',
-        'qrsql001_ex10.html': 'dot-ex10'
+        'qrsql006_ex1.html': 'dot-ex1',
+        'qrsql006_ex2.html': 'dot-ex2',
+        'qrsql006_ex3.html': 'dot-ex3',
+        'qrsql006_ex4.html': 'dot-ex4',
+        'qrsql006_ex5.html': 'dot-ex5',
+        'qrsql006_ex6.html': 'dot-ex6',
+        'qrsql006_ex7.html': 'dot-ex7',
+        'qrsql006_ex8.html': 'dot-ex8',
+        'qrsql006_ex9.html': 'dot-ex9',
+        'qrsql006_ex10.html': 'dot-ex10'
       };
 
       const dotId = exerciseMap[file];

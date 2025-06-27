@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL008 - SUBQUERY - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <a href="qrmysql008.html">G4 Subquery</a>
+            <h2>Exercício 3: Autores com Múltiplos Livros</h2>
+            <p><strong>Descrição</strong>: Mostre o nome de todos os autores que têm mais de um livro registrado na tabela livros.</p>
+            <p><strong>Conteúdo Teórico</strong>:<br>
+            Para resolver isso, você precisará de uma subconsulta que agrupe os livros por autor_id e conte quantos livros cada autor tem (<code>COUNT()</code>). Depois, use a cláusula <code>HAVING</code> para filtrar os autores com mais de um livro. A consulta externa então usará o resultado da subconsulta para encontrar os nomes dos autores.
+            </p>
+            <br />
+            <div class="centered-nav-btn">
+                <a href="qrmysql008_ex2.html" class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </a>
+                <a href="qrmysql008_ex4.html" class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </a>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="grupo4dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL009 - CRUD - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <a href="qrmysql009.html">G5 CRUD</a>
+            <h2>Exercício 3: Inserindo um Autor com Data de Nascimento Nula (INSERT INTO - Com Valores Nulos Explícitos)</h2>
+            <p><strong>Descrição:</strong><br>
+            Existe um autor famoso, 'Desconhecido', cuja data de nascimento é incerta, mas sabemos que sua nacionalidade é 'Espanhola'.<br>
+            Nome: 'Autor Desconhecido'<br>
+            Nacionalidade: 'Espanhola'<br>
+            Data de Nascimento: NULL
+            </p>
+            <p><strong>Conteúdo Teórico:</strong><br>
+            Em bancos de dados, <code>NULL</code> significa a ausência de valor ou um valor desconhecido. Você pode inserir explicitamente <code>NULL</code> em uma coluna, desde que a coluna não tenha a restrição NOT NULL. A coluna <code>data_nascimento</code> na tabela <code>autores</code> permite valores NULL.
+            </p>
+            <br />
+            <div class="centered-nav-btn">
+                <a href="qrmysql009_ex2.html" class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </a>
+                <a href="qrmysql009_ex4.html" class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </a>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="grupo5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    fetch('qrmysql009_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+</body>
+</html>

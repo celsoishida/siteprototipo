@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL006 - JOIN</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+    <h1>G2 - JOIN</h1>
+<p>Olá! Vamos praticar comandos JOIN em MySQL. Tente resolver os exercícios abaixo utilizando as tabelas <b>Autores</b> e <b>Livros</b>.</p>
+
+<pre><code>
+CREATE TABLE Autores (
+    id INT PRIMARY KEY,
+    nome VARCHAR(100),
+    nacionalidade VARCHAR(50),
+    data_nascimento DATE,
+    data_falecimento DATE
+);
+
+CREATE TABLE Livros (
+    id INT PRIMARY KEY,
+    titulo VARCHAR(200),
+    ano_publicacao INT,
+    autor_id INT,
+    FOREIGN KEY (autor_id) REFERENCES Autores(id)
+);
+</code></pre>
+
+<p>Você pode baixar o <a href="tabelascurso.sql">script de criação das tabelas e registros</a>.</p>
+    <ul>
+        <li><a href="qrmysql006_ex1.html">Exercício 1: Encontrando autores com seus livros (INNER JOIN)</a></li>
+        <li><a href="qrmysql006_ex2.html">Exercício 2: Livros com ano de publicação e nome do autor</a></li>
+        <li><a href="qrmysql006_ex3.html">Exercício 3: Autores sem livros (LEFT JOIN)</a></li>
+        <li><a href="qrmysql006_ex4.html">Exercício 4: Livros sem autores (simulando erro de integridade)</a></li>
+        <li><a href="qrmysql006_ex5.html">Exercício 5: Autores e total de livros publicados</a></li>
+        <li><a href="qrmysql006_ex6.html">Exercício 6: Autores com mais de 1 livro (JOIN + HAVING)</a></li>
+        <li><a href="qrmysql006_ex7.html">Exercício 7: RIGHT JOIN reverso</a></li>
+        <li><a href="qrmysql006_ex8.html">Exercício 8: Autores de nacionalidade e seus livros</a></li>
+        <li><a href="qrmysql006_ex9.html">Exercício 9: Livros publicados antes de 1900 e seus autores</a></li>
+        <li><a href="qrmysql006_ex10.html">Exercício 10: Autores vivos (sem data de falecimento) e seus livros</a></li>
+    </ul>
+
+    <br /><br />
+    <style>
+        @media (max-width: 600px) {
+            .images ai {
+                flex-wrap: wrap;
+            }
+        }
+        @media (min-width: 601px) {
+            .images ai {
+                flex-wrap: nowrap;
+            }
+            .images img {
+                height: 200px;
+            }
+        }
+    </style>
+    <p>Obs: Após o término dos exercícios, volte para a leitura do livro</p>
+    <br />
+    <p style="font-size: 0.8em">QR code número 6 do livro <a href="livromysql.html">MySQL</a>.</p>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL009 - CRUD - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <a href="qrmysql009.html">G5 CRUD</a>
+            <h2>Exercício 6: Atualizando Título e ISBN de um Livro (UPDATE - Modificando Múltiplas Colunas)</h2>
+            <p><strong>Descrição:</strong><br>
+            O livro 'Dom Casmurro' teve seu título e ISBN atualizados devido a uma nova edição.<br>
+            Atualize o título de 'Dom Casmurro' para 'Dom Casmurro - Edição Revisada'.<br>
+            Atualize o isbn do mesmo livro para '9788500000000'.
+            </p>
+            <p><strong>Conteúdo Teórico:</strong><br>
+            Você pode atualizar várias colunas em uma única instrução <code>UPDATE</code> separando cada par coluna = valor com uma vírgula na cláusula <code>SET</code>. Isso permite que você faça múltiplas modificações em um ou mais registros de forma eficiente.<br>
+            <strong>SQL</strong><br>
+            <code>UPDATE nome_da_tabela<br>
+            SET coluna1 = novo_valor1, coluna2 = novo_valor2<br>
+            WHERE alguma_condicao;</code>
+            </p>
+            <br />
+            <div class="centered-nav-btn">
+                <a href="qrmysql009_ex5.html" class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </a>
+                <a href="qrmysql009_ex7.html" class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </a>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="grupo5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    fetch('qrmysql009_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+</body>
+</html>

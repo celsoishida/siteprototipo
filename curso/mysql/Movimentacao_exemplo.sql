@@ -1,25 +1,28 @@
 -- Informações e dicionário de dados para a tabela Movimentacao (Novo CAGED)
 --
 -- graudeinstrucao:
--- 1 = Analfabeto
--- 2 = Fundamental incompleto
--- 3 = Fundamental completo
--- 4 = Médio incompleto
--- 5 = Médio em andamento
--- 6 = Médio completo
--- 7 = Superior incompleto
--- 8 = Superior completo
--- 9 = Especialização
--- 10 = Mestrado
--- 11 = Doutorado
---
--- tipomovimentacao:
+/*
+1	Analfabeto
+2	Até 5ª Incompleto
+3	5ª Completo Fundamental
+4	6ª a 9ª Fundamental
+5	Fundamental Completo
+6	Médio Incompleto
+7	Médio Completo
+8	Superior Incompleto
+9	Superior Completo
+10	Mestrado
+11	Doutorado
+80	Pós-Graduação completa
+99	Não Identificado
+*/
+-- saldomovimentacao:
 -- 1 = Admissão
--- 2 = Desligamento
+-- -1 = Desligamento
 --
 -- sexo:
 -- 1 = Masculino
--- 2 = Feminino
+-- 3 = Feminino
 --
 -- Exemplos de códigos CBO para programador: 317105, 317110, 317120
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL009 - CRUD - Exercício 4</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <a href="qrmysql009.html">G5 CRUD</a>
+            <h2>Exercício 4: Inserindo Múltiplos Clientes (INSERT INTO - Múltiplos Registros)</h2>
+            <p><strong>Descrição:</strong><br>
+            Adicione dois novos clientes à tabela <code>Cliente</code> em uma única instrução.<br>
+            Cliente 1: Nome: 'Paula Fernandes', Email: 'paula.fernandes@email.com'<br>
+            Cliente 2: Nome: 'Ricardo Costa', Email: 'ricardo.costa@email.com'
+            </p>
+            <p><strong>Conteúdo Teórico:</strong><br>
+            O MySQL permite inserir várias linhas em uma única instrução <code>INSERT INTO</code>. Isso é feito fornecendo múltiplos conjuntos de valores, separados por vírgulas, após a cláusula <code>VALUES</code>. É uma forma eficiente de adicionar muitos registros de uma vez.<br>
+            <strong>SQL</strong><br>
+            <code>INSERT INTO nome_da_tabela (coluna1, coluna2)<br>
+            VALUES<br>
+                (valor1a, valor2a),<br>
+                (valor1b, valor2b),<br>
+                (valor1c, valor2c);</code>
+            </p>
+            <br />
+            <div class="centered-nav-btn">
+                <a href="qrmysql009_ex3.html" class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </a>
+                <a href="qrmysql009_ex5.html" class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </a>
+            </div>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="grupo5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    fetch('qrmysql009_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+</body>
+</html>

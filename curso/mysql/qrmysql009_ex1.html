@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro MySQL - QRMYSQL009 - CRUD - Exercício 1</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <a href="qrmysql009.html">G5 CRUD</a>
+            <h2>Exercício 1: Inserindo um Novo Autor (INSERT INTO - Registro Simples)</h2>
+            <p><strong>Descrição:</strong><br>
+            Insira um novo autor na tabela <code>autores</code> com as seguintes informações:<br>
+            Nome: 'Clarisse Falcão'<br>
+            Nacionalidade: 'Brasileira'<br>
+            Data de Nascimento: '1989-07-02'
+            </p>
+            <p><strong>Conteúdo Teórico:</strong><br>
+            A instrução <code>INSERT INTO</code> é usada para adicionar novas linhas (registros) a uma tabela. A forma mais simples de uso exige que você especifique os nomes das colunas e os valores correspondentes que serão inseridos. Se você fornecer valores para todas as colunas da tabela na ordem correta, pode omitir a lista de colunas.<br>
+            <strong>SQL</strong><br>
+            <code>INSERT INTO nome_da_tabela (coluna1, coluna2, ...)<br>
+            VALUES (valor1, valor2, ...);</code><br>
+            Ou, se for inserir em todas as colunas e na ordem correta:<br>
+            <code>INSERT INTO nome_da_tabela<br>
+            VALUES (valor1, valor2, ...);</code>
+            </p>
+            <br />
+            <div class="centered-nav-btn">
+                <a href="qrmysql009.html" class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </a>
+                <a href="qrmysql009_ex2.html" class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </a>
+            </div>
+            <br />
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="grupo5dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+    <script>
+    fetch('qrmysql009_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+</body>
+</html>
