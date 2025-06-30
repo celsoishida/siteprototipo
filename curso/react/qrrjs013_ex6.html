@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS013 - Exercício 6</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 6: Consumindo uma API com Parâmetros Dinâmicos</h1>
+            <ul>
+                <li>Descrição: Crie um componente que exiba um dropdown (select) com opções de IDs de usuários (por exemplo, 1, 2, 3, 4, 5). Quando o usuário selecionar um ID, o componente deve buscar os "albums" desse usuário específico na API JSONPlaceholder e listá-los.<br>
+                <strong>Endpoint:</strong> <a href="https://jsonplaceholder.typicode.com/users/[ID_DO_USUARIO]/albums" target="_blank">https://jsonplaceholder.typicode.com/users/[ID_DO_USUARIO]/albums</a>
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>O Hook <code>useState</code> pode ser usado para armazenar o valor selecionado de um <code>select</code>.</li>
+                        <li>O <code>useEffect</code> pode ser usado para disparar a requisição sempre que o ID do usuário selecionado mudar. Adicione o estado do ID do usuário como dependência no array de dependências do <code>useEffect</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Você pode usar o <code>event.target.value</code> no <code>onChange</code> do <code>select</code> para obter o valor selecionado.
+<strong>Sugestão de Extensão:</strong>
+Além do nome do álbum, exiba também o número de fotos em cada álbum (se houver essa informação disponível na API, caso contrário, invente um número aleatório).
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex5.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex7.html';
+    });
+
+    fetch('qrrjs013_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise10dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

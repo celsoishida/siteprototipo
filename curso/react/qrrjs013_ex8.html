@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS013 - Exercício 8</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 8: Manipulação de Dados da Resposta: Filtragem</h1>
+            <ul>
+                <li>Descrição: Busque uma lista de "todos" da API JSONPlaceholder (todos os todos). Exiba apenas os "todos" que estão <code>completed: true</code>.<br>
+                <strong>Endpoint:</strong> <a href="https://jsonplaceholder.typicode.com/todos" target="_blank">https://jsonplaceholder.typicode.com/todos</a>
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Após receber os dados da API, você pode usar métodos JavaScript como <code>filter()</code> para manipular e exibir apenas os dados relevantes.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Use <code>todo.completed === true</code> ou simplesmente <code>todo.completed</code> para verificar se a propriedade é verdadeira.
+<strong>Sugestão de Extensão:</strong>
+Adicione um botão para alternar entre "Todos Completos" e "Todos Pendentes".
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex7.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex9.html';
+    });
+
+    fetch('qrrjs013_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise10dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

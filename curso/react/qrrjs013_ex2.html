@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS013 - Exercício 2</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 2: Exibindo uma Lista de Recursos</h1>
+            <ul>
+                <li>Descrição: Crie um componente que busque uma lista de "posts" da API JSONPlaceholder e os exiba como uma lista não ordenada (<code>&lt;ul&gt;</code>), onde cada item (<code>&lt;li&gt;</code>) mostra o título de um post.<br>
+                <strong>Endpoint:</strong> <a href="https://jsonplaceholder.typicode.com/posts?_limit=5" target="_blank">https://jsonplaceholder.typicode.com/posts?_limit=5</a>
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Ao buscar uma coleção de dados, você geralmente os armazena em um estado como um array.</li>
+                        <li>Para renderizar uma lista de elementos em React, você pode usar o método <code>map()</code> em um array de dados, retornando um elemento JSX para cada item.</li>
+                        <li>É crucial fornecer uma <strong>key</strong> única para cada item renderizado em uma lista. A key ajuda o React a identificar quais itens foram alterados, adicionados ou removidos.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Use o <code>id</code> de cada post como <code>key</code>.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex1.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex3.html';
+    });
+
+    fetch('qrrjs013_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise10dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

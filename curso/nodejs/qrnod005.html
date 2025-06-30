@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro Node.js - QRNOD05 - Desafio</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+    <style>
+        @media (max-width: 600px) {
+            .images {
+                flex-wrap: wrap;
+            }
+        }
+        @media (min-width: 601px) {
+            .images {
+                flex-wrap: nowrap;
+            }
+            .images img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>G10 - Exercício final</h1>
+            <p>Baseado na tabela de Curso faça:</p>
+            <ul>
+                <li>
+                    Criar APIs para listar, inserir, atualizar e deletar cursos.
+                </li>
+                <li>
+                    Criar testes para as APIs criadas.
+                </li>
+            </ul>
+<pre>
+CREATE TABLE Curso (
+    ID int NOT NULL AUTO_INCREMENT,
+    Nome varchar(255) DEFAULT NULL,
+    Link varchar(255) DEFAULT NULL,
+    Campus varchar(255) DEFAULT NULL,
+    PRIMARY KEY (ID)
+);
+CREATE TABLE Usuario (
+        Id INT AUTO_INCREMENT PRIMARY KEY,
+        Nome VARCHAR(200) NOT NULL,
+        Email VARCHAR(250) UNIQUE NOT NULL,
+        CPF CHAR(11) NULL,
+        DDD SMALLINT NULL,
+        Telefone NUMERIC(9) NULL,
+        DataNiver DATE NULL,
+        Obs TEXT null
+);
+CREATE TABLE IF NOT EXISTS Produtos (
+        id INT AUTO_INCREMENT PRIMARY KEY, -- ID único para cada produto, auto-incrementa a cada novo registro
+        nome VARCHAR(255) NOT NULL,        -- Nome do produto, não pode ser nulo
+        preco DECIMAL(10, 2) NOT NULL,     -- Preço do produto, com 2 casas decimais e não pode ser nulo
+        estoque INT DEFAULT 0,             -- Quantidade em estoque (opcional, com valor padrão 0)
+        data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Data e hora de criação, preenchida automaticamente
+);
+</pre>
+            <br /><br />
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
+</html>

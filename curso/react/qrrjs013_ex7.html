@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS013 - Exercício 7</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 7: Requisições POST para Criar Recursos</h1>
+            <ul>
+                <li>Descrição: Crie um formulário com campos para "Título" e "Corpo" de um novo post. Ao enviar o formulário, o componente deve fazer uma requisição POST para a API JSONPlaceholder para criar um novo post e exibir a resposta (o post recém-criado) na tela.<br>
+                <strong>Endpoint:</strong> <a href="https://jsonplaceholder.typicode.com/posts" target="_blank">https://jsonplaceholder.typicode.com/posts</a>
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Requisições <strong>POST</strong> são usadas para enviar dados ao servidor e criar novos recursos.</li>
+                        <li>No <code>fetch</code>, você precisa especificar o método 'POST', adicionar headers como <code>'Content-Type': 'application/json'</code>, e enviar os dados no <code>body</code> da requisição como uma string JSON (<code>JSON.stringify(data)</code>).</li>
+                        <li>Com <code>axios</code>, o método <code>axios.post()</code> simplifica isso, você passa o URL e o objeto de dados diretamente.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Lembre-se de prevenir o comportamento padrão de recarregamento do formulário com <code>event.preventDefault()</code>.
+<strong>Sugestão de Extensão:</strong>
+Adicione feedback visual para o usuário, como uma mensagem de sucesso ou erro após a tentativa de criação do post.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex6.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex8.html';
+    });
+
+    fetch('qrrjs013_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise10dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

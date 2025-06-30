@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS013 - Exercício 3</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 3: Lidando com Estados de Carregamento</h1>
+            <ul>
+                <li>Descrição: Modifique o componente do Exercício 2 para exibir uma mensagem de "Carregando..." enquanto os posts estão sendo buscados e uma mensagem de erro caso a requisição falhe.<br>
+                <strong>Endpoint:</strong> <a href="https://jsonplaceholder.typicode.com/posts?_limit=5" target="_blank">https://jsonplaceholder.typicode.com/posts?_limit=5</a>
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>É comum usar variáveis de estado para gerenciar o ciclo de vida de uma requisição:
+                            <ul>
+                                <li><code>isLoading</code> (booleano): Indica se a requisição está em andamento.</li>
+                                <li><code>isError</code> (booleano) ou <code>error</code> (objeto): Indica se houve um erro na requisição e armazena os detalhes do erro.</li>
+                            </ul>
+                        </li>
+                        <li>Você pode usar renderização condicional para mostrar diferentes partes da UI com base nesses estados.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+Inicialize <code>isLoading</code> como <code>true</code> e defina-o como <code>false</code> após o sucesso ou falha da requisição.
+<strong>Sugestão de Extensão:</strong>
+Exiba uma mensagem de erro mais detalhada, por exemplo, o <code>message</code> do objeto <code>error</code>.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex2.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex4.html';
+    });
+
+    fetch('qrrjs013_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise10dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>

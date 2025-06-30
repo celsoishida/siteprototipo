@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro React - QRRJS013 - Exercício 5</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../google-tag.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h1>Exercício 5: Buscando Dados com Base em Interação do Usuário</h1>
+            <ul>
+                <li>Descrição: Crie um componente que exiba um input de texto e um botão. Quando o usuário digitar um número (ID do usuário) no input e clicar no botão, o componente deve buscar os "posts" desse usuário específico na API JSONPlaceholder e exibi-los.<br>
+                <strong>Endpoint:</strong> <a href="https://jsonplaceholder.typicode.com/posts?userId=[ID_DO_USUARIO]" target="_blank">https://jsonplaceholder.typicode.com/posts?userId=[ID_DO_USUARIO]</a>
+                </li>
+                <li>Conteúdo Teórico:
+                    <ul>
+                        <li>Para capturar o valor de um input, use o atributo <code>value</code> e o evento <code>onChange</code> junto com o <code>useState</code>.</li>
+                        <li>Para disparar uma requisição em resposta a um evento (como um clique de botão), você pode criar uma função assíncrona e chamá-la no manipulador de eventos.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <pre>
+<strong>Dica:</strong>
+A requisição deve ser feita dentro de uma função disparada pelo botão, não no <code>useEffect</code> com array de dependências vazio, pois ela depende da ação do usuário.
+<strong>Sugestão de Extensão:</strong>
+Adicione validação para garantir que o input seja um número válido antes de fazer a requisição.
+</pre>
+            <div class="centered-nav-btn">
+                <button class="nav-btn prev-btn">
+                  <img src="../../images/prev.png" title="Exercício Anterior" class="nav-img">
+                </button>
+                <button class="nav-btn next-btn">
+                  <img src="../../images/next.png" title="Próximo Exercício" class="nav-img">
+                </button>
+            </div>
+        </section>
+        <br />
+        <div id="exercise-menu"></div>
+    </main>
+    <div id="footer-container"></div>
+    <script>
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex4.html';
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+      window.location.href = 'qrrjs013_ex6.html';
+    });
+
+    fetch('qrrjs013_menu.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('exercise-menu').innerHTML = html; });
+    </script>
+    <script src="exercise10dot.js"></script>
+    <script src="../../scripts/copyToClipboard.js"></script>
+    <script src="cabecalho.js"></script>
+    <script src="rodape.js"></script>
+</body>
+</html>
