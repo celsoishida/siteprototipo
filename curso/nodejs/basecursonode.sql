@@ -53,3 +53,4 @@ CREATE TABLE Usuario (
     DataNiver DATE NULL,
     Obs TEXT null
 );
+
